@@ -3,7 +3,11 @@ defmodule Happ.Crawler.Result do
   Crawling result.
   """
 
-  defstruct [:next, :data]
+  defstruct [
+    url: nil,
+    next: [],
+    data: []
+  ]
 end
 
 defmodule Happ.Crawler.HackerNews do
@@ -13,8 +17,8 @@ defmodule Happ.Crawler.HackerNews do
 
   @base_url "https://news.ycombinator.com/"
 
-  def crawl do
-    {:ok, resp} = HTTPoison.get(@base_url)
+  def crawl(url \\ @base_url) do
+    {:ok, resp} = HTTPoison.get(url)
     {:ok, document} = Floki.parse_document(resp.body)
 
     match_titles = Floki.find(document, "a.storylink")
@@ -29,7 +33,8 @@ defmodule Happ.Crawler.HackerNews do
     more_link_url = "#{@base_url}#{more_link_href}"
 
     %Happ.Crawler.Result{
-      next: more_link_url,
+      url: [url],
+      next: [more_link_url],
       data: titles
     }
   end

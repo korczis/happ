@@ -9,12 +9,19 @@ defmodule Happ.Application do
     children = [
       # Start the Ecto repository
       Happ.Repo,
+
       # Start the Telemetry supervisor
       HappWeb.Telemetry,
+
       # Start the PubSub system
       {Phoenix.PubSub, name: Happ.PubSub},
+
       # Start the Endpoint (http/https)
-      HappWeb.Endpoint
+      HappWeb.Endpoint,
+
+      # Start Elasticsearch
+      Happ.Elasticsearch.Cluster,
+
       # Start a worker by calling: Happ.Worker.start_link(arg)
       # {Happ.Worker, arg}
     ]

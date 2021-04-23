@@ -26,6 +26,7 @@ defmodule Happ.MixProject do
     [
       mod: {Happ.Application, []},
       extra_applications: [
+        :hackney,
         :httpoison,
         :logger,
         :runtime_tools
@@ -47,7 +48,9 @@ defmodule Happ.MixProject do
       {:phoenix, "~> 1.5.8"},
       {:phoenix_ecto, "~> 4.1"},
       {:ecto_sql, "~> 3.4"},
+      {:elasticsearch, "~> 1.0.0"},
       {:floki, "~> 0.30.0"},
+      {:hackney, "~> 1.17"},
       {:httpoison, "~> 1.8"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11"},
