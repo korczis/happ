@@ -1,5 +1,5 @@
 defmodule Happ.Crawler.HackerNews do
-  @derive [Happ.Crawler.Crawler]
+  @derive [Happ.Crawler.CrawlerProtocol]
 
   @moduledoc """
   Crawler for https://news.ycombinator.com/.
@@ -7,32 +7,31 @@ defmodule Happ.Crawler.HackerNews do
 
   @base_url "https://news.ycombinator.com/"
 
-  #  @spec crawl(binary() | Happ.Crawler.Result | [Happ.Crawler.Result]) :: [Happ.Crawler.Result]
-  #  def crawl(arg \\ @base_url) do
-  #    case arg do
-  #      nil -> []
-  #      args = [%Happ.Crawler.Result{}] -> Enum.flat_map(args, fn item -> crawl(item) end)
-  #      %{next: next_urls} ->
-  #        Enum.flat_map(next_urls, fn url -> crawl(url) end)
-  #      url -> crawl_impl(url)
-  #    end
-  #  end
+  @spec crawl(String.t()) :: Happ.Crawler.Result
+  def crawl(url \\ @base_url) do
+    IO.puts("Crawling URL #{url}")
 
-  @spec process(String.t()) :: Happ.Crawler.Result
-  def process(url \\ @base_url) do
     {:ok, resp} = HTTPoison.get(url)
     {:ok, document} = Floki.parse_document(resp.body)
 
     uri = URI.parse(url)
 
+    request = %Happ.Crawler.Request{
+      crawler: __MODULE__,
+      url: url
+    }
+
     extract_data = fn match ->
       href = URI.parse(List.first(Floki.attribute(match, "href")))
       next_url = URI.merge(uri, href)
 
-      %{
-        title: Floki.text(match),
-        url: URI.to_string(next_url)
-      }
+      Happ.Crawler.Helper.construct_result(
+        request,
+        %{
+          title: Floki.text(match),
+          url: URI.to_string(next_url)
+        }
+      )
     end
 
     match_titles = Floki.find(document, "a.storylink")
@@ -47,14 +46,33 @@ defmodule Happ.Crawler.HackerNews do
 
     more_link_url = "#{@base_url}#{more_link_href}"
 
-    %Happ.Crawler.Result{
-      crawler: __MODULE__,
-      url: url,
-      next: [%{
-        url: more_link_url,
-        crawler: __MODULE__
-      }],
-      data: data
-    }
+    next = [%Happ.Crawler.Request{
+      url: more_link_url,
+      crawler: __MODULE__
+    }]
+
+    Happ.Crawler.Helper.construct_response(request, next, data)
   end
 end
+
+## Response
+#%{
+#  request: %Happ.Crawler.Request,
+#  next: [],
+#  results: []
+#}
+#
+### Result
+#%{
+#  meta: %{
+#    id: nil,
+#    created_at: nil,
+#    updated_at: nil,
+#    version: nil,
+#  },
+#
+#  data: %{
+#
+#  }
+#}
+

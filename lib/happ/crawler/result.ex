@@ -4,9 +4,8 @@ defmodule Happ.Crawler.Result do
   """
 
   defstruct [
-    url: nil,
-    crawler: nil,
-    next: [],
-    data: []
+    meta: nil,
+    data: nil,
+    request: nil
   ]
 end

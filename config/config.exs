@@ -7,14 +7,19 @@
 # General application configuration
 use Mix.Config
 
+#config :elastix,
+#       shield: true,
+#       username: "username",
+#       password: "password"
+
 config :happ, Happ.Elasticsearch.Cluster      ,
        # The URL where Elasticsearch is hosted on your system
-       url: "http://localhost:9200",
+       url: System.get_env("ELASTICSEARCH_URL", "http://localhost:9200"),
 
          # If your Elasticsearch cluster uses HTTP basic authentication,
          # specify the username and password here:
-       username: "username",
-       password: "password",
+       username: System.get_env("ELASTICSEARCH_USERNAME", "username"),
+       password: System.get_env("ELASTICSEARCH_PASSWORD", "password"),
 
          # If you want to mock the responses of the Elasticsearch JSON API
          # for testing or other purposes, you can inject a different module
@@ -68,6 +73,9 @@ config :happ, Happ.Elasticsearch.Cluster      ,
 
 config :happ,
        ecto_repos: [Happ.Repo]
+
+config :happ, :elasticsearch,
+       url: System.get_env("ELASTICSEARCH_URL", "http://localhost:9200")
 
 # Configures the endpoint
 config :happ, HappWeb.Endpoint,

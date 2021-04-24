@@ -15,6 +15,16 @@ defmodule Happ.MixProject do
       dialyzer: [
         plt_file: {:no_warn, "priv/plts/dialyzer.plt"},
         # plt_ignore_apps: [:mnesia]
+      ],
+
+      # Docs
+      name: "Happ",
+      source_url: "https://github.com/korczis/happ",
+      homepage_url: "https://github.com/korczis/happ",
+      docs: [
+        main: "Happ", # The main page in the docs
+        logo: "logo.png",
+        extras: ["README.md"]
       ]
     ]
   end
@@ -49,6 +59,8 @@ defmodule Happ.MixProject do
       {:phoenix_ecto, "~> 4.1"},
       {:ecto_sql, "~> 3.4"},
       {:elasticsearch, "~> 1.0.0"},
+      {:elastix, "~> 0.9.0"},
+      {:ex_doc, "~> 0.24.2"},
       {:floki, "~> 0.30.0"},
       {:hackney, "~> 1.17"},
       {:httpoison, "~> 1.8"},
@@ -61,7 +73,8 @@ defmodule Happ.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+      {:uuid, "~> 1.1"}
     ]
   end
 

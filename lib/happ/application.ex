@@ -24,6 +24,8 @@ defmodule Happ.Application do
 
       # Start a worker by calling: Happ.Worker.start_link(arg)
       # {Happ.Worker, arg}
+
+      {DynamicSupervisor, strategy: :one_for_one, name: Happ.DynamicSupervisor}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
