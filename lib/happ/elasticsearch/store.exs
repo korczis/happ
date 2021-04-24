@@ -1,4 +1,8 @@
 defmodule Happ.Elasticsearch.Store do
+  @moduledoc """
+  Customized implementation Elasticsearch.Store behaviour.
+  """
+
   @behaviour Elasticsearch.Store
 
   import Ecto.Query
