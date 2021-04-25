@@ -12,7 +12,8 @@ variables:
 
 before_script:
   - apt-get update && apt-get -y install postgresql-client
-  - whoami
+  - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+  - export PATH=/root/.cargo/bin:${PATH}
   - mix deps.get
   - mix ecto.create
   - mix ecto.migrate
