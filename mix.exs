@@ -39,7 +39,8 @@ defmodule Happ.MixProject do
         :hackney,
         :httpoison,
         :logger,
-        :runtime_tools
+        :runtime_tools,
+        :os_mon
       ]
     ]
   end
@@ -58,8 +59,8 @@ defmodule Happ.MixProject do
       {:phoenix, "~> 1.5.8"},
       {:phoenix_ecto, "~> 4.1"},
       {:ecto_sql, "~> 3.4"},
+      {:ecto_psql_extras, "~> 0.2"},
       {:elasticsearch, "~> 1.0.0"},
-      {:elastix, "~> 0.9.0"},
       {:ex_doc, "~> 0.24.2"},
       {:floki, "~> 0.30.0"},
       {:hackney, "~> 1.17"},

@@ -36,7 +36,7 @@ defmodule HappWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: HappWeb.Telemetry
+      live_dashboard "/dashboard", metrics: HappWeb.Telemetry, ecto_repos: [Happ.Repo]
     end
   end
 end

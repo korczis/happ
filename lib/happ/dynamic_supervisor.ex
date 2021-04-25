@@ -1,4 +1,4 @@
-defmodule Haap.DynamicSupervisor do
+defmodule Happ.DynamicSupervisor do
   # Automatically defines child_spec/1
   use DynamicSupervisor
 

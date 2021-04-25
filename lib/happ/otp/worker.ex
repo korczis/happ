@@ -1,4 +1,4 @@
-defmodule Haap.Otp.Worker do
+defmodule Happ.Otp.Worker do
   use GenServer
 
   # Callbacks
