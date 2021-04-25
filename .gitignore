@@ -42,3 +42,4 @@ npm-debug.log
 # Dialyzer
 /priv/plts
 /priv/native/
+/native/happ_native/target/
