@@ -1,5 +1,5 @@
 defprotocol Happ.Crawler.CrawlerProtocol do
   @doc "Crawls specific URL"
-  @spec process(String.t()) :: Happ.Crawler.Response
-  def process(arg)
+  @spec crawl(binary()) :: Happ.Crawler.Response.t()
+  def crawl(arg)
 end

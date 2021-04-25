@@ -11,6 +11,7 @@ defmodule Happ.Crawler.Helper do
     apply(crawler, :crawl, [url])
   end
 
+  @spec construct_response(Happ.Crawler.Request.t(), [Happ.Crawler.Request.t()],  [Happ.Crawler.Result.t()]) :: Happ.Crawler.Response.t()
   def construct_response(request, next, results) do
     %Happ.Crawler.Response{
       request: request,
@@ -19,7 +20,8 @@ defmodule Happ.Crawler.Helper do
     }
   end
 
-  def construct_result(request, data, meta \\ %{}) do
+  @spec construct_result(any(), any(), %Happ.Crawler.ResultMeta{}) :: Happ.Crawler.Result.t()
+  def construct_result(request, data, meta \\ %Happ.Crawler.ResultMeta{}) do
     now =  DateTime.utc_now |> DateTime.to_unix
 
     %Happ.Crawler.Result{

@@ -1,5 +1,5 @@
 defmodule Happ.Crawler.HackerNews do
-  @derive [Happ.Crawler.CrawlerProtocol]
+  @derive Happ.Crawler.CrawlerProtocol
 
   @moduledoc """
   Crawler for https://news.ycombinator.com/.
@@ -7,7 +7,7 @@ defmodule Happ.Crawler.HackerNews do
 
   @base_url "https://news.ycombinator.com/"
 
-  @spec crawl(String.t()) :: Happ.Crawler.Result
+  @spec crawl(binary()) :: Happ.Crawler.Response.t()
   def crawl(url \\ @base_url) do
     IO.puts("Crawling URL #{url}")
 
@@ -54,25 +54,4 @@ defmodule Happ.Crawler.HackerNews do
     Happ.Crawler.Helper.construct_response(request, next, data)
   end
 end
-
-## Response
-#%{
-#  request: %Happ.Crawler.Request,
-#  next: [],
-#  results: []
-#}
-#
-### Result
-#%{
-#  meta: %{
-#    id: nil,
-#    created_at: nil,
-#    updated_at: nil,
-#    version: nil,
-#  },
-#
-#  data: %{
-#
-#  }
-#}
 
