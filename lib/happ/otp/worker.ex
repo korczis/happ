@@ -1,4 +1,8 @@
 defmodule Happ.Otp.Worker do
+  @moduledoc """
+  Example OTP Worker - Stack Implementation.
+  """
+
   use GenServer
 
   # Callbacks

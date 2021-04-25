@@ -1,4 +1,8 @@
 defmodule Happ.Otp.Agent.Crawler do
+  @moduledoc """
+  Example OTP Agent - crawler.
+  """
+
   use Agent
 
   def start_link(initial_value \\ %{}) do

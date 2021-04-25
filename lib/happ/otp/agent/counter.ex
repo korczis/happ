@@ -1,4 +1,8 @@
 defmodule Happ.Otp.Agent.Counter do
+  @moduledoc """
+  Example OTP Agent - counter.
+  """
+
   use Agent
 
   def start_link(initial_value) do

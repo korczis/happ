@@ -1,4 +1,8 @@
 defmodule Happ.DynamicSupervisor do
+  @moduledoc """
+  Main application DynamicSupervisor - orchestrated by Horde.
+  """
+
   # Automatically defines child_spec/1
   use DynamicSupervisor
 

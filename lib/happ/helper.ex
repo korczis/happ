@@ -1,4 +1,8 @@
 defmodule Happ.Helper do
+  @moduledoc """
+  Various helper functions - not meant to be used in production.
+  """
+
   def test() do
     # See https://hexdocs.pm/horde/readme.html
     [

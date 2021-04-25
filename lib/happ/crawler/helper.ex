@@ -3,10 +3,12 @@ defmodule Happ.Crawler.Helper do
   Helper to make crawling easier.
   """
 
-  def crawl(%Happ.Crawler.Request{crawler: crawler, url: url}) do
-    crawl(crawler, url)
+  @spec crawl(Happ.Crawler.Request.t()) :: any()
+  def crawl(request) do
+    crawl(request.crawler, request.url)
   end
 
+  @spec crawl(module(), String.t()) :: any()
   def crawl(crawler, url) do
     apply(crawler, :crawl, [url])
   end
