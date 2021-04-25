@@ -10,7 +10,7 @@ defmodule Happ.Helper do
         %{
           id: :agent,
           start: {
-            Happ.Otp.Agent.Counter, :start_link, [fn -> 0 end]
+            Happ.Otp.Agent.Counter, :start_link, [0] # [fn -> 0 end]
           }
         }
       ),
@@ -20,7 +20,7 @@ defmodule Happ.Helper do
         %{
           id: :agent,
           start: {
-            Happ.Otp.Agent.Crawler, :start_link, [fn -> %{} end]
+            Happ.Otp.Agent.Crawler, :start_link, [%{}] # [fn -> %{} end]
           }
         }
       )
