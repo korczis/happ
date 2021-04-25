@@ -1,8 +1,29 @@
 defmodule Happ.Helper do
   def test() do
+    # See https://hexdocs.pm/horde/readme.html
     [
-      DynamicSupervisor.start_child(Happ.DynamicSupervisor, {Happ.Otp.Agent.Counter, 0}),
-      DynamicSupervisor.start_child(Happ.DynamicSupervisor, {Happ.Otp.Agent.Crawler, %{}})
+      # DynamicSupervisor.start_child(Happ.DynamicSupervisor, {Happ.Otp.Agent.Counter, 0}),
+      # DynamicSupervisor.start_child(Happ.DynamicSupervisor, {Happ.Otp.Agent.Crawler, %{}})
+
+      Horde.DynamicSupervisor.start_child(
+        Happ.DistributedSupervisor,
+        %{
+          id: :agent,
+          start: {
+            Happ.Otp.Agent.Counter, :start_link, [fn -> 0 end]
+          }
+        }
+      ),
+
+      Horde.DynamicSupervisor.start_child(
+        Happ.DistributedSupervisor,
+        %{
+          id: :agent,
+          start: {
+            Happ.Otp.Agent.Crawler, :start_link, [fn -> %{} end]
+          }
+        }
+      )
     ]
   end
 

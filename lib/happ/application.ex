@@ -25,7 +25,11 @@ defmodule Happ.Application do
       # Start a worker by calling: Happ.Worker.start_link(arg)
       # {Happ.Worker, arg}
 
-      {DynamicSupervisor, strategy: :one_for_one, name: Happ.DynamicSupervisor}
+      # Local Dynamic Supervisor
+      # {DynamicSupervisor, strategy: :one_for_one, name: Happ.DynamicSupervisor}
+
+      # Distributed Dynamic Supervisor
+      {Horde.DynamicSupervisor, [name: Happ.DistributedSupervisor, strategy: :one_for_one]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
