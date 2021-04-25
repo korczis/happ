@@ -14,5 +14,9 @@ import "../css/app.scss"
 //
 import "phoenix_html"
 
-import greet from "./hello";
-document.querySelector("section.phx-hero h1").innerHTML = greet("Phoenix");
+import React from "react";
+import ReactDOM from "react-dom";
+import Greeter from "./hello";
+
+const greeting = document.getElementById("greeting");
+ReactDOM.render(<Greeter name="Phoenix" />, greeting);
