@@ -42,6 +42,25 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
+name = "cl-sys"
+version = "0.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e8573fa3ff8acd6c49e8e113296c54277e82376b96c6ca6307848632cce38e44"
+dependencies = [
+ "libc",
+]
+
+[[package]]
+name = "cl3"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "671e9d09cf75e236ef913b2407c5f15664ed717af8a3d030170e8c74367cf5df"
+dependencies = [
+ "cl-sys",
+ "libc",
+]
+
+[[package]]
 name = "failure"
 version = "0.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -61,6 +80,7 @@ name = "happ_native"
 version = "0.1.0"
 dependencies = [
  "lazy_static",
+ "opencl3",
  "rustler",
 ]
 
@@ -100,6 +120,16 @@ name = "object"
 version = "0.23.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a9a7ab5d64814df0fe4a4b5ead45ed6c5f181ee3ff04ba344313a6c80446c5d4"
+
+[[package]]
+name = "opencl3"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "52aa54303aa82ddabd0cf8b818e142b3839f40bdd78bbae772126a3c620953bb"
+dependencies = [
+ "cl3",
+ "libc",
+]
 
 [[package]]
 name = "proc-macro2"
