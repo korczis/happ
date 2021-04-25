@@ -5,6 +5,10 @@ FROM elixir:latest
 RUN apt-get update && \
   apt-get install -y postgresql-client
 
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+
+ENV PATH="/root/.cargo/bin:${PATH}"
+
 # Create app directory and copy the Elixir projects into it
 RUN mkdir /app
 WORKDIR /app
