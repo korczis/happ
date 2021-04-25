@@ -7,7 +7,8 @@ defmodule Happ.MixProject do
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: [:rustler] ++ [:phoenix, :gettext] ++ Mix.compilers(),
+      rustler_crates: [happ_native: []],
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
@@ -36,11 +37,13 @@ defmodule Happ.MixProject do
     [
       mod: {Happ.Application, []},
       extra_applications: [
+        :eex,
         :hackney,
         :httpoison,
         :logger,
         :runtime_tools,
-        :os_mon
+        :os_mon,
+        :toml
       ]
     ]
   end
@@ -75,6 +78,7 @@ defmodule Happ.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:poison, "~> 3.1"},
+      {:rustler, "~> 0.21.1"},
       {:uuid, "~> 1.1"}
     ]
   end

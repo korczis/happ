@@ -41,3 +41,4 @@ npm-debug.log
 
 # Dialyzer
 /priv/plts
+/priv/native/
