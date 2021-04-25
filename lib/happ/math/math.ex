@@ -18,4 +18,9 @@ defmodule Happ.Math do
       _ -> gcd(y, rem(x, y))
     end
   end
+
+  @spec lcm(integer(), integer()) :: float()
+  def lcm(x, y) do
+    (x * y) / gcd(x, y)
+  end
 end

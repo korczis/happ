@@ -10,4 +10,8 @@ defmodule Happ.Math.Test do
   test "gcd" do
     assert Math.gcd(15, 20) == 5
   end
+
+  test "lcm" do
+    assert Math.lcm(15, 20) == 60
+  end
 end
