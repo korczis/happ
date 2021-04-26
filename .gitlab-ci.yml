@@ -40,7 +40,7 @@ mix-deps:
     - mix deps.compile
 
 mix-compile:
-  stage: deps
+  stage: compile
   script:
     - mix compile
 
