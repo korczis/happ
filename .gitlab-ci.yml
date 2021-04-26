@@ -6,6 +6,8 @@ cache:
   paths:
     - /root/.cargo
     - apt-cache/
+    - ./_build
+    - ./deps
 
 services:
   - postgres:latest
