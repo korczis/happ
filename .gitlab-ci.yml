@@ -21,6 +21,7 @@ variables:
 
 stages:
   - deps
+  - compile
   - db
   - test
 
@@ -37,6 +38,11 @@ mix-deps:
   script:
     - mix deps.get
     - mix deps.compile
+
+mix-compile:
+  stage: deps
+  script:
+    - mix compile
 
 mix-ecto:
   stage: db
