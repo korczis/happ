@@ -19,12 +19,23 @@ defmodule Happ.Otp.Agent.Counter.Test do
     :ok
   end
 
-  test "value" do
-    assert Happ.Otp.Agent.Counter.value() == 0
-  end
-
   test "increment" do
+    Happ.Otp.Agent.Counter.reset()
     Happ.Otp.Agent.Counter.increment()
     assert Happ.Otp.Agent.Counter.value() == 1
   end
+
+  test "reset" do
+    Happ.Otp.Agent.Counter.increment()
+    Happ.Otp.Agent.Counter.increment()
+    Happ.Otp.Agent.Counter.increment()
+    Happ.Otp.Agent.Counter.reset()
+    assert Happ.Otp.Agent.Counter.value() == 0
+  end
+
+  test "value" do
+    Happ.Otp.Agent.Counter.reset()
+    assert Happ.Otp.Agent.Counter.value() == 0
+  end
+
 end

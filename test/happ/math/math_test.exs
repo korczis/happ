@@ -14,4 +14,8 @@ defmodule Happ.Math.Test do
   test "lcm" do
     assert Math.lcm(15, 20) == 60
   end
+
+  test "lerp" do
+    assert Math.lerp(5, 10, 0.5) == 7.5
+  end
 end

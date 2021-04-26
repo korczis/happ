@@ -25,7 +25,7 @@ stages:
   - compile
   - db
   - test
-  - docker
+#  - docker
 
 before_script:
   - apt-get update && apt-get -o dir::cache::archives="apt-cache" -y install postgresql-client
@@ -57,7 +57,7 @@ test:
   script:
     - mix test
 
-build-docker-image:
-  stage: docker
-  script:
-    - docker build -t haap .
+#build-docker-image:
+#  stage: docker
+#  script:
+#    - docker build -t haap .
