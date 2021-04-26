@@ -3,6 +3,13 @@
 .cache
 
 # ignore elixir artifacts
-_build
-deps
-priv/static
+_build/
+cover/
+deps/
+doc/
+
+priv/native/
+priv/plts/
+priv/static/
+
+tmp/
