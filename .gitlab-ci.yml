@@ -4,10 +4,10 @@ image: elixir:latest
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
-    - /root/.cargo
+    - /root/.cargo/
     - apt-cache/
-    - ./_build
-    - ./deps
+    - ./_build/
+    - ./deps/
 
 services:
   - postgres:latest
