@@ -32,4 +32,12 @@
       </li>
     </ul>
   </article>
+  <article class="column">
+    <h2>Demos</h2>
+    <ul>
+      <li>
+        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
+      </li>
+    </ul>
+  </article>
 </section>
