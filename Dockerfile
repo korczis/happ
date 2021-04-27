@@ -3,7 +3,7 @@ FROM elixir:latest
 
 # Install OS dependencies
 RUN apt-get update && \
-  apt-get install -y postgresql-client
+  apt-get install -y postgresql-client cmake
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
 
