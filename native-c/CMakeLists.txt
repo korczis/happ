@@ -3,7 +3,11 @@ cmake_minimum_required(VERSION 3.10)
 # set the project name
 project(happ LANGUAGES C)
 
-include_directories("/usr/local/lib/erlang/erts-11.2/include/")
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/;${CMAKE_MODULE_PATH}")
+
+find_package(Erlang REQUIRED)
+
+include_directories(${Erlang_ERTS_INCLUDE_DIRS})
 
 SET(CMAKE_C_FLAGS "-fPIC -undefined dynamic_lookup -o happ.so")
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
