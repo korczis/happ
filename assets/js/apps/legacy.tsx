@@ -17,7 +17,8 @@ import "phoenix_html"
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Greeter from "../components/Greater";
+import Demo from "../components/demo";
+import Greeter from "../components/greater";
 
 const greeting = document.getElementById("react-root");
 ReactDOM.render(<Greeter name="Phoenix" />, greeting);
