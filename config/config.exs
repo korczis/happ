@@ -7,11 +7,6 @@
 # General application configuration
 use Mix.Config
 
-#config :elastix,
-#       shield: true,
-#       username: "username",
-#       password: "password"
-
 config :happ, Happ.Elasticsearch.Cluster      ,
        # The URL where Elasticsearch is hosted on your system
        url: System.get_env("ELASTICSEARCH_URL", "http://localhost:9200"),
