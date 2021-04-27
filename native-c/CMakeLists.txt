@@ -7,8 +7,6 @@ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/;${CMAKE_MODULE_PATH}")
 
 find_package(Erlang REQUIRED)
 
-include_directories(${Erlang_ERTS_INCLUDE_DIRS})
-
 SET(CMAKE_C_FLAGS "-fPIC -undefined dynamic_lookup -o happ.so")
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 set(CMAKE_SHARED_LIBRARY_SUFFIX ".so")
@@ -19,3 +17,6 @@ endif()
 
 # add the library
 add_library(happ SHARED src/lib.c)
+
+target_include_directories(happ PRIVATE ${Erlang_EI_INCLUDE_DIRS} ${Erlang_ERTS_INCLUDE_DIRS})
+target_link_directories(happ PRIVATE ${Erlang_EI_LIBRARY_PATH} ${Erlang_ERTS_LIBRARY_PATH})
