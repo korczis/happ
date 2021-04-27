@@ -1,4 +1,5 @@
 defmodule Happ.Native do
+
   @moduledoc """
   Stub for native functions implemented using Rustler.
   """
