@@ -1,7 +1,7 @@
 // We need to import the CSS so that webpack will load it.
 // The MiniCssExtractPlugin is used to separate it out into
 // its own CSS file.
-import "../css/app.scss"
+import "../../css/app.scss"
 
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
@@ -16,7 +16,10 @@ import "phoenix_html"
 
 import React from "react";
 import ReactDOM from "react-dom";
-import Greeter from "./hello";
 
-const greeting = document.getElementById("greeting");
+import Demo from "../components/demo";
+import Greeter from "../components/greater";
+
+const greeting = document.getElementById("react-greeter");
 ReactDOM.render(<Greeter name="Phoenix" />, greeting);
+
