@@ -1,3 +1,37 @@
+defmodule Mix.Tasks.Compile.Nifs do
+  use Mix.Task
+
+  @shortdoc "Compile custom NIFs"
+
+  @moduledoc """
+  Compile custom NIFs.
+  """
+  def run(_args) do
+    #    {result, _errcode} = System.cmd("make", [], stdout_to_stderr: true)
+    #    IO.binwrite(result)
+
+    {:ok, cwd} = File.cwd
+    build_dir = Path.join(["native-c", "build"])
+
+    IO.puts("= Creating build folder #{build_dir} =")
+    File.mkdir_p!(build_dir)
+    IO.puts("")
+
+    IO.puts("= Generating Makefile =")
+    File.cd(build_dir)
+    System.cmd("cmake", [".."], into: IO.stream(:stdio, :line))
+    IO.puts("")
+
+    IO.puts("= Compiling NIFs =")
+    System.cmd("make", [], into: IO.stream(:stdio, :line))
+    IO.puts("")
+
+    File.cd(cwd)
+
+    :ok
+  end
+end
+
 defmodule Happ.MixProject do
   use Mix.Project
 
@@ -7,8 +41,12 @@ defmodule Happ.MixProject do
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:rustler] ++ [:phoenix, :gettext] ++ Mix.compilers(),
-      rustler_crates: [happ_native: []],
+      compilers: [:nifs] ++ [:rustler] ++ [:phoenix, :gettext] ++ Mix.compilers(),
+      rustler_crates: [
+        happ_native: [
+          path: "native-rust/happ_native"
+        ]
+      ],
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
