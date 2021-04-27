@@ -42,4 +42,5 @@ npm-debug.log
 # Dialyzer
 /priv/plts
 /priv/native/
-/native/happ_native/target/
+/native-rust/happ_native/target/
+/native-c/build/
