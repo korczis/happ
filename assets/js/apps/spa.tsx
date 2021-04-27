@@ -18,8 +18,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import Demo from "../components/demo";
-import Greeter from "../components/greater";
 
 const greeting = document.getElementById("react-root");
-ReactDOM.render(<Greeter name="Phoenix" />, greeting);
+ReactDOM.render(<Demo name="Main" />, greeting);
 

@@ -1,4 +1,4 @@
-<div id="react-greeter"></div>
+<div id="react-root"></div>
 
 <section class="row">
   <article class="column">
