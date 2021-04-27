@@ -17,8 +17,8 @@ import "phoenix_html"
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Demo from "../components/demo";
+import App from "../containers/App";
 
 const greeting = document.getElementById("react-root");
-ReactDOM.render(<Demo name="Main" />, greeting);
+ReactDOM.render(<App/>, greeting);
 
