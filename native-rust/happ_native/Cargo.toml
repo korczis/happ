@@ -9,6 +9,13 @@ name = "happ_native"
 path = "src/lib.rs"
 crate-type = ["dylib"]
 
+# Example of customizing binaries in Cargo.toml.
+[[bin]]
+name = "happ"
+test = false
+bench = false
+path = "src/main.rs"
+
 [dependencies]
 rustler = "0.21.1"
 lazy_static = "1.0"
