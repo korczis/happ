@@ -1,6 +1,6 @@
 import React from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 import Demo from "../components/Demo"
 import Header from "./Header";
@@ -15,9 +15,13 @@ const Layout: React.FC = () => {
         <Router>
             <Header />
             <main>
-                <Container>
+                <Container fluid>
                     <Switch>
-                        <Route path="/demo" component={Demo} />
+                        <Route path="/demo">
+                            <Row>
+                                <Demo name={"test"} />
+                            </Row>
+                        </Route>
                     </Switch>
                 </Container>
             </main>

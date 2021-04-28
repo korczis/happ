@@ -16,12 +16,6 @@ defmodule HappWeb.Router do
   scope "/", HappWeb do
     pipe_through :browser
 
-    get "/", SpaController, :index
-  end
-
-  scope "/legacy", HappWeb do
-    pipe_through :browser
-
     get "/", LegacyController, :index
   end
 
@@ -44,5 +38,11 @@ defmodule HappWeb.Router do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: HappWeb.Telemetry, ecto_repos: [Happ.Repo]
     end
+  end
+
+  scope "/spa", HappWeb do
+    pipe_through :browser
+
+    get "/", SpaController, :index
   end
 end
