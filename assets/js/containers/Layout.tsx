@@ -6,7 +6,6 @@ import MapComponent from "../components/Map"
 
 import Header from "./Header";
 
-
 const Layout: React.FC = () => {
     // <ProtectedRoute path="/dashboard" component={Dashboard} />
     // <Route path="/login" component={Login} />
@@ -21,7 +20,10 @@ const Layout: React.FC = () => {
                     <Switch>
                         <Route path="/map">
                             <Row>
-                                <MapComponent />
+                                <MapComponent
+                                    key=""
+                                    libraries="libraries"
+                                />
                             </Row>
                         </Route>
                     </Switch>

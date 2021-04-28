@@ -1,23 +1,65 @@
 import React, { Component } from "react";
 
-import GoogleMapReact, { fitBounds } from 'google-map-react';
+import GoogleMapReact, {
+    fitBounds,
+    BootstrapURLKeys,
+    Coords,
+    MapOptions,
+    Size
+} from 'google-map-react';
 
-export interface MapComponentProps {}
-
-export type MapComponentState = {
-    width: number | null,
-    height: number | null,
+export interface MapComponentProps {
+    key: string,
+    libraries: string | string[]
 }
 
-// const Demo: React.FC<DemoProps> = (props: DemoProps) => {
+export type MapComponentState = {
+    key: string,
+    libraries?: string | string[],
+    size: Size,
+    center: Coords,
+    zoom: number,
+}
+
 export class MapComponent extends Component<MapComponentProps, MapComponentState> {
+    static mapOptions: MapOptions = {
+        zoomControl: true,
+        gestureHandling: 'cooperative',
+        styles: [
+            {
+                featureType: "administrative",
+                elementType: "all",
+                stylers: [ {saturation: "-100"} ]
+            },
+            {
+                featureType: "administrative.neighborhood",
+                stylers: [ {visibility: "off" } ]
+            },
+            {
+                elementType: "labels.text.stroke",
+                stylers: [ {color: "#242f3e"} ]
+            },
+            {
+                stylers: [ {color: "#fcfffd"} ]
+            }
+        ],
+        minZoom: 3
+    };
 
     constructor(props: MapComponentProps) {
         super(props);
 
         this.state = {
-            width: null,
-            height: null,
+            key: props.key,
+            size: {
+                width: 1024,
+                height: 768,
+            },
+            center: {
+                lat: 49.195061,
+                lng: 16.606836
+            },
+            zoom: 5
         }
     }
 
@@ -26,11 +68,53 @@ export class MapComponent extends Component<MapComponentProps, MapComponentState
 
         this.setState({
             ...this.state,
-            width: window.innerWidth,
-            height: window.innerHeight - 56
+            size: {
+                width: window.innerWidth,
+                height: window.innerHeight - 56
+            }
         });
 
         window.addEventListener("resize", this.onUpdateWindowDimensions.bind(this));
+    }
+
+    render() {
+        const style = {
+            width: this.state.size.width,
+            height: this.state.size.height,
+            backgroundColor: "gray"
+        };
+
+        const key: BootstrapURLKeys = {
+            key: this.state.key,
+            libraries: this.state.libraries,
+        };
+
+        return (
+            <div style={style}>
+                <GoogleMapReact
+                    center={this.state.center}
+                    heatmapLibrary={false}
+                    zoom={this.state.zoom}
+                    bootstrapURLKeys={key}
+                    options={MapComponent.mapOptions}
+                    onDragEnd={this.onDragEnd.bind(this)}
+                    onZoomAnimationEnd={this.onZoomAnimationEnd.bind(this)}
+                />;
+            </div>
+        );
+    }
+
+    private onDragEnd(map: any) {
+        console.log("onDragEnd()", map);
+        this.setState(
+            {
+                ...this.state,
+                center: {
+                    lat: map.center.lat(),
+                    lng: map.center.lng()
+                }
+            },
+        )
     }
 
     private onUpdateWindowDimensions() {
@@ -38,73 +122,21 @@ export class MapComponent extends Component<MapComponentProps, MapComponentState
 
         this.setState({
             ...this.state,
-            width: window.innerWidth,
-            height: window.innerHeight - 56
+            size: {
+                width: window.innerWidth,
+                height: window.innerHeight - 56
+            }
         });
     }
 
-    render() {
-        const style = {
-            width: this.state.width,
-            height: this.state.height,
-            backgroundColor: "blue"
-        };
+    private onZoomAnimationEnd(zoom: number) {
+        console.log("onZoomAnimationEnd()", zoom);
 
-        const center = { lat: 0, lng: 0 };
-
-        const key = {
-            key: 'AIzaSyDoqQWpk1LWnAt2dv8acWr_B7EwMxSjVfE',
-            libraries: "places"
-        };
-
-        const client = {
-            key: 'AIzaSyDoqQWpk1LWnAt2dv8acWr_B7EwMxSjVfE',
-            v: '3.28',
-            language: 'en',
-            libraries: "places",
-            region: "PR"
-        };
-
-        const options = {
-            zoomControl: false,
-            gestureHandling: 'cooperative',
-            styles: [
-                {
-                    featureType: "administrative",
-                    elementType: "all",
-                    stylers: [ {saturation: "-100"} ]
-                },
-                {
-                    featureType: "administrative.neighborhood",
-                    stylers: [ {visibility: "off" } ]
-                },
-                {
-                    elementType: "labels.text.stroke",
-                    stylers: [ {color: "#242f3e"} ]
-                },
-                {
-                    stylers: [ {color: "#fcfffd"} ]
-                }
-            ],
-        };
-
-        const onDragEnd = (map: any) => {
-            console.log("onDragEnd()", map);
-        }
-
-        return (
-            <div style={style}>
-                <GoogleMapReact
-                    center={center}
-                    heatmapLibrary={false}
-                    zoom={3}
-                    bootstrapURLKeys={client}
-                    options={options}
-                    onDragEnd={onDragEnd}
-                />;
-            </div>
-        );
+        this.setState({
+            ...this.state,
+            zoom: zoom
+        });
     }
-};
+}
 
 export default MapComponent;
