@@ -53,8 +53,8 @@ export class MapComponent extends Component<MapComponentProps, MapComponentState
         this.state = {
             apiKey: props.apiKey,
             size: {
-                width: 1024,
-                height: 768,
+                width: window.innerWidth,
+                height: window.innerHeight - 56
             },
             center: {
                 lat: 49.195061,

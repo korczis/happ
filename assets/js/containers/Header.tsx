@@ -36,8 +36,8 @@ const Header: React.FC = () => {
                         <Nav className="mr-auto">
                             <Nav.Link href="/">Home</Nav.Link>
                             <Link to="/map">Map</Link>
-                            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                            <NavDropdown title="Demos" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#fiber">Fiber</NavDropdown.Item>
                                 <NavDropdown.Item href="/loading">Loading</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action/3.4">

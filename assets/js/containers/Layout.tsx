@@ -5,6 +5,7 @@ import { Container, Row } from "react-bootstrap";
 import MapComponent from "../components/Map"
 
 import Header from "./Header";
+import {FiberComponent} from "../components/Fiber";
 
 const Layout: React.FC = () => {
     // <ProtectedRoute path="/dashboard" component={Dashboard} />
@@ -24,6 +25,12 @@ const Layout: React.FC = () => {
                                     apiKey="AIzaSyDoqQWpk1LWnAt2dv8acWr_B7EwMxSjVfE"
                                     libraries="libraries"
                                 />
+                            </Row>
+                        </Route>
+
+                        <Route path="/fiber">
+                            <Row>
+                                <FiberComponent />
                             </Row>
                         </Route>
                     </Switch>
