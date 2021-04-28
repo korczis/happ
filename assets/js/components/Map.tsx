@@ -9,13 +9,14 @@ import GoogleMapReact, {
 } from 'google-map-react';
 
 export interface MapComponentProps {
-    key: string,
+    apiKey: string,
     libraries: string | string[]
 }
 
 export type MapComponentState = {
-    key: string,
+    apiKey: string,
     libraries?: string | string[],
+    map?: any,
     size: Size,
     center: Coords,
     zoom: number,
@@ -50,7 +51,7 @@ export class MapComponent extends Component<MapComponentProps, MapComponentState
         super(props);
 
         this.state = {
-            key: props.key,
+            apiKey: props.apiKey,
             size: {
                 width: 1024,
                 height: 768,
@@ -85,7 +86,7 @@ export class MapComponent extends Component<MapComponentProps, MapComponentState
         };
 
         const key: BootstrapURLKeys = {
-            key: this.state.key,
+            key: this.state.apiKey,
             libraries: this.state.libraries,
         };
 
@@ -98,7 +99,9 @@ export class MapComponent extends Component<MapComponentProps, MapComponentState
                     bootstrapURLKeys={key}
                     options={MapComponent.mapOptions}
                     onDragEnd={this.onDragEnd.bind(this)}
+                    onGoogleApiLoaded={this.onGoogleApiLoaded.bind(this)}
                     onZoomAnimationEnd={this.onZoomAnimationEnd.bind(this)}
+                    yesIWantToUseGoogleMapApiInternals={true}
                 />;
             </div>
         );
@@ -115,6 +118,15 @@ export class MapComponent extends Component<MapComponentProps, MapComponentState
                 }
             },
         )
+    }
+
+    private onGoogleApiLoaded(map: any) {
+        console.log("onGoogleApiLoaded()", map);
+
+        this.setState({
+            ...this.state,
+            map: map.map
+        });
     }
 
     private onUpdateWindowDimensions() {

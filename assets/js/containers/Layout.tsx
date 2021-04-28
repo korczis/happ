@@ -21,7 +21,7 @@ const Layout: React.FC = () => {
                         <Route path="/map">
                             <Row>
                                 <MapComponent
-                                    key=""
+                                    apiKey="AIzaSyDoqQWpk1LWnAt2dv8acWr_B7EwMxSjVfE"
                                     libraries="libraries"
                                 />
                             </Row>
