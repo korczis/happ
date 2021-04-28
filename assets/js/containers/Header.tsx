@@ -35,7 +35,7 @@ const Header: React.FC = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Link to="/demo">Demo</Link>
+                            <Link to="/map">Map</Link>
                             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="/loading">Loading</NavDropdown.Item>

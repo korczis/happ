@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
 
-import Demo from "../components/Demo"
+import LeafletMap from "../components/LeafletMap"
 import Header from "./Header";
 
 const Layout: React.FC = () => {
@@ -17,9 +17,9 @@ const Layout: React.FC = () => {
             <main>
                 <Container fluid>
                     <Switch>
-                        <Route path="/demo">
+                        <Route path="/map">
                             <Row>
-                                <Demo name={"test"} />
+                                <LeafletMap/>
                             </Row>
                         </Route>
                     </Switch>

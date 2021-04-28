@@ -8,7 +8,6 @@ export default function App() {
     //   <Layout />
     // </section>
     return (
-
         <div>
             <Layout />
         </div>

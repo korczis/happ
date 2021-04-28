@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Happ · Phoenix Framework</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- link rel="stylesheet" href="<%#= Routes.static_path(@conn, "/css/legacy.css") %>"/ -->
+    <!-- link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" / -->
+    <!-- link rel="stylesheet" href="<%#= Routes.static_path(@conn, "/css/spa.css") %>"/ -->
+    <!-- link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" -->
 
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/spa.js") %>"></script>
   </head>
