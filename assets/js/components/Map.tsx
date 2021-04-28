@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import GoogleMapReact, { fitBounds } from 'google-map-react';
+
 export interface MapComponentProps {}
 
 export type MapComponentState = {
@@ -48,10 +50,61 @@ export class MapComponent extends Component<MapComponentProps, MapComponentState
             backgroundColor: "blue"
         };
 
+        const center = { lat: 0, lng: 0 };
+
+        const key = {
+            key: 'AIzaSyDoqQWpk1LWnAt2dv8acWr_B7EwMxSjVfE',
+            libraries: "places"
+        };
+
+        const client = {
+            key: 'AIzaSyDoqQWpk1LWnAt2dv8acWr_B7EwMxSjVfE',
+            v: '3.28',
+            language: 'en',
+            libraries: "places",
+            region: "PR"
+        };
+
+        const options = {
+            zoomControl: false,
+            gestureHandling: 'cooperative',
+            styles: [
+                {
+                    featureType: "administrative",
+                    elementType: "all",
+                    stylers: [ {saturation: "-100"} ]
+                },
+                {
+                    featureType: "administrative.neighborhood",
+                    stylers: [ {visibility: "off" } ]
+                },
+                {
+                    elementType: "labels.text.stroke",
+                    stylers: [ {color: "#242f3e"} ]
+                },
+                {
+                    stylers: [ {color: "#fcfffd"} ]
+                }
+            ],
+        };
+
+        const onDragEnd = (map: any) => {
+            console.log("onDragEnd()", map);
+        }
+
         return (
-            <div id="map" style={style}></div>
+            <div style={style}>
+                <GoogleMapReact
+                    center={center}
+                    heatmapLibrary={false}
+                    zoom={3}
+                    bootstrapURLKeys={client}
+                    options={options}
+                    onDragEnd={onDragEnd}
+                />;
+            </div>
         );
     }
-}
+};
 
 export default MapComponent;
