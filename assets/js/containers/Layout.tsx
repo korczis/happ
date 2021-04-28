@@ -2,8 +2,10 @@ import React from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
 
-import LeafletMap from "../components/LeafletMap"
+import MapComponent from "../components/Map"
+
 import Header from "./Header";
+
 
 const Layout: React.FC = () => {
     // <ProtectedRoute path="/dashboard" component={Dashboard} />
@@ -19,7 +21,7 @@ const Layout: React.FC = () => {
                     <Switch>
                         <Route path="/map">
                             <Row>
-                                <LeafletMap/>
+                                <MapComponent />
                             </Row>
                         </Route>
                     </Switch>
