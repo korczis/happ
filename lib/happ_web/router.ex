@@ -16,13 +16,13 @@ defmodule HappWeb.Router do
   scope "/", HappWeb do
     pipe_through :browser
 
-    get "/", LegacyController, :index
+    get "/", SpaController, :index
   end
 
-  scope "/spa", HappWeb do
+  scope "/legacy", HappWeb do
     pipe_through :browser
 
-    get "/", SpaController, :index
+    get "/", LegacyController, :index
   end
 
   # Other scopes may use custom stacks.

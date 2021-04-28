@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Happ · Phoenix Framework</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/spa.css") %>"/>
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/spa.js") %>"></script>
   </head>
@@ -17,7 +18,7 @@
             <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
               <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
             <% end %>
-            <li><a href="/">Legacy Application</a></li>
+            <li><a href="/legacy">Legacy Application</a></li>
           </ul>
         </nav>
         <a href="https://phoenixframework.org/" class="phx-logo">

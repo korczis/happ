@@ -1,6 +1,7 @@
 /* This file is for your legacy application css. */
 @import "./global.scss";
 @import "./phoenix.css";
+// @import "./reboot.scss";
 
 /* Alerts and form errors */
 .alert {
@@ -34,4 +35,8 @@
   color: #a94442;
   display: block;
   margin: -1rem 0 2rem;
+}
+
+body {
+  margin: 0;
 }

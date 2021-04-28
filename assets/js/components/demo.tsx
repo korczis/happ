@@ -7,7 +7,7 @@ interface DemoProps {
 const Demo: React.FC<DemoProps> = (props: DemoProps) => {
     const name = props.name;
     return (
-        <section className="phx-hero">
+        <section>
             <h1>Demo - {name}</h1>
         </section>
     );
