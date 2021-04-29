@@ -1,10 +1,9 @@
 import React, { Component, useRef, useState } from "react";
 import * as THREE from 'three'
-import FPSStats from "react-fps-stats";
 
-export interface ThreeJsComponentProps {}
+export interface FiberComponentProps {}
 
-export type ThreeJsComponentState = {
+export type FiberComponentState = {
     width: number,
     height: number,
 
@@ -19,10 +18,10 @@ export type ThreeJsComponentState = {
 }
 
 // See https://codepen.io/WebSeed/pen/MEBoRq
-export class ThreeJsComponent extends Component<ThreeJsComponentProps, ThreeJsComponentState> {
+export class FiberComponent extends Component<FiberComponentProps, FiberComponentState> {
     mount = React.createRef<HTMLDivElement>();
 
-    constructor(props: ThreeJsComponentProps) {
+    constructor(props: FiberComponentProps) {
         super(props);
 
         const width = window.innerWidth;
@@ -132,29 +131,18 @@ export class ThreeJsComponent extends Component<ThreeJsComponentProps, ThreeJsCo
                 style={style}
                 // ref={(mount) => { this.mount = mount }}
                 // ref={(mount) => { this.mount = mount as HTMLDivElement }}
-            >
-                <FPSStats top={56} left={this.state.width - 76}/>
-            </div>
+            />
         )
     }
 
     private onUpdateWindowDimensions() {
         console.log("onUpdateWindowDimensions()");
 
-        const width = window.innerWidth;
-        const height = window.innerHeight - 56;
-
-        this.state.camera.aspect = width / height;
-        this.state.camera.updateProjectionMatrix();
-
-        this.state.renderer.setSize(width, height);
-
         this.setState({
             ...this.state,
-            width: width,
-            height: height,
+            width: window.innerWidth,
+            height: window.innerHeight - 56
         });
     }
 }
 
-export default ThreeJsComponent;
