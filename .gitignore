@@ -44,3 +44,4 @@ npm-debug.log
 /priv/native/
 /native-rust/happ_native/target/
 /native-c/build/
+/assets/wasm/happ-wasm-example/www/

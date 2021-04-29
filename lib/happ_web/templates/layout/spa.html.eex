@@ -11,6 +11,8 @@
     <!-- link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" -->
 
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/spa.js") %>"></script>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/bootstrap.js") %>"></script>
+
   </head>
   <body>
     <%= @inner_content %>

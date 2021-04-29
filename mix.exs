@@ -7,9 +7,6 @@ defmodule Mix.Tasks.Compile.Nifs do
   Compile custom NIFs.
   """
   def run(_args) do
-    #    {result, _errcode} = System.cmd("make", [], stdout_to_stderr: true)
-    #    IO.binwrite(result)
-
     {:ok, cwd} = File.cwd
     build_dir = Path.join(["native-c", "build"])
 
@@ -32,8 +29,51 @@ defmodule Mix.Tasks.Compile.Nifs do
   end
 end
 
+defmodule Mix.Tasks.Compile.Wasm do
+  use Mix.Task
+
+  @shortdoc "Build WebAssembly "
+
+  @moduledoc """
+  Build WebAssembly package and related stuff.
+  """
+  def run(_args) do
+    {:ok, cwd} = File.cwd
+    build_dir = Path.join(["assets", "wasm"])
+    IO.puts("CHANGING DIR (build_dir) - #{build_dir}")
+    File.cd(build_dir)
+
+    System.cmd("wasm-pack", ["build"])
+    IO.puts("")
+
+    File.cd(cwd)
+
+    www_dir = Path.join(["assets", "wasm", "www"])
+    IO.puts("CHANGING DIR (build_dir) - #{www_dir}")
+    File.cd(www_dir)
+
+    System.cmd("yarn", [])
+    IO.puts("")
+
+    System.cmd("npm", ["run", "build"])
+    IO.puts("")
+
+    File.cd(cwd)
+
+    :ok
+  end
+end
+
 defmodule Happ.MixProject do
   use Mix.Project
+
+  def extra_compilers do
+    [
+      :rustler,
+      :nifs,
+      # :wasm
+    ]
+  end
 
   def project do
     [
@@ -41,12 +81,14 @@ defmodule Happ.MixProject do
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:nifs] ++ [:rustler] ++ [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: [:phoenix, :gettext] ++ extra_compilers() ++ Mix.compilers(),
+
       rustler_crates: [
         happ_native: [
           path: "native-rust/happ_native"
         ]
       ],
+
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),

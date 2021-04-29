@@ -58,7 +58,7 @@ config :happ, HappWeb.Endpoint,
 config :happ, HappWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/static/(css|images|js)/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/happ_web/(live|views)/.*(ex)$",
       ~r"lib/happ_web/templates/.*(eex)$"
