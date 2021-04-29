@@ -17,6 +17,7 @@ bench = false
 path = "src/main.rs"
 
 [dependencies]
-rustler = "0.21.1"
+bufstream = "0.1.4"
+rustler = { git = "https://github.com/rusterlium/rustler" }
 lazy_static = "1.0"
 opencl3 = "0.2.0"
