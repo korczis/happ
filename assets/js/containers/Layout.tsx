@@ -5,7 +5,7 @@ import { Container, Row } from "react-bootstrap";
 import MapComponent from "../components/Map"
 
 import Header from "./Header";
-import {FiberComponent} from "../components/Fiber";
+import {ThreeJsComponent} from "../components/ThreeJs";
 
 const Layout: React.FC = () => {
     // <ProtectedRoute path="/dashboard" component={Dashboard} />
@@ -28,9 +28,9 @@ const Layout: React.FC = () => {
                             </Row>
                         </Route>
 
-                        <Route path="/fiber">
+                        <Route path="/threejs">
                             <Row>
-                                <FiberComponent />
+                                <ThreeJsComponent />
                             </Row>
                         </Route>
                     </Switch>
