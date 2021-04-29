@@ -7,6 +7,9 @@
 # General application configuration
 use Mix.Config
 
+config :porcelain,
+       driver: Porcelain.Driver.Basic
+
 config :happ, Happ.Elasticsearch.Cluster      ,
        # The URL where Elasticsearch is hosted on your system
        url: System.get_env("ELASTICSEARCH_URL", "http://localhost:9200"),
