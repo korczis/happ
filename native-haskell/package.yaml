@@ -1,0 +1,60 @@
+name:                happ
+version:             0.1.0.0
+github:              "korczis/happ"
+license:             BSD3
+author:              "Tomas Korcak"
+maintainer:          "korczis@gmail.com"
+copyright:           "2021 Tomas Korcak"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/happ#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- acme-missiles
+- array
+- containers
+- text
+- filepath
+- random
+- text
+- time
+
+
+library:
+  source-dirs: src
+
+executables:
+  happ-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - happ
+
+tests:
+  happ-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - happ
+    - HUnit
+    - tasty
+    - tasty-hunit
