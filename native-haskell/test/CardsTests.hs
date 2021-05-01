@@ -7,15 +7,15 @@ import Test.Tasty.HUnit (assertEqual, testCase)
 
 import Cards (Card, CardSuit(..), CardValue(..), makeCard, makeDeck)
 
-tests =
-  testGroup
+tests = testGroup
     "Cards tests"
     [
-        makeCardTest
+        makeCardTest,
+        makeDeckTest
     ]
 
 makeCardTest =
-  testCase "Makes card from CardSuit and CardValue" $ do
+  testCase "Make card from CardSuit and CardValue" $ do
     assertEqual "" (Spade, Ace) (makeCard Spade Ace)
 
 makeDeckTest =

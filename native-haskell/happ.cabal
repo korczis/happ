@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 48646428fe7310c5a892ca1114249a0dad730df7b7a1b7a46d163e7b03cc2147
+-- hash: 682b6474612a3b58b946c38d52318bd02ba8c0712120142a849b64c651498875
 
 name:           happ
 version:        0.1.0.0
@@ -29,9 +29,15 @@ library
   exposed-modules:
       Basic
       Cards
+      FFI
       Lib
-      Math
+      Math.Calculus
+      Math.Core
+      Math.Geometry
+      Math.Playground
+      Math.Type
       Misc
+      Safe
   other-modules:
       Paths_happ
   hs-source-dirs:
@@ -47,21 +53,26 @@ library
     , time
   default-language: Haskell2010
 
-executable happ-exe
+executable happ
   main-is: Main.hs
   other-modules:
       Paths_happ
   hs-source-dirs:
-      app
+      app/happ
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      acme-missiles
+      accelerate
+    , accelerate-io
+    , acme-missiles
     , array
     , base >=4.7 && <5
+    , brick
     , containers
     , filepath
     , happ
     , random
+    , repa
+    , repa-io
     , text
     , time
   default-language: Haskell2010
@@ -72,7 +83,11 @@ test-suite happ-test
   other-modules:
       BasicTests
       CardsTests
-      MathTests
+      External.AccelerateTests
+      External.RepaTests
+      Math.CalculusTests
+      Math.CoreTests
+      Math.GeometryTests
       MiscTests
       Paths_happ
   hs-source-dirs:
@@ -80,6 +95,7 @@ test-suite happ-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       HUnit
+    , accelerate
     , acme-missiles
     , array
     , base >=4.7 && <5
@@ -87,6 +103,7 @@ test-suite happ-test
     , filepath
     , happ
     , random
+    , repa
     , tasty
     , tasty-hunit
     , text

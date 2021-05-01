@@ -7,8 +7,7 @@ import Test.Tasty.HUnit (assertEqual, testCase)
 
 import Basic (myDrop, myReverse)
 
-tests =
-  testGroup
+tests = testGroup
     "Basic tests"
     [
         myDropTest,
