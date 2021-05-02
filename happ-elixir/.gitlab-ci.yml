@@ -34,6 +34,8 @@ before_script:
   - source $HOME/.cargo/env
   - mix local.hex --force
   - mix local.rebar --force
+  - echo $CI_PROJECT_DIR
+  - cd $CI_PROJECT_DIR
 
 mix-deps:
   stage: deps
