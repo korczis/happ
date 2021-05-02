@@ -188,7 +188,7 @@ napi_value Init(napi_env env, napi_value exports) {
     assert(status == napi_ok);
 
     // Sub
-    napi_property_descriptor addDescriptorSub = DECLARE_NAPI_METHOD("sub", Add);
+    napi_property_descriptor addDescriptorSub = DECLARE_NAPI_METHOD("sub", Sub);
     status = napi_define_properties(env, exports, 1, &addDescriptorSub);
     assert(status == napi_ok);
 

@@ -6,6 +6,9 @@ build: build-nan build-napi build-node-addon-api
 
 clean: clean-nan clean-napi clean-node-addon-api
 
+test: build
+		npm run test
+
 #----------
 
 nan: clean-nan build-nan
