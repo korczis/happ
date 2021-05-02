@@ -9,10 +9,14 @@
     "nan": "^2.0.0"
   },
   "scripts": {
-    "test": "jest"
+    "test-command": "jest",
+    "pretest": "rm -rf ./src/__tests__; cp -r ../__tests__ ./src",
+    "test": "npm-run-all test-command restore-symlimk --continue-on-error",
+    "restore-symlimk": "rm -rf ./src/__tests__; ln -s ../../__tests__ ./src/"
   },
   "gypfile": true,
   "devDependencies": {
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "npm-run-all": "^4.1.5"
   }
 }
