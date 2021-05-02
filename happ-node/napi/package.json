@@ -1,5 +1,5 @@
 {
-  "name": "happ",
+  "name": "happ-napi",
   "version": "0.0.1",
   "description": "Node.js Addons Example",
   "main": "addon.js",
