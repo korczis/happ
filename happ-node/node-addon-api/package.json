@@ -2,14 +2,14 @@
   "name": "happ-node-add-on-api",
   "version": "0.0.1",
   "description": "Node.js Addons Example",
-  "main": "addon.js",
+  "main": "index.js",
   "private": true,
   "dependencies": {
     "bindings": "~1.2.1",
     "node-addon-api": "^1.0.0"
   },
   "scripts": {
-    "test": "node addon.js"
+    "test": "node src/addon.js"
   },
   "gypfile": true
 }

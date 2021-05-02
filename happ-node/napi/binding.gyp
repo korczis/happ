@@ -2,7 +2,9 @@
   "targets": [
     {
       "target_name": "addon",
-      "sources": [ "addon.c" ]
+      "sources": [
+        "src-c/addon.c"
+      ]
     }
   ]
 }

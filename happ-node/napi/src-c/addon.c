@@ -43,6 +43,88 @@ static napi_value Add(napi_env env, napi_callback_info info) {
   return sum;
 }
 
+static napi_value Div(napi_env env, napi_callback_info info) {
+  napi_status status;
+
+  size_t argc = 2;
+  napi_value args[2];
+  status = napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+  assert(status == napi_ok);
+
+  if (argc < 2) {
+    napi_throw_type_error(env, NULL, "Wrong number of arguments");
+    return NULL;
+  }
+
+  napi_valuetype valuetype0;
+  status = napi_typeof(env, args[0], &valuetype0);
+  assert(status == napi_ok);
+
+  napi_valuetype valuetype1;
+  status = napi_typeof(env, args[1], &valuetype1);
+  assert(status == napi_ok);
+
+  if (valuetype0 != napi_number || valuetype1 != napi_number) {
+    napi_throw_type_error(env, NULL, "Wrong arguments");
+    return NULL;
+  }
+
+  double value0;
+  status = napi_get_value_double(env, args[0], &value0);
+  assert(status == napi_ok);
+
+  double value1;
+  status = napi_get_value_double(env, args[1], &value1);
+  assert(status == napi_ok);
+
+  napi_value sum;
+  status = napi_create_double(env, value0 / value1, &sum);
+  assert(status == napi_ok);
+
+  return sum;
+}
+
+static napi_value Mul(napi_env env, napi_callback_info info) {
+  napi_status status;
+
+  size_t argc = 2;
+  napi_value args[2];
+  status = napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+  assert(status == napi_ok);
+
+  if (argc < 2) {
+    napi_throw_type_error(env, NULL, "Wrong number of arguments");
+    return NULL;
+  }
+
+  napi_valuetype valuetype0;
+  status = napi_typeof(env, args[0], &valuetype0);
+  assert(status == napi_ok);
+
+  napi_valuetype valuetype1;
+  status = napi_typeof(env, args[1], &valuetype1);
+  assert(status == napi_ok);
+
+  if (valuetype0 != napi_number || valuetype1 != napi_number) {
+    napi_throw_type_error(env, NULL, "Wrong arguments");
+    return NULL;
+  }
+
+  double value0;
+  status = napi_get_value_double(env, args[0], &value0);
+  assert(status == napi_ok);
+
+  double value1;
+  status = napi_get_value_double(env, args[1], &value1);
+  assert(status == napi_ok);
+
+  napi_value sum;
+  status = napi_create_double(env, value0 * value1, &sum);
+  assert(status == napi_ok);
+
+  return sum;
+}
+
 static napi_value Sub(napi_env env, napi_callback_info info) {
   napi_status status;
 
@@ -93,6 +175,16 @@ napi_value Init(napi_env env, napi_value exports) {
     // Add
     napi_property_descriptor addDescriptorAdd = DECLARE_NAPI_METHOD("add", Add);
     status = napi_define_properties(env, exports, 1, &addDescriptorAdd);
+    assert(status == napi_ok);
+
+    // Div
+    napi_property_descriptor addDescriptorDiv = DECLARE_NAPI_METHOD("div", Div);
+    status = napi_define_properties(env, exports, 1, &addDescriptorDiv);
+    assert(status == napi_ok);
+
+    // Sub
+    napi_property_descriptor addDescriptorMul = DECLARE_NAPI_METHOD("mul", Mul);
+    status = napi_define_properties(env, exports, 1, &addDescriptorMul);
     assert(status == napi_ok);
 
     // Sub
