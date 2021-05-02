@@ -1,0 +1,16 @@
+{
+  "name": "happ",
+  "version": "0.0.1",
+  "description": "## Prerequisites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tomas Korcak <korczis@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "happ-nan": "./nan",
+    "happ-napi": "./napi",
+    "happ-node-add-on-api": "./node-addon-api"
+  }
+}
