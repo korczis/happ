@@ -1,0 +1,17 @@
+# Folders
+.idea/
+.vscode/
+.DS_Store
+build/
+node_modules/
+storage/
+Debug/
+Release/
+
+# Files
+*.lock
+*.log
+package-lock.json
+npm-debug.log*
+
+
