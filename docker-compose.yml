@@ -7,9 +7,9 @@ services:
       - "9200:9200"
       - "9300:9300"
     volumes:
-      - ./tmp/elasticsearch:/usr/share/elasticsearch/data
+      - ./storage/elasticsearch:/usr/share/elasticsearch/data
     configs:
-      - source: ./data/elasticsearch/config/elasticsearch.yml
+      - source: ./.docker/config/elasticsearch/config/elasticsearch.yml
         target: /usr/share/elasticsearch/config/elasticsearch.yml
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
@@ -30,7 +30,7 @@ services:
     ports:
       - "5601:5601"
     configs:
-      - source: ./data/kibana/config/kibana.yml
+      - source: ./.docker/config/kibana/config/kibana.yml
         target: /usr/share/kibana/config/kibana.yml
     networks:
       - default
@@ -43,7 +43,7 @@ services:
   postgres:
     image: postgis/postgis
     volumes:
-      - ./tmp/postgres:/var/lib/postgresql/data
+      - ./storage/postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgres
     ports:
@@ -54,8 +54,8 @@ services:
   rabbitmq:
     image: rabbitmq:3-management
     volumes:
-      - ./tmp/rabbitmq/data/:/var/lib/rabbitmq/
-      - ./tmp/rabbitmq/log/:/var/log/rabbitmq
+      - ./storage/rabbitmq/data/:/var/lib/rabbitmq/
+      - ./storage/rabbitmq/log/:/var/log/rabbitmq
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -64,8 +64,8 @@ services:
 
   #############################################################################
 
-  happ:
-    build: .
+  happ-elixir:
+    build: ./happ-elixir
     ports:
       - "4000:4000"
     networks:
