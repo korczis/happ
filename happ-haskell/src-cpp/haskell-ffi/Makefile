@@ -1,6 +1,6 @@
 all:  remove-old-stubs generate-stub create-output-dir build
 
-PROJECT_NAME="kokot"
+PROJECT_NAME="haskell-ffi"
 
 create-output-dir:
 		mkdir -p ./build || true
