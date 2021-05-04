@@ -5,7 +5,7 @@ all: build
 clean:
 		rm -rf .build
 
-build: Sources/happ-swift/main.swift
+build: Sources/happ-swift
 		swift build
 
 run: swift-build
