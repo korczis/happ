@@ -1,5 +1,38 @@
 # Happ
 
+## About
+
+Application for learning, practicing and improving programming skills. 
+This application begun as toy project during my hospitalization.
+There is no specific plan, goal neither roadmap.
+It is just for phone
+
+## Languages
+
+- C
+- C++
+- Elixir
+- Haskell
+- Nodejs
+- Prolog
+- Rust
+
+And more are coming.
+
+## Motivation
+
+
+### Primary
+
+- Show how to implement "Hello World" program in various programming languages
+- How to implement FFI - Foreign Function Interface
+- How to interop between various programming languages
+
+### Secondary
+
+- Learn some more mathematics
+- Learn some more physics
+
 ## Prerequisites
 
 ### C
