@@ -5,7 +5,7 @@
 Application for learning, practicing and improving programming skills. 
 This application begun as toy project during my hospitalization.
 There is no specific plan, goal neither roadmap.
-It is just for phone
+It is just for joy of learning and to have some fun.
 
 ## Motivation
 
