@@ -73,24 +73,24 @@ Used mostly by backend
 * cargo-wasm
 
 
-## Getting Started
+## Building
 
-TODO
+This part expects that all required prerequisites and dependencies are installed.
 
+```$bash
+# Clone sources - githab
+$ git clone https://github.com/korczis/happ
 
-## Run
+# Clone sources - gitlab
+# $ git clone https://gitlab.com/korczis/happ
 
-To start your Phoenix server:
+# Enter folder with sources
+$ cd happ
 
-* Install dependencies with `mix deps.get`
-* Create and migrate your database with `mix ecto.setup`
-* Install Node.js dependencies with `npm install` inside the `assets` directory
-* Start Phoenix endpoint with `mix phx.server`
+# Run top level makefile which builds all subprojects
+$ make
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
+```
 
 ## References
 

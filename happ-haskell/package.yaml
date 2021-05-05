@@ -30,14 +30,14 @@ dependencies:
 - text
 - time
 
-
 library:
   source-dirs: src
 
 executables:
-  happ:
+  happ-hello-world:
     main:                Main.hs
-    source-dirs:         app/happ
+    source-dirs:         app/hello-world
+    output-dir:          bin
     ghc-options:
     - -threaded
     - -rtsopts
@@ -49,7 +49,6 @@ executables:
     - brick
     - repa
     - repa-io
-
 tests:
   happ-test:
     main:                Spec.hs

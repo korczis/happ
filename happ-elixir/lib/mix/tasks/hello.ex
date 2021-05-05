@@ -7,7 +7,7 @@ defmodule Mix.Tasks.Hello do
   Say hello world.
   """
   def run(_args) do
-    IO.puts("Hello World!")
+    IO.puts("Hello, world!")
 
     :ok
   end

@@ -48,6 +48,9 @@ extra-deps:
   - repa-3.4.1.4
   - repa-io-3.4.1.1
 
+#build:
+#  copy-bins: true
+#  local-bin-path: "./bin"
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
@@ -72,3 +75,4 @@ extra-deps:
 #
 # Allow a newer minor version of GHC than the snapshot specifies
 # compiler-check: newer-minor
+
