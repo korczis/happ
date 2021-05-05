@@ -11,9 +11,14 @@ It is just for joy of learning and to have some fun.
 
 ### Primary
 
-- Show how to implement "Hello World" program in various programming languages
-- How to implement FFI - Foreign Function Interface
-- How to interop between various programming languages
+- Implement "Hello World" program in various programming languages
+- Implement FFI - Foreign Function Interface
+- Interop between various programming languages
+- Use language agnostic build system
+- Use best practices
+- Integrate tests
+- Generate documentation
+- Implement profiling
 
 ### Secondary
 
