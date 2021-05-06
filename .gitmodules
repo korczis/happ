@@ -1,0 +1,3 @@
+[submodule "happ-cpp/external/gtest"]
+	path = happ-cpp/external/gtest
+	url = https://github.com/google/googletest.git

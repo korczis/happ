@@ -16,6 +16,7 @@ add_executable(${PROJECT_NAME} ${SRC_PROJECT_HELLO_WORLD})
 
 target_include_directories(${PROJECT_HELLO_WORLD_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/hello-world/include)
 target_include_directories(${PROJECT_HELLO_WORLD_NAME} PUBLIC ${happ_INCLUDE_DIRS})
+
 target_link_directories(${PROJECT_HELLO_WORLD_NAME} PUBLIC ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 target_link_libraries(${PROJECT_HELLO_WORLD_NAME} happ)
 
