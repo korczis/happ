@@ -20,3 +20,5 @@ $(SUBDIRS):
 # -----
 
 .PHONY: $(TOPTARGETS) $(SUBDIRS)
+
+# .DEFAULT_GOAL := all

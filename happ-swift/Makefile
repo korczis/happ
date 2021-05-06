@@ -20,3 +20,5 @@ run: swift-build
 # -----
 
 PHONY: $(TOPTARGETS)
+
+.DEFAULT_GOAL := all

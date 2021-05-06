@@ -56,3 +56,5 @@ node-addon-api-clean: # node-addon-api/build
 # -----
 
 PHONY: $(TOPTARGETS)
+
+.DEFAULT_GOAL := all

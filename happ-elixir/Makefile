@@ -56,3 +56,5 @@ deps-get:
 # -----
 
 PHONY: $(TOPTARGETS)
+
+.DEFAULT_GOAL := all

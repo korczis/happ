@@ -14,3 +14,5 @@ clean:
 # -----
 
 PHONY: $(TOPTARGETS)
+
+.DEFAULT_GOAL := all
