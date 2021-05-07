@@ -72,18 +72,31 @@ let package = Package(
         .library(name: "happ-core-dynamic", type: .dynamic, targets: ["HappCore"]),
         .executable(name: "hello-world-swift", targets: ["HelloWorld"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.4.0"),
+    ],
     targets: [
         .target(
             name: "HappCore",
             dependencies: [
             ],
             path: "Sources/Core"),
+        .testTarget(
+            name: "HappCoreTests",
+            dependencies: [
+                "HappCore"
+            ]),
         .target(
             name: "HelloWorld",
             dependencies: [
                 .target(name: "HappCore"),
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ],
-            path: "Sources/HelloWorld")
+            path: "Sources/HelloWorld"),
+        .testTarget(
+            name: "HelloWorldTests",
+            dependencies: [
+                "HelloWorld"
+            ])
     ]
 )

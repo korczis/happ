@@ -1,8 +1,20 @@
 import XCTest
 import class Foundation.Bundle
 
-final class happ_swiftTests: XCTestCase {
-    func testExample() throws {
+final class HelloWorldTests: XCTestCase {
+    /// Returns path to the built products directory.
+    var productsDirectory: URL {
+      #if os(macOS)
+        for bundle in Bundle.allBundles where bundle.bundlePath.hasSuffix(".xctest") {
+            return bundle.bundleURL.deletingLastPathComponent()
+        }
+        fatalError("couldn't find the products directory")
+      #else
+        return Bundle.main.bundleURL
+      #endif
+    }
+
+    func testBinaryExecution() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
@@ -12,10 +24,10 @@ final class happ_swiftTests: XCTestCase {
             return
         }
 
-        let fooBinary = productsDirectory.appendingPathComponent("happ-swift")
+        let binary = productsDirectory.appendingPathComponent("hello-world-swift")
 
         let process = Process()
-        process.executableURL = fooBinary
+        process.executableURL = binary
 
         let pipe = Pipe()
         process.standardOutput = pipe
@@ -29,19 +41,7 @@ final class happ_swiftTests: XCTestCase {
         XCTAssertEqual(output, "Hello, world!\n")
     }
 
-    /// Returns path to the built products directory.
-    var productsDirectory: URL {
-      #if os(macOS)
-        for bundle in Bundle.allBundles where bundle.bundlePath.hasSuffix(".xctest") {
-            return bundle.bundleURL.deletingLastPathComponent()
-        }
-        fatalError("couldn't find the products directory")
-      #else
-        return Bundle.main.bundleURL
-      #endif
-    }
-
     static var allTests = [
-        ("testExample", testExample),
+        ("Test Binary Execution", testBinaryExecution),
     ]
 }
