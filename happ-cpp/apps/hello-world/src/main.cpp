@@ -1,7 +1,7 @@
 #include<cstdlib>
 #include<iostream>
 
-#include "lib.h"
+#include "happ.h"
 #include "main.h"
 
 using namespace happ;
