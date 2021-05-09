@@ -5,11 +5,10 @@ mod util;
 
 extern crate meval;
 
-use meval::{Expr, Context};
+use meval::{Context, ContextProvider};
 use regex::Regex;
-use std::borrow::Borrow;
 
-use std::{error::Error, io};
+use std::{error::Error, io, time::Duration};
 
 use termion::{
     event::Key,
@@ -28,6 +27,7 @@ use tui::{
 };
 
 use util::{
+    event::Config,
     event::Event,
     event::Events,
 };
@@ -50,7 +50,7 @@ struct App {
     input_mode: InputMode,
 
     /// History of recorded messages
-    messages: Vec<(String, Result<f64, String>)>,
+    results: Vec<(String, Result<f64, String>)>,
 
     /// Math context
     math_context: meval::Context<'static>
@@ -58,14 +58,12 @@ struct App {
 
 impl Default for App {
     fn default() -> App {
-        let mut context = Context::new();
-        context
-            .var("a", 3.);
+        let context = Context::new();
 
         App {
             input: String::new(),
             input_mode: InputMode::Normal,
-            messages: Vec::new(),
+            results: Vec::new(),
             math_context: context
         }
     }
@@ -116,33 +114,14 @@ fn handle_input(app: &mut App, events: &mut Events) -> Result<bool, std::sync::m
                         }
                     };
 
-                    // match re.is_match(&mut expression) {
-                    //     true => {
-                    //         for cap in re.captures_iter(&mut expression) {
-                    //             let variable_name = &cap[2];
-                    //             let varable_expresion = &cap[3];
-                    //
-                    //             // println!("FOUND: {} = {}", , variable_name, varable_expresion)
-                    //
-                    //             match meval::eval_str_with_context(varable_expresion.clone(), &mut app.math_context) {
-                    //                 Ok(result) => {
-                    //                     app.math_context
-                    //                         .var(variable_name, result);
-                    //                     expression = variable_name.to_string();
-                    //                 }
-                    //                 _ => {}
-                    //             }
-                    //         }
-                    //     }
-                    //     false => expression
-                    // }
+                    app.math_context.get_vars();
 
                     match meval::eval_str_with_context(expression.clone(), &mut app.math_context) {
                         Ok(result) => {
-                            app.messages.push((expression, Ok(result)));
+                            app.results.push((expression, Ok(result)));
                         }
                         Err(err) => {
-                            app.messages.push((expression, Err(err.to_string())));
+                            app.results.push((expression, Err(err.to_string())));
                         }
                     }
 
@@ -166,11 +145,50 @@ fn handle_input(app: &mut App, events: &mut Events) -> Result<bool, std::sync::m
     Result::Ok(true)
 }
 
+fn render_body<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
+    where
+        B: Backend,
+{
+    let chunks = Layout::default()
+        .constraints([
+            Constraint::Percentage(80),
+            Constraint::Percentage(20)
+        ].as_ref())
+        .direction(Direction::Horizontal)
+        .split(area);
+
+    render_results(app, frame, chunks[0]);
+    render_internals(app, frame, chunks[1]);
+}
+
+fn render_functions<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
+    where
+        B: Backend,
+{
+    let mut functions = app.math_context.get_funcs();
+    functions.sort();
+
+    let lines: Vec<ListItem> = functions
+        .iter()
+        .map(|name| {
+            let line = Spans::from(Span::raw(format!("{}", name)));
+
+            ListItem::new(vec![line])
+        })
+        .collect();
+
+    let widget = List::new(lines)
+        .block(Block::default()
+        .borders(Borders::ALL)
+        .title("Functions"));
+
+    frame.render_widget(widget, area);
+}
+
 fn render_help<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
     where
         B: Backend,
 {
-
     let (msg, style) = match app.input_mode {
         InputMode::Normal => (
             vec![
@@ -208,6 +226,23 @@ fn render_help<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
 
     frame.render_widget(widget, area);
 }
+
+fn render_internals<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
+    where
+        B: Backend,
+{
+    let chunks = Layout::default()
+        .constraints([
+            Constraint::Percentage(20),
+            Constraint::Percentage(80)
+        ].as_ref())
+        .direction(Direction::Vertical)
+        .split(area);
+
+    render_variables(app, frame, chunks[0]);
+    render_functions(app, frame, chunks[1]);
+}
+
 fn render_input_field<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
     where
         B: Backend,
@@ -240,13 +275,13 @@ fn render_input_field<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
     }
 }
 
-fn render_messages<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
+fn render_results<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
     where
         B: Backend,
 {
-    let messages = &app.messages;
+    let results = &app.results;
 
-    let lines: Vec<ListItem> = messages
+    let lines: Vec<ListItem> = results
         .iter()
         .rev()
         .enumerate()
@@ -255,12 +290,12 @@ fn render_messages<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
             let (expression, result) = m;
             let content = match result {
                 Ok(value) => {
-                    Spans::from(Span::raw(format!("{}: {} = {}", messages.len() - i, expression, value)))
+                    Spans::from(Span::raw(format!("{}: {} = {}", results.len() - i, expression, value)))
                 }
                 Err(err) => {
                     let style = Style::default().fg(Color::Red);
                     Spans::from(
-                        Span::styled(format!("{}: {} = {}", messages.len() - i, expression, err), style)
+                        Span::styled(format!("{}: {} = {}", results.len() - i, expression, err), style)
 
                     )
                 }
@@ -272,8 +307,8 @@ fn render_messages<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
 
     let widget = List::new(lines)
         .block(Block::default()
-        .borders(Borders::ALL)
-        .title("Results"));
+            .borders(Borders::ALL)
+            .title("Results"));
 
     frame.render_widget(widget, area);
 }
@@ -296,6 +331,40 @@ fn setup_layout<B>(frame: &mut tui::Frame<B>) -> Vec<Rect>
         .split(frame.size())
 }
 
+fn render_variables<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
+    where
+        B: Backend,
+{
+
+    let variables = app.math_context.get_vars();
+    let mut variable_names: Vec<String> = variables
+        .keys()
+        .enumerate()
+        .map(| pair| {
+            let (_, name) = pair;
+            name.clone()
+        })
+        .collect();
+    variable_names.sort();
+
+    let lines: Vec<ListItem> = variable_names
+        .iter()
+        .map(|name| {
+            let value = app.math_context.get_var(&name).unwrap();
+            let line = Spans::from(Span::raw(format!("{} = {}", name, value)));
+
+            ListItem::new(vec![line])
+        })
+        .collect();
+
+    let widget = List::new(lines)
+        .block(Block::default()
+            .borders(Borders::ALL)
+            .title("Variables"));
+
+    frame.render_widget(widget, area);
+}
+
 fn main()  -> Result<(), Box<dyn Error>>  {
      // Terminal initialization
     let stdout = io::stdout().into_raw_mode()?;
@@ -305,13 +374,25 @@ fn main()  -> Result<(), Box<dyn Error>>  {
     let mut terminal = tui::Terminal::new(backend)?;
 
     // Setup event handlers
-    let mut events = Events::new();
+    let mut events = Events::with_config(Config {
+        tick_rate: Duration::from_millis(33),
+        ..Config::default()
+    });
 
     // Create default app state
     let mut app = App::default();
 
+    println!("Functions");
+    println!("{:?}", app.math_context.get_funcs().len());
+
     // Main loop
     loop {
+        // println!("Functions");
+        // println!("{:?}", app.math_context.get_funcs());
+
+        // println!("Variables");
+        // println!("{:?}", app.math_context.get_vars());
+
         // Draw UI
         terminal.draw(|frame| {
             // Specify chunks
@@ -321,7 +402,7 @@ fn main()  -> Result<(), Box<dyn Error>>  {
             render_input_field(&mut app, frame, chunks[0]);
 
             // Render messages
-            render_messages(&mut app, frame, chunks[1]);
+            render_body(&mut app, frame, chunks[1]);
 
             // Render help
             render_help(&mut app, frame, chunks[2]);
