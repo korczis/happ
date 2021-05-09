@@ -168,7 +168,7 @@ where
 
     let widget = List::new(lines).block(
         Block::default().borders(Borders::ALL).title(Span::styled(
-            "Results",
+            "Functions",
             Style::default()
                 // .fg(Color::Green)
                 .add_modifier(Modifier::BOLD),
@@ -242,7 +242,7 @@ where
         })
         .block(
             Block::default().borders(Borders::ALL).title(Span::styled(
-                "Functions",
+                "Expression",
                 Style::default()
                     // .fg(Color::Green)
                     .add_modifier(Modifier::BOLD),
