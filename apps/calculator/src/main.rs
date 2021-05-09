@@ -26,11 +26,7 @@ use tui::{
     widgets::{Block, Borders, List, ListItem, Paragraph},
 };
 
-use util::{
-    event::Config,
-    event::Event,
-    event::Events,
-};
+use util::{event::Config, event::Event, event::Events};
 
 use unicode_width::UnicodeWidthStr;
 
@@ -53,7 +49,7 @@ struct App {
     results: Vec<(String, Result<f64, String>)>,
 
     /// Math context
-    math_context: meval::Context<'static>
+    math_context: meval::Context<'static>,
 }
 
 impl Default for App {
@@ -64,7 +60,7 @@ impl Default for App {
             input: String::new(),
             input_mode: InputMode::Normal,
             results: Vec::new(),
-            math_context: context
+            math_context: context,
         }
     }
 }
@@ -79,9 +75,7 @@ fn handle_input(app: &mut App, events: &mut Events) -> Result<bool, std::sync::m
                     app.input_mode = InputMode::Editing;
                     events.disable_exit_key();
                 }
-                Key::Char('q') => {
-                    return Result::Ok(false)
-                }
+                Key::Char('q') => return Result::Ok(false),
                 _ => {}
             },
             InputMode::Editing => match input {
@@ -100,18 +94,18 @@ fn handle_input(app: &mut App, events: &mut Events) -> Result<bool, std::sync::m
                             let variable_name = &caps[2];
                             let varable_expresion = &caps[3];
 
-                            match meval::eval_str_with_context(varable_expresion.clone(), &mut app.math_context) {
+                            match meval::eval_str_with_context(
+                                varable_expresion.clone(),
+                                &mut app.math_context,
+                            ) {
                                 Ok(result) => {
-                                    app.math_context
-                                        .var(variable_name, result);
+                                    app.math_context.var(variable_name, result);
                                     variable_name.to_string()
                                 }
-                                _ => expression
+                                _ => expression,
                             }
                         }
-                        None => {
-                            expression
-                        }
+                        None => expression,
                     };
 
                     app.math_context.get_vars();
@@ -124,8 +118,6 @@ fn handle_input(app: &mut App, events: &mut Events) -> Result<bool, std::sync::m
                             app.results.push((expression, Err(err.to_string())));
                         }
                     }
-
-
                 }
                 Key::Char(c) => {
                     app.input.push(c);
@@ -146,14 +138,11 @@ fn handle_input(app: &mut App, events: &mut Events) -> Result<bool, std::sync::m
 }
 
 fn render_body<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
-    where
-        B: Backend,
+where
+    B: Backend,
 {
     let chunks = Layout::default()
-        .constraints([
-            Constraint::Percentage(80),
-            Constraint::Percentage(20)
-        ].as_ref())
+        .constraints([Constraint::Percentage(80), Constraint::Percentage(20)].as_ref())
         .direction(Direction::Horizontal)
         .split(area);
 
@@ -162,8 +151,8 @@ fn render_body<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
 }
 
 fn render_functions<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
-    where
-        B: Backend,
+where
+    B: Backend,
 {
     let mut functions = app.math_context.get_funcs();
     functions.sort();
@@ -177,17 +166,21 @@ fn render_functions<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
         })
         .collect();
 
-    let widget = List::new(lines)
-        .block(Block::default()
-        .borders(Borders::ALL)
-        .title("Functions"));
+    let widget = List::new(lines).block(
+        Block::default().borders(Borders::ALL).title(Span::styled(
+            "Results",
+            Style::default()
+                // .fg(Color::Green)
+                .add_modifier(Modifier::BOLD),
+        )),
+    );
 
     frame.render_widget(widget, area);
 }
 
 fn render_help<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
-    where
-        B: Backend,
+where
+    B: Backend,
 {
     let (msg, style) = match app.input_mode {
         InputMode::Normal => (
@@ -218,24 +211,19 @@ fn render_help<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
     let widget = Paragraph::new(text)
         .style(match app.input_mode {
             InputMode::Normal => Style::default(),
-            InputMode::Editing => Style::default() // .fg(Color::Yellow),
+            InputMode::Editing => Style::default(), // .fg(Color::Yellow),
         })
-        .block(Block::default()
-            .borders(Borders::ALL)
-            .title("Help"));
+        .block(Block::default().borders(Borders::ALL).title("Help"));
 
     frame.render_widget(widget, area);
 }
 
 fn render_internals<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
-    where
-        B: Backend,
+where
+    B: Backend,
 {
     let chunks = Layout::default()
-        .constraints([
-            Constraint::Percentage(20),
-            Constraint::Percentage(80)
-        ].as_ref())
+        .constraints([Constraint::Percentage(20), Constraint::Percentage(80)].as_ref())
         .direction(Direction::Vertical)
         .split(area);
 
@@ -244,23 +232,27 @@ fn render_internals<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
 }
 
 fn render_input_field<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
-    where
-        B: Backend,
+where
+    B: Backend,
 {
     let widget = Paragraph::new(app.input.as_ref())
         .style(match app.input_mode {
             InputMode::Normal => Style::default(),
             InputMode::Editing => Style::default().fg(Color::Yellow),
         })
-        .block(Block::default()
-        .borders(Borders::ALL)
-        .title("Expression"));
-
+        .block(
+            Block::default().borders(Borders::ALL).title(Span::styled(
+                "Functions",
+                Style::default()
+                    // .fg(Color::Green)
+                    .add_modifier(Modifier::BOLD),
+            )),
+        );
     frame.render_widget(widget, area);
 
     match app.input_mode {
         InputMode::Normal =>
-        // Hide the cursor. `Frame` does this by default, so we don't need to do anything here
+            // Hide the cursor. `Frame` does this by default, so we don't need to do anything here
             {}
 
         InputMode::Editing => {
@@ -276,8 +268,8 @@ fn render_input_field<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
 }
 
 fn render_results<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
-    where
-        B: Backend,
+where
+    B: Backend,
 {
     let results = &app.results;
 
@@ -289,15 +281,18 @@ fn render_results<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
             // let content = vec![Spans::from(Span::raw(format!("{}: {}", messages.len() - i, m)))];
             let (expression, result) = m;
             let content = match result {
-                Ok(value) => {
-                    Spans::from(Span::raw(format!("{}: {} = {}", results.len() - i, expression, value)))
-                }
+                Ok(value) => Spans::from(Span::raw(format!(
+                    "{}: {} = {}",
+                    results.len() - i,
+                    expression,
+                    value
+                ))),
                 Err(err) => {
                     let style = Style::default().fg(Color::Red);
-                    Spans::from(
-                        Span::styled(format!("{}: {} = {}", results.len() - i, expression, err), style)
-
-                    )
+                    Spans::from(Span::styled(
+                        format!("{}: {} = {}", results.len() - i, expression, err),
+                        style,
+                    ))
                 }
             };
 
@@ -305,17 +300,21 @@ fn render_results<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
         })
         .collect();
 
-    let widget = List::new(lines)
-        .block(Block::default()
-            .borders(Borders::ALL)
-            .title("Results"));
+    let widget = List::new(lines).block(
+        Block::default().borders(Borders::ALL).title(Span::styled(
+            "Results",
+            Style::default()
+                // .fg(Color::Green)
+                .add_modifier(Modifier::BOLD),
+        )),
+    );
 
     frame.render_widget(widget, area);
 }
 
 fn setup_layout<B>(frame: &mut tui::Frame<B>) -> Vec<Rect>
-    where
-        B: Backend,
+where
+    B: Backend,
 {
     Layout::default()
         .direction(Direction::Vertical)
@@ -326,21 +325,20 @@ fn setup_layout<B>(frame: &mut tui::Frame<B>) -> Vec<Rect>
                 Constraint::Min(1),
                 Constraint::Length(3),
             ]
-                .as_ref(),
+            .as_ref(),
         )
         .split(frame.size())
 }
 
 fn render_variables<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
-    where
-        B: Backend,
+where
+    B: Backend,
 {
-
     let variables = app.math_context.get_vars();
     let mut variable_names: Vec<String> = variables
         .keys()
         .enumerate()
-        .map(| pair| {
+        .map(|pair| {
             let (_, name) = pair;
             name.clone()
         })
@@ -357,16 +355,20 @@ fn render_variables<B>(app: &mut App, frame: &mut tui::Frame<B>, area: Rect)
         })
         .collect();
 
-    let widget = List::new(lines)
-        .block(Block::default()
-            .borders(Borders::ALL)
-            .title("Variables"));
+    let widget = List::new(lines).block(
+        Block::default().borders(Borders::ALL).title(Span::styled(
+            "Variables",
+            Style::default()
+                // .fg(Color::Green)
+                .add_modifier(Modifier::BOLD),
+        )),
+    );
 
     frame.render_widget(widget, area);
 }
 
-fn main()  -> Result<(), Box<dyn Error>>  {
-     // Terminal initialization
+fn main() -> Result<(), Box<dyn Error>> {
+    // Terminal initialization
     let stdout = io::stdout().into_raw_mode()?;
     let stdout = MouseTerminal::from(stdout);
     let stdout = termion::screen::AlternateScreen::from(stdout);
@@ -381,9 +383,6 @@ fn main()  -> Result<(), Box<dyn Error>>  {
 
     // Create default app state
     let mut app = App::default();
-
-    println!("Functions");
-    println!("{:?}", app.math_context.get_funcs().len());
 
     // Main loop
     loop {
@@ -413,7 +412,7 @@ fn main()  -> Result<(), Box<dyn Error>>  {
             Ok(false) => break,
             _ => {}
         }
-    };
+    }
 
     Ok(())
 }
