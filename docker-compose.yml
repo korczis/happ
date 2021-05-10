@@ -65,7 +65,7 @@ services:
   #############################################################################
 
   happ-elixir:
-    build: ./happ-elixir
+    build: ./examples/happ-elixir
     ports:
       - "4000:4000"
     networks:

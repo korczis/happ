@@ -5,6 +5,7 @@
 build/
 node_modules/
 storage/
+target/
 Debug/
 Release/
 
@@ -14,5 +15,4 @@ Release/
 package-lock.json
 npm-debug.log*
 
-
-/bin/
+bin/
