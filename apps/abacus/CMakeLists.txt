@@ -1,4 +1,4 @@
-    cmake_minimum_required(VERSION 3.5)
+        cmake_minimum_required(VERSION 3.5)
 
 project(abacus VERSION 0.1 LANGUAGES CXX)
 
@@ -28,6 +28,7 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 set(PROJECT_HEADERS
+        evaluator.h
         exprtk.h
         mainwindow.h
 )
@@ -53,7 +54,9 @@ else()
         )
     else()
         add_executable(abacus
-            ${PROJECT_HEADERS} ${PROJECT_SOURCES} ${PROJECT_UIS}
+            ${PROJECT_UIS}
+            ${PROJECT_HEADERS}
+            ${PROJECT_SOURCES}
         )
     endif()
 endif()

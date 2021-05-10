@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "./evaluator.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -20,5 +22,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Evaluator<double>* evaluator;
 };
 #endif // MAINWINDOW_H
