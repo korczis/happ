@@ -1,0 +1,109 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           happ
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/happ#readme>
+homepage:       https://github.com/korczis/happ#readme
+bug-reports:    https://github.com/korczis/happ/issues
+author:         Tomas Korcak
+maintainer:     korczis@gmail.com
+copyright:      2021 Tomas Korcak
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/korczis/happ
+
+library
+  exposed-modules:
+      Basic
+      Cards
+      FFI
+      Lib
+      Math.Calculus
+      Math.Core
+      Math.Geometry
+      Math.Playground
+      Math.Type
+      Misc
+      Safe
+  other-modules:
+      Paths_happ
+  hs-source-dirs:
+      src
+  build-depends:
+      acme-missiles
+    , array
+    , base >=4.7 && <5
+    , containers
+    , filepath
+    , random
+    , text
+    , time
+  default-language: Haskell2010
+
+executable happ-hello-world
+  main-is: Main.hs
+  other-modules:
+      Paths_happ
+  hs-source-dirs:
+      app/hello-world
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      accelerate
+    , accelerate-io
+    , acme-missiles
+    , array
+    , base >=4.7 && <5
+    , brick
+    , containers
+    , filepath
+    , happ
+    , random
+    , repa
+    , repa-io
+    , text
+    , time
+  default-language: Haskell2010
+
+test-suite happ-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      BasicTests
+      CardsTests
+      External.AccelerateTests
+      External.RepaTests
+      Math.CalculusTests
+      Math.CoreTests
+      Math.GeometryTests
+      MiscTests
+      Paths_happ
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , accelerate
+    , acme-missiles
+    , array
+    , base >=4.7 && <5
+    , containers
+    , filepath
+    , happ
+    , random
+    , repa
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+  default-language: Haskell2010

@@ -1,0 +1,13 @@
+[package]
+name = "happ-hello-world"
+version = "0.1.0"
+authors = ["Tomas Korcak <korczis@gmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "hello-world-rust"
+path = "src/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
