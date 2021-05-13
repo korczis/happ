@@ -11,5 +11,6 @@ import MapKit
 // MARK: LocationState
 
 struct LocationState {
-    var currentLocation: CLLocation = CLLocation()
+    var lastKnownLocation: CLLocation = CLLocation()
+    var locationManager: CLLocationManager = CLLocationManager()
 }

@@ -13,38 +13,19 @@ import ReSwift
 
 struct MapView: UIViewRepresentable
 {
-    @State var map: MKMapView = MKMapView()
     @ObservedObject var state: ObservableState<AppState>
-    
+    @State var map: MKMapView = MKMapView() // (frame: UIScreen.main.bounds)
+        
     func makeUIView(context: Context) -> MKMapView {
-        // Map
+        // dump(self, name: "MapView - makeUIView");
+        
+        // MARK: Global Map Settings
         map.delegate = context.coordinator
         map.showsCompass = false
-        map.showsScale = true
+        map.showsScale = false
         map.isRotateEnabled = true
         map.showsUserLocation = true
-
-        // Compass
-        let compassBtn = MKCompassButton(mapView: map)
-        map.addSubview(compassBtn)
-
-        compassBtn.compassVisibility = .visible
-        compassBtn.translatesAutoresizingMaskIntoConstraints = false
-        compassBtn.topAnchor.constraint(equalTo: map.topAnchor, constant: 12).isActive = true
-        compassBtn.trailingAnchor.constraint(equalTo: map.trailingAnchor, constant: -12).isActive = true
-
-
-        // Zoom controll
-        let zoomControll = MKScaleView(mapView: map)
-        map.addSubview(zoomControll)
-
-        zoomControll.scaleVisibility = .visible
-        zoomControll.translatesAutoresizingMaskIntoConstraints = false
-        zoomControll.topAnchor.constraint(equalTo: map.topAnchor, constant: 12).isActive = true
-        // zoomControll.trailingAnchor.constraint(equalTo: map.trailingAnchor, constant: -12).isActive = true
-        zoomControll.leftAnchor.constraint(equalTo: map.leftAnchor, constant: 12).isActive = true
-
-
+                       
         // Return created map
         return map
     }
@@ -55,6 +36,8 @@ struct MapView: UIViewRepresentable
     }
 
     func makeCoordinator() -> Coordinator {
+        // dump(self, name: "MapView - makeCoordinator");
+        
         return Coordinator(state)
     }
     

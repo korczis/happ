@@ -12,7 +12,6 @@ import ReSwift
 
 struct AppState {
     var location: LocationState = LocationState()
-    var map: MapState = MapState()
 }
 
 // MARK: ObservableState

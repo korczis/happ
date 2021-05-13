@@ -12,8 +12,8 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
     var state = state ?? AppState()
 
     switch action {
-    case let action as SetMapCenter:
-        state.map.center = action.location
+    case let action as SetLastKnownLocation:
+        state.location.lastKnownLocation = action.location
         
     default:
         break

@@ -9,6 +9,6 @@ import Foundation
 import MapKit
 import ReSwift
 
-struct SetLastLocation: Action {
+struct SetLastKnownLocation: Action {
     var location: CLLocation
 }

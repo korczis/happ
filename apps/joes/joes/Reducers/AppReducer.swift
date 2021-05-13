@@ -11,11 +11,13 @@ import ReSwift
 func appReducer(action: Action, state: AppState?) -> AppState {
     var state = state ?? AppState()
 
+    print("AppState - Before reducing, action: \(action), state: \(state)")
+    
     // MARK: LocationReducer
     state = locationReducer(action: action, state: state)
     
     // Print  ActionState
-    dump(state, name: "AppState")
+    print("AppState - After reducing, state: \(state)")
     
     // Return ActionState
     return state
