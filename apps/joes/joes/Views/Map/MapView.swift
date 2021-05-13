@@ -9,10 +9,11 @@ import SwiftUI
 import Foundation
 import CoreLocation
 import MapKit
+import ReSwift
 
 struct MapView: UIViewRepresentable
 {
-    let map: MKMapView = MKMapView()
+    @State var map: MKMapView = MKMapView()
     @ObservedObject var state: ObservableState<AppState>
     
     func makeUIView(context: Context) -> MKMapView {
@@ -21,6 +22,7 @@ struct MapView: UIViewRepresentable
         map.showsCompass = false
         map.showsScale = true
         map.isRotateEnabled = true
+        map.showsUserLocation = true
 
         // Compass
         let compassBtn = MKCompassButton(mapView: map)
@@ -48,26 +50,24 @@ struct MapView: UIViewRepresentable
     }
 
     func updateUIView(_ view: MKMapView, context: Context) {
-
+        // map.setCenter(state.current.location.currentLocation.coordinate, animated: true)
+        // map.setCenter(state.current.map.center, animated: true)
     }
 
     func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
+        return Coordinator(state)
     }
-    
-    // -----
-
-    private func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
-    }
-    
-    // -----
-
     
 }
 
-//struct MapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MapViewRaw()
-//    }
-//}
+struct MapView_Previews: PreviewProvider {
+    static let previewStore = Store<AppState>(
+        reducer: appReducer,
+        state: nil
+    )
+    
+    static var previews: some View {
+        let state = ObservableState(store: mainStore)
+        MapView(state: state)
+    }
+}

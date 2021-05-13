@@ -12,7 +12,7 @@ import ReSwift
 
 // Global store instance
 let mainStore = Store<AppState>(
-    reducer: counterReducer,
+    reducer: appReducer,
     state: nil
 )
 
@@ -64,23 +64,7 @@ struct ContentView: View {
             }
 
         }
-    
-//    var body: some View {
-//            NavigationView {
-//                VStack(spacing: 30) {
-//                    Text("You're going to flip a coin – do you want to choose heads or tails?")
-//
-//                    NavigationLink(destination: MapView()) {
-//                        Text("Map")
-//                    }
-//
-//                    NavigationLink(destination: SettingsView()) {
-//                        Text("Settings")
-//                    }
-//                }
-//                .navigationBarTitle("Home", displayMode: .inline)
-//            }
-//        }
+
     
 //    var body: some View {
 //       VStack {
@@ -92,35 +76,6 @@ struct ContentView: View {
 //               Text("Decrease")
 //           }
 //       }
-//    }
-    
-//    var body: some View {
-//        // Map(coordinateRegion: state.current.map)
-//        Map(coordinateRegion: $region)
-//            .navigationTitle("Joes")
-//            .toolbar {
-//                ToolbarItemGroup(placement: .bottomBar) {
-//                    Button(action: {
-//                        print("Map button was tapped")
-//                    }) {
-//                        HStack(spacing: 10) {
-//                            Image(systemName: "map")
-//                            Text("Map")
-//                        }
-//                    }
-//
-//                    Spacer()
-//
-//                    Button(action: {
-//                        print("Settings button was tapped")
-//                    }) {
-//                        HStack(spacing: 10) {
-//                            Image(systemName: "gear")
-//                            Text("Settings")
-//                        }
-//                    }
-//                }
-//            }
 //    }
 }
 

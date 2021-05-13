@@ -6,21 +6,13 @@
 //
 
 import Foundation
-import MapKit
 import ReSwift
-
-// MARK: MapState
-
-struct MapState {
-    var locationManager: CLLocationManager = CLLocationManager()
-}
 
 // MARK: AppState
 
 struct AppState {
-    var counter: Int = 0
+    var location: LocationState = LocationState()
     var map: MapState = MapState()
-
 }
 
 // MARK: ObservableState
@@ -54,7 +46,7 @@ public class ObservableState<T>: ObservableObject {
         store.dispatch(action)
     }
 
-    public func dispatch(_ action: Action) -> () -> Void {
+    private func dispatch(_ action: Action) -> () -> Void {
         {
             self.store.dispatch(action)
         }
