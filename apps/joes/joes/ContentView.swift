@@ -9,35 +9,12 @@
 import SwiftUI
 import ReSwift
 
-// MARK: ReSwift Example Setup
 
-struct AppState {
-    var counter: Int = 0
-}
-
-struct CounterActionIncrease: Action {}
-struct CounterActionDecrease: Action {}
-
-func counterReducer(action: Action, state: AppState?) -> AppState {
-    var state = state ?? AppState()
-
-    switch action {
-    case _ as CounterActionIncrease:
-        state.counter += 1
-    case _ as CounterActionDecrease:
-        state.counter -= 1
-    default:
-        break
-    }
-
-    return state
-}
-
+// Global store instance
 let mainStore = Store<AppState>(
     reducer: counterReducer,
     state: nil
 )
-
 
 struct ContentView: View {
     // MARK: Private Properties
@@ -50,7 +27,7 @@ struct ContentView: View {
             TabView {
                 // Map
                 NavigationView{
-                    MapView()
+                    MapView(state: self.state)
                         .navigationBarTitle("Map", displayMode: .inline)
                 }
                 .tabItem {
@@ -64,7 +41,6 @@ struct ContentView: View {
                 NavigationView{
                     DataView()
                         .navigationBarTitle("Data", displayMode: .inline)
-                        .frame(width: 80, height: 80, alignment: .topLeading)
                 }
                 .tabItem {
                     VStack{
@@ -151,55 +127,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-
-// MARK: ObservableState
-
-public class ObservableState<T>: ObservableObject {
-
-    // MARK: Public properties
-
-    @Published public var current: T
-
-    // MARK: Private properties
-
-    private var store: Store<T>
-
-    // MARK: Lifecycle
-
-    public init(store: Store<T>) {
-        self.store = store
-        self.current = store.state
-
-        store.subscribe(self)
-    }
-
-    deinit {
-        store.unsubscribe(self)
-    }
-
-    // MARK: Public methods
-
-    public func dispatch(_ action: Action) {
-        store.dispatch(action)
-    }
-
-    public func dispatch(_ action: Action) -> () -> Void {
-        {
-            self.store.dispatch(action)
-        }
-    }
-}
-
-extension ObservableState: StoreSubscriber {
-
-    // MARK: - <StoreSubscriber>
-
-    public func newState(state: T) {
-        DispatchQueue.main.async {
-            self.current = state
-        }
     }
 }
