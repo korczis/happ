@@ -42,6 +42,10 @@
 		8BDD63CD264D256500249855 /* LocationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63CC264D256500249855 /* LocationActions.swift */; };
 		8BDD63D1264D264000249855 /* LocationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63D0264D264000249855 /* LocationReducer.swift */; };
 		8BFBF78A264DCF1A005F422E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBF789264DCF1A005F422E /* MapViewController.swift */; };
+		8BFBF883264DDA89005F422E /* Mapbox.framework in Embed Frameworks (2 items) */ = {isa = PBXBuildFile; fileRef = 8BFBF87E264DDA26005F422E /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8BFBF888264DDF94005F422E /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFBF887264DDF94005F422E /* Mapbox.framework */; };
+		8BFBF88A264DDFA2005F422E /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFBF889264DDFA2005F422E /* MapboxMobileEvents.framework */; };
+		8BFBF88B264DDFE8005F422E /* MapboxMobileEvents.framework in Embed Frameworks (2 items) */ = {isa = PBXBuildFile; fileRef = 8BFBF880264DDA2D005F422E /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +116,18 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BFBF884264DDA8A005F422E /* Embed Frameworks (2 items) */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8BFBF88B264DDFE8005F422E /* MapboxMobileEvents.framework in Embed Frameworks (2 items) */,
+				8BFBF883264DDA89005F422E /* Mapbox.framework in Embed Frameworks (2 items) */,
+			);
+			name = "Embed Frameworks (2 items)";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +173,10 @@
 		8BDD63CC264D256500249855 /* LocationActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationActions.swift; sourceTree = "<group>"; };
 		8BDD63D0264D264000249855 /* LocationReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReducer.swift; sourceTree = "<group>"; };
 		8BFBF789264DCF1A005F422E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = joes/State/MapViewController.swift; sourceTree = SOURCE_ROOT; };
+		8BFBF87E264DDA26005F422E /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = joes/Frameworks/Mapbox.framework; sourceTree = "<group>"; };
+		8BFBF880264DDA2D005F422E /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = joes/Frameworks/MapboxMobileEvents.framework; sourceTree = "<group>"; };
+		8BFBF887264DDF94005F422E /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Frameworks/Mapbox.framework; sourceTree = "<group>"; };
+		8BFBF889264DDFA2005F422E /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = Frameworks/MapboxMobileEvents.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +190,8 @@
 				8B17F423264DCA2F006169F4 /* CSV in Frameworks */,
 				8BDD6397264BE63300249855 /* ReSwift in Frameworks */,
 				8BDD63AB264BE78B00249855 /* RxBlocking in Frameworks */,
+				8BFBF888264DDF94005F422E /* Mapbox.framework in Frameworks */,
+				8BFBF88A264DDFA2005F422E /* MapboxMobileEvents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,8 +243,8 @@
 				8B0F4A67264B1723006E6807 /* joes WatchKit Extension */,
 				8B0F4A80264B1724006E6807 /* joes WatchKit AppTests */,
 				8B0F4A8B264B1724006E6807 /* joes WatchKit AppUITests */,
-				8B17F429264DCE23006169F4 /* Frameworks */,
 				8B0F4A33264B1720006E6807 /* Products */,
+				8BFBF7E2264DD7EF005F422E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -333,13 +355,6 @@
 			path = "joes WatchKit AppUITests";
 			sourceTree = "<group>";
 		};
-		8B17F429264DCE23006169F4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 		8BDD63B6264D00EB00249855 /* State */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,17 +418,40 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		8BFBF7E2264DD7EF005F422E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BFBF889264DDFA2005F422E /* MapboxMobileEvents.framework */,
+				8BFBF887264DDF94005F422E /* Mapbox.framework */,
+				8BFBF880264DDA2D005F422E /* MapboxMobileEvents.framework */,
+				8BFBF87E264DDA26005F422E /* Mapbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8BFBF78F264DD58C005F422E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		8B0F4A31264B1720006E6807 /* joes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B0F4A99264B1724006E6807 /* Build configuration list for PBXNativeTarget "joes" */;
 			buildPhases = (
+				8BFBF78F264DD58C005F422E /* Headers */,
 				8B0F4A2E264B1720006E6807 /* Sources */,
 				8B0F4A2F264B1720006E6807 /* Frameworks */,
 				8B0F4A30264B1720006E6807 /* Resources */,
 				8B0F4A98264B1724006E6807 /* Embed Watch Content */,
+				8BFBF884264DDA8A005F422E /* Embed Frameworks (2 items) */,
 			);
 			buildRules = (
 			);
@@ -801,6 +839,7 @@
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -819,6 +858,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "";
@@ -865,6 +905,7 @@
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -876,6 +917,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "";
@@ -972,10 +1014,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				DEVELOPMENT_ASSET_PATHS = "\"joes/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/joes/Frameworks",
 				);
 				INFOPLIST_FILE = joes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
@@ -983,11 +1027,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.joes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -1002,6 +1049,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/joes/Frameworks",
 				);
 				INFOPLIST_FILE = joes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
@@ -1009,12 +1057,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.joes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
