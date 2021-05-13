@@ -43,9 +43,8 @@
 		8BDD63D1264D264000249855 /* LocationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63D0264D264000249855 /* LocationReducer.swift */; };
 		8BFBF78A264DCF1A005F422E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBF789264DCF1A005F422E /* MapViewController.swift */; };
 		8BFBF883264DDA89005F422E /* Mapbox.framework in Embed Frameworks (2 items) */ = {isa = PBXBuildFile; fileRef = 8BFBF87E264DDA26005F422E /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8BFBF888264DDF94005F422E /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFBF887264DDF94005F422E /* Mapbox.framework */; };
-		8BFBF88A264DDFA2005F422E /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFBF889264DDFA2005F422E /* MapboxMobileEvents.framework */; };
 		8BFBF88B264DDFE8005F422E /* MapboxMobileEvents.framework in Embed Frameworks (2 items) */ = {isa = PBXBuildFile; fileRef = 8BFBF880264DDA2D005F422E /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8BFBF88E264DE585005F422E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBF88D264DE585005F422E /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,8 +174,7 @@
 		8BFBF789264DCF1A005F422E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = joes/State/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		8BFBF87E264DDA26005F422E /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = joes/Frameworks/Mapbox.framework; sourceTree = "<group>"; };
 		8BFBF880264DDA2D005F422E /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = joes/Frameworks/MapboxMobileEvents.framework; sourceTree = "<group>"; };
-		8BFBF887264DDF94005F422E /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Frameworks/Mapbox.framework; sourceTree = "<group>"; };
-		8BFBF889264DDFA2005F422E /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = Frameworks/MapboxMobileEvents.framework; sourceTree = "<group>"; };
+		8BFBF88D264DE585005F422E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,8 +188,6 @@
 				8B17F423264DCA2F006169F4 /* CSV in Frameworks */,
 				8BDD6397264BE63300249855 /* ReSwift in Frameworks */,
 				8BDD63AB264BE78B00249855 /* RxBlocking in Frameworks */,
-				8BFBF888264DDF94005F422E /* Mapbox.framework in Frameworks */,
-				8BFBF88A264DDFA2005F422E /* MapboxMobileEvents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +381,7 @@
 		8BDD63BD264D0A5000249855 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8BFBF88C264DE569005F422E /* Image */,
 				8BDD63C0264D0AA100249855 /* Settings */,
 				8BDD63BF264D0A9300249855 /* Data */,
 				8BDD63BE264D0A6500249855 /* Map */,
@@ -421,12 +418,18 @@
 		8BFBF7E2264DD7EF005F422E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8BFBF889264DDFA2005F422E /* MapboxMobileEvents.framework */,
-				8BFBF887264DDF94005F422E /* Mapbox.framework */,
 				8BFBF880264DDA2D005F422E /* MapboxMobileEvents.framework */,
 				8BFBF87E264DDA26005F422E /* Mapbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8BFBF88C264DE569005F422E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				8BFBF88D264DE585005F422E /* ImagePicker.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -716,6 +719,7 @@
 				8BDD63AD264C413300249855 /* MapView.swift in Sources */,
 				8BDD63B9264D016200249855 /* AppReducer.swift in Sources */,
 				8B0F4A36264B1720006E6807 /* joesApp.swift in Sources */,
+				8BFBF88E264DE585005F422E /* ImagePicker.swift in Sources */,
 				8BDD63C2264D0BC400249855 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

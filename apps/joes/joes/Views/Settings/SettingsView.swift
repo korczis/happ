@@ -8,8 +8,32 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @State private var image: Image?
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
+    
     var body: some View {
-        Text("Settings")
+        // Text("Settings")
+        VStack {
+            image?
+                .resizable()
+                .scaledToFit()
+            
+            Button("Select Image") {
+                showingImagePicker = true
+            }
+        }
+        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+            ImagePicker(image: self.$inputImage)
+        }
+    }
+    
+    func loadImage() {
+        guard let inputImage = inputImage else {
+            return
+        }
+        
+        image = Image(uiImage: inputImage)
     }
 }
 
