@@ -41,7 +41,7 @@ class Coordinator:
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        // dump((manager, status), name: "mapView - locationManager");
+        dump((manager, status), name: "locationManager - didChangeAuthorization");
         
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             startLocating();
@@ -53,7 +53,9 @@ class Coordinator:
         // dump((manager, locations), name: "locationManager - didUpdateLocations");
         
         if locations.first != nil {
-            let _ = state.dispatch(SetLastKnownLocation(location: locations.first!))
+            let location = locations.first!;
+            print("\(location)")
+            let _ = state.dispatch(SetLastKnownLocation(location: location))
         }
     }
     
@@ -87,48 +89,59 @@ class Coordinator:
     // MARK: Private implementation
     
     private func setupMapView(_ mapView: MKMapView) {
+        // MARK: Map Global Settings
+        // mapView.showsCompass = true
+        // mapView.showsScale = true
+        mapView.isRotateEnabled = true
+        mapView.showsUserLocation = true
+        
         // mapView.setUserTrackingMode(MKUserTrackingMode.none, animated: false) // WithHeading
         
+        let scale = MKScaleView(mapView: mapView)
+        scale.translatesAutoresizingMaskIntoConstraints = false
+        scale.scaleVisibility = .visible // always visible
+        mapView.addSubview(scale)
+
         // MARK: Compass
         let compassBtn = MKCompassButton(mapView: mapView)
-        mapView.addSubview(compassBtn)
-        
         compassBtn.compassVisibility = .visible
         compassBtn.translatesAutoresizingMaskIntoConstraints = false
-        //compassBtn.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 12).isActive = true
-        //compassBtn.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -12).isActive = true
-        
-        
+        mapView.addSubview(compassBtn)
+
         // MARK: Tracking Button
         let trackingBtn = MKUserTrackingButton(mapView: mapView)
         trackingBtn.translatesAutoresizingMaskIntoConstraints = false
-        trackingBtn.layer.backgroundColor = UIColor.init(white: 1, alpha: 1).cgColor // UIColor.systemBlue.cgColor
+        trackingBtn.layer.backgroundColor = UIColor.white.cgColor
         trackingBtn.layer.borderColor = UIColor.white.cgColor
         trackingBtn.layer.borderWidth = 1
         trackingBtn.layer.cornerRadius = 5
         trackingBtn.layer.zPosition = 10;
         mapView.addSubview(trackingBtn)
-         
-        // MARK: Scale Button
-        // let scale = MKScaleView(mapView: mapView)
-        // scale.legendAlignment = .trailing
-        // scale.translatesAutoresizingMaskIntoConstraints = false
-        // mapView.addSubview(scale)
-        
-        // Mark: Button Constrains
+//
+//        // MARK: Scale Button
+//        // let scale = MKScaleView(mapView: mapView)
+//        // scale.legendAlignment = .trailing
+//        // scale.translatesAutoresizingMaskIntoConstraints = false
+//        // mapView.addSubview(scale)
+//
+//        // Mark: Button Constrains
         NSLayoutConstraint.activate(
             [
-                compassBtn.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 10),
-                compassBtn.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -10),
+                scale.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 12),
+                scale.leftAnchor.constraint(equalTo: mapView.leftAnchor, constant: 12),
+                scale.trailingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: 120),
+                
+                compassBtn.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 12),
+                compassBtn.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -12),
 
-                trackingBtn.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -10),
-                trackingBtn.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -10),
+                trackingBtn.topAnchor.constraint(equalTo: compassBtn.bottomAnchor, constant: 12),
+                trackingBtn.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -12),
 
-                // scale.bottomAnchor.constraint(equalTo: trackingBtn.topAnchor, constant: -10),
+                // scale.bottomAnchor.constraint(equalTo: trackingBtn.topAnchor, constant: -12),
                 // scale.centerYAnchor.constraint(equalTo: trackingBtn.centerYAnchor)
             ]
         )
-        
+
         startLocating()
     }
     

@@ -14,6 +14,7 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
     switch action {
     case let action as SetLastKnownLocation:
         state.location.lastKnownLocation = action.location
+        state.location.locationHistory.append(action.location)
         
     default:
         break

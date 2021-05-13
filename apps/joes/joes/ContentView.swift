@@ -39,8 +39,8 @@ struct ContentView: View {
                 
                 // Data
                 NavigationView{
-                    DataView()
-                        .navigationBarTitle("Data", displayMode: .inline)
+                    DataView(state: self.state)
+                        .navigationBarTitle("Data (\(state.current.location.locationHistory.count))", displayMode: .inline)
                 }
                 .tabItem {
                     VStack{

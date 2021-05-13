@@ -25,6 +25,7 @@
 		8B0F4A76264B1724006E6807 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B0F4A75264B1724006E6807 /* Preview Assets.xcassets */; };
 		8B0F4A82264B1724006E6807 /* joes_WatchKit_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0F4A81264B1724006E6807 /* joes_WatchKit_AppTests.swift */; };
 		8B0F4A8D264B1724006E6807 /* joes_WatchKit_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0F4A8C264B1724006E6807 /* joes_WatchKit_AppUITests.swift */; };
+		8B17F423264DCA2F006169F4 /* CSV in Frameworks */ = {isa = PBXBuildFile; productRef = 8B17F422264DCA2F006169F4 /* CSV */; };
 		8BDD6397264BE63300249855 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8BDD6396264BE63300249855 /* ReSwift */; };
 		8BDD63A5264BE78B00249855 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8BDD63A4264BE78B00249855 /* RxSwift */; };
 		8BDD63A7264BE78B00249855 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8BDD63A6264BE78B00249855 /* RxRelay */; };
@@ -40,6 +41,7 @@
 		8BDD63CB264D238300249855 /* LocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63CA264D238300249855 /* LocationState.swift */; };
 		8BDD63CD264D256500249855 /* LocationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63CC264D256500249855 /* LocationActions.swift */; };
 		8BDD63D1264D264000249855 /* LocationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63D0264D264000249855 /* LocationReducer.swift */; };
+		8BFBF78A264DCF1A005F422E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBF789264DCF1A005F422E /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,7 @@
 		8BDD63CA264D238300249855 /* LocationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationState.swift; sourceTree = "<group>"; };
 		8BDD63CC264D256500249855 /* LocationActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationActions.swift; sourceTree = "<group>"; };
 		8BDD63D0264D264000249855 /* LocationReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReducer.swift; sourceTree = "<group>"; };
+		8BFBF789264DCF1A005F422E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = joes/State/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,7 @@
 				8BDD63A7264BE78B00249855 /* RxRelay in Frameworks */,
 				8BDD63A5264BE78B00249855 /* RxSwift in Frameworks */,
 				8BDD63A9264BE78B00249855 /* RxCocoa in Frameworks */,
+				8B17F423264DCA2F006169F4 /* CSV in Frameworks */,
 				8BDD6397264BE63300249855 /* ReSwift in Frameworks */,
 				8BDD63AB264BE78B00249855 /* RxBlocking in Frameworks */,
 			);
@@ -217,6 +221,7 @@
 				8B0F4A67264B1723006E6807 /* joes WatchKit Extension */,
 				8B0F4A80264B1724006E6807 /* joes WatchKit AppTests */,
 				8B0F4A8B264B1724006E6807 /* joes WatchKit AppUITests */,
+				8B17F429264DCE23006169F4 /* Frameworks */,
 				8B0F4A33264B1720006E6807 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -328,6 +333,13 @@
 			path = "joes WatchKit AppUITests";
 			sourceTree = "<group>";
 		};
+		8B17F429264DCE23006169F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		8BDD63B6264D00EB00249855 /* State */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +382,7 @@
 			children = (
 				8BDD63C1264D0BC400249855 /* Coordinator.swift */,
 				8BDD63AC264C413300249855 /* MapView.swift */,
+				8BFBF789264DCF1A005F422E /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -414,6 +427,7 @@
 				8BDD63A6264BE78B00249855 /* RxRelay */,
 				8BDD63A8264BE78B00249855 /* RxCocoa */,
 				8BDD63AA264BE78B00249855 /* RxBlocking */,
+				8B17F422264DCA2F006169F4 /* CSV */,
 			);
 			productName = joes;
 			productReference = 8B0F4A32264B1720006E6807 /* joes.app */;
@@ -573,6 +587,7 @@
 			packageReferences = (
 				8BDD6395264BE63300249855 /* XCRemoteSwiftPackageReference "ReSwift" */,
 				8BDD63A3264BE78B00249855 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				8B17F421264DCA2F006169F4 /* XCRemoteSwiftPackageReference "CSV.swift" */,
 			);
 			productRefGroup = 8B0F4A33264B1720006E6807 /* Products */;
 			projectDirPath = "";
@@ -657,6 +672,7 @@
 				8BDD63BC264D01AC00249855 /* AppActions.swift in Sources */,
 				8BDD63B5264D000D00249855 /* AppState.swift in Sources */,
 				8BDD63AF264C41DD00249855 /* SettingsView.swift in Sources */,
+				8BFBF78A264DCF1A005F422E /* MapViewController.swift in Sources */,
 				8BDD63B1264C4D0700249855 /* DataView.swift in Sources */,
 				8BDD63CD264D256500249855 /* LocationActions.swift in Sources */,
 				8BDD63AD264C413300249855 /* MapView.swift in Sources */,
@@ -956,6 +972,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				DEVELOPMENT_ASSET_PATHS = "\"joes/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = joes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -977,6 +998,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				DEVELOPMENT_ASSET_PATHS = "\"joes/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = joes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1236,6 +1262,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8B17F421264DCA2F006169F4 /* XCRemoteSwiftPackageReference "CSV.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:yaslab/CSV.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.3;
+			};
+		};
 		8BDD6395264BE63300249855 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:ReSwift/ReSwift.git";
@@ -1255,6 +1289,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8B17F422264DCA2F006169F4 /* CSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B17F421264DCA2F006169F4 /* XCRemoteSwiftPackageReference "CSV.swift" */;
+			productName = CSV;
+		};
 		8BDD6396264BE63300249855 /* ReSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8BDD6395264BE63300249855 /* XCRemoteSwiftPackageReference "ReSwift" */;
