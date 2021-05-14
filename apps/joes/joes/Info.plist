@@ -49,6 +49,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
     
+    <key>MGLMapboxAccessToken</key>
+    <string></string>
+        
     <key>NSLocationAlwaysUsageDescription</key>
     <string>Your explanation</string>
     

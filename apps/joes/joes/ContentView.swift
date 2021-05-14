@@ -27,7 +27,8 @@ struct ContentView: View {
             TabView {
                 // Map
                 NavigationView{
-                    MapView(state: self.state)
+                    //MapView(state: self.state)
+                    MapboxMap()
                         .navigationBarTitle("Map", displayMode: .inline)
                 }
                 .tabItem {

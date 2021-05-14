@@ -14,18 +14,21 @@ struct SettingsView: View {
     
     var body: some View {
         // Text("Settings")
-        VStack {
-            image?
-                .resizable()
-                .scaledToFit()
-            
-            Button("Select Image") {
-                showingImagePicker = true
-            }
-        }
-        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
-            ImagePicker(image: self.$inputImage)
-        }
+        
+//        VStack {
+//            image?
+//                .resizable()
+//                .scaledToFit()
+//
+//            Button("Select Image") {
+//                showingImagePicker = true
+//            }
+//        }
+//        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+//            ImagePicker(image: self.$inputImage)
+//        }
+        
+        MapboxMap()
     }
     
     func loadImage() {
