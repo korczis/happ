@@ -25,60 +25,50 @@ struct ContentView: View {
     // MARK: Body
     
     var body: some View {
-            TabView {
-                // Map
-                NavigationView{
+        TabView {
+            // Map
+            NavigationView {
+                ZStack {
                     MapboxMap(state: self.state)
                         .navigationBarTitle("Map", displayMode: .inline)
-                    
-                }
-                .tabItem {
-                    VStack{
-                        Image(systemName: "map")
-                        Text("Map")
-                    }
+                        .ignoresSafeArea()
                 }
                 
-                // Data
-                NavigationView{
-                    DataView(state: self.state)
-                        .navigationBarTitle("Data (\(state.current.location.locationHistory.count))", displayMode: .inline)
+            }
+            .tabItem {
+                VStack{
+                    Image(systemName: "map")
+                    Text("Map")
                 }
-                .tabItem {
-                    VStack{
-                        Image(systemName: "eye")
-                        Text("Data")
-                    }
-                }
-
-                // Settings
-                NavigationView{
-                    SettingsView()
-                        .navigationBarTitle("Settings", displayMode: .inline)
-                        
-                }
-                .tabItem {
-                    VStack{
-                        Image(systemName: "gear")
-                        Text("Settings")
-                    }
+            }
+            
+            // Data
+            NavigationView{
+                DataView(state: self.state)
+                    .navigationBarTitle("Data (\(state.current.location.locationHistory.count))", displayMode: .inline)
+            }
+            .tabItem {
+                VStack{
+                    Image(systemName: "eye")
+                    Text("Data")
                 }
             }
 
+            // Settings
+            NavigationView{
+                SettingsView()
+                    .navigationBarTitle("Settings", displayMode: .inline)
+                    
+            }
+            .tabItem {
+                VStack{
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+            }
         }
 
-    
-//    var body: some View {
-//       VStack {
-//           Text(String(state.current.counter))
-//           Button(action: state.dispatch(CounterActionIncrease())) {
-//               Text("Increase")
-//           }
-//           Button(action: state.dispatch(CounterActionDecrease())) {
-//               Text("Decrease")
-//           }
-//       }
-//    }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

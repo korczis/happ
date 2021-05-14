@@ -63,6 +63,7 @@ class UserLocationButton: UIButton {
     private func arrowPath() -> CGPath {
         let bezierPath = UIBezierPath()
         let max: CGFloat = buttonSize / 2
+        
         bezierPath.move(to: CGPoint(x: max * 0.5, y: 0))
         bezierPath.addLine(to: CGPoint(x: max * 0.1, y: max))
         bezierPath.addLine(to: CGPoint(x: max * 0.5, y: max * 0.65))
