@@ -34,7 +34,11 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
             styleURL: MapboxMapViewController.defaultStyleUrl
         )
         
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.autoresizingMask = [
+            .flexibleWidth,
+            .flexibleHeight
+        ]
+        
         mapView.setCenter(
             MapboxMapViewController.defaultCenter,
             zoomLevel: MapboxMapViewController.defaultZoom,
@@ -50,9 +54,6 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
          
         // Set the map view's delegate
         mapView.delegate = self
-         
-        // Allow the map view to display the user's location
-        mapView.showsUserLocation = true
         
         // And finally add as Subview of current View
         view.addSubview(mapView)
@@ -85,6 +86,13 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
             peakAltitude: 3000,
             completionHandler: nil
         )
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
+        print("MapboxMap.mapViewDidFinishLoadingMap(\(mapView))")
+        
+        // Allow the map view to display the user's location
+        mapView.showsUserLocation = true
     }
 }
 
