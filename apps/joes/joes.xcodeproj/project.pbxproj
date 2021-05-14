@@ -31,13 +31,11 @@
 		8BDD63A7264BE78B00249855 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8BDD63A6264BE78B00249855 /* RxRelay */; };
 		8BDD63A9264BE78B00249855 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8BDD63A8264BE78B00249855 /* RxCocoa */; };
 		8BDD63AB264BE78B00249855 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 8BDD63AA264BE78B00249855 /* RxBlocking */; };
-		8BDD63AD264C413300249855 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63AC264C413300249855 /* MapView.swift */; };
 		8BDD63AF264C41DD00249855 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63AE264C41DD00249855 /* SettingsView.swift */; };
 		8BDD63B1264C4D0700249855 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63B0264C4D0700249855 /* DataView.swift */; };
 		8BDD63B5264D000D00249855 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63B4264D000D00249855 /* AppState.swift */; };
 		8BDD63B9264D016200249855 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63B8264D016200249855 /* AppReducer.swift */; };
 		8BDD63BC264D01AC00249855 /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63BB264D01AC00249855 /* AppActions.swift */; };
-		8BDD63C2264D0BC400249855 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63C1264D0BC400249855 /* Coordinator.swift */; };
 		8BDD63CB264D238300249855 /* LocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63CA264D238300249855 /* LocationState.swift */; };
 		8BDD63CD264D256500249855 /* LocationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63CC264D256500249855 /* LocationActions.swift */; };
 		8BDD63D1264D264000249855 /* LocationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63D0264D264000249855 /* LocationReducer.swift */; };
@@ -161,13 +159,11 @@
 		8B0F4A88264B1724006E6807 /* joes WatchKit AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "joes WatchKit AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0F4A8C264B1724006E6807 /* joes_WatchKit_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joes_WatchKit_AppUITests.swift; sourceTree = "<group>"; };
 		8B0F4A8E264B1724006E6807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BDD63AC264C413300249855 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8BDD63AE264C41DD00249855 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8BDD63B0264C4D0700249855 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		8BDD63B4264D000D00249855 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8BDD63B8264D016200249855 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		8BDD63BB264D01AC00249855 /* AppActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
-		8BDD63C1264D0BC400249855 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8BDD63CA264D238300249855 /* LocationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationState.swift; sourceTree = "<group>"; };
 		8BDD63CC264D256500249855 /* LocationActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationActions.swift; sourceTree = "<group>"; };
 		8BDD63D0264D264000249855 /* LocationReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReducer.swift; sourceTree = "<group>"; };
@@ -381,10 +377,10 @@
 		8BDD63BD264D0A5000249855 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8BFBF88C264DE569005F422E /* Image */,
-				8BDD63C0264D0AA100249855 /* Settings */,
 				8BDD63BF264D0A9300249855 /* Data */,
+				8BFBF88C264DE569005F422E /* Image */,
 				8BDD63BE264D0A6500249855 /* Map */,
+				8BDD63C0264D0AA100249855 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -392,8 +388,6 @@
 		8BDD63BE264D0A6500249855 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				8BDD63C1264D0BC400249855 /* Coordinator.swift */,
-				8BDD63AC264C413300249855 /* MapView.swift */,
 				8BFBF789264DCF1A005F422E /* MapboxMap.swift */,
 			);
 			path = Map;
@@ -716,11 +710,9 @@
 				8BFBF78A264DCF1A005F422E /* MapboxMap.swift in Sources */,
 				8BDD63B1264C4D0700249855 /* DataView.swift in Sources */,
 				8BDD63CD264D256500249855 /* LocationActions.swift in Sources */,
-				8BDD63AD264C413300249855 /* MapView.swift in Sources */,
 				8BDD63B9264D016200249855 /* AppReducer.swift in Sources */,
 				8B0F4A36264B1720006E6807 /* joesApp.swift in Sources */,
 				8BFBF88E264DE585005F422E /* ImagePicker.swift in Sources */,
-				8BDD63C2264D0BC400249855 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
