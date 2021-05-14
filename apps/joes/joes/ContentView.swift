@@ -6,6 +6,7 @@
 //
 
 // MARK: Imports
+import Foundation
 import SwiftUI
 import ReSwift
 
@@ -27,9 +28,9 @@ struct ContentView: View {
             TabView {
                 // Map
                 NavigationView{
-                    //MapView(state: self.state)
-                    MapboxMap()
+                    MapboxMap(state: self.state)
                         .navigationBarTitle("Map", displayMode: .inline)
+                    
                 }
                 .tabItem {
                     VStack{

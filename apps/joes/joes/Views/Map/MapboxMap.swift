@@ -9,7 +9,10 @@ import Foundation
 import SwiftUI
 import Mapbox
 
+
 class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
+    
+    
     // -----
     // MARK: Constants
     // -----
@@ -26,13 +29,28 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
     // MARK: Private members / attributes
     // -----
     
+    private var _state: ObservableState<AppState>?
+    
     var mapView: MGLMapView!
     var userLocationButton: UserLocationButton?
     
     // -----
-    // MARK: Public Implementation
+    // Getters / Setters
     // -----
     
+    public var state: ObservableState<AppState>? {
+        get {
+            return self._state
+        }
+        set {
+            self._state = newValue
+        }
+    }
+    
+    // -----
+    // MARK: Public Implementation
+    // -----
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -145,8 +163,6 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
     // MARK: Handlers
     // -----
     
-    // void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style;
-    
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         // Always allow callouts to popup when annotations are tapped.
         return true
@@ -156,6 +172,11 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, didChange mode: MGLUserTrackingMode, animated: Bool) {
         guard let userLocationButton = userLocationButton else { return }
         userLocationButton.updateArrowForTrackingMode(mode: mode)
+    }
+    
+    // Tweak style when loaded
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        mapView.compassView.compassVisibility = .visible;
     }
     
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
@@ -174,14 +195,19 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
         )
     }
     
-    // Tweak style when loaded
-    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        mapView.compassView.compassVisibility = .visible;
+    // - (void)mapView:(MGLMapView *)mapView didUpdateUserLocation:(nullable MGLUserLocation *)userLocation;
+    func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
+        guard let userLocation = userLocation else { return }
+        guard let userLocationRaw = userLocation.location else { return }
+        
+        // print("User location: \(userLocation)")
+        // print("User location (raw): \(userLocationRaw)")
+        
+        guard let state = self.state else { return }
+        state.dispatch(SetLastKnownLocation(location: userLocationRaw))
     }
     
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
-        print("MapboxMap.mapViewDidFinishLoadingMap(\(mapView))")
-        
         mapView.locationManager.requestAlwaysAuthorization()
         // mapView.locationManager.requestWhenInUseAuthorization()
         
@@ -191,8 +217,13 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
 }
 
 struct MapboxMap: UIViewControllerRepresentable {
+    @ObservedObject var state: ObservableState<AppState>
+    
     func makeUIViewController(context: Context) -> MapboxMapViewController {
-        return MapboxMapViewController()
+        let controller = MapboxMapViewController()
+        controller.state = state
+        
+        return controller;
     }
 
     func updateUIViewController(_ mapboxMapViewController: MapboxMapViewController, context: Context) {
