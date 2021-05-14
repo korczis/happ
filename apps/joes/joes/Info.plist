@@ -48,15 +48,20 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MGLMapboxAccessToken</key>
-	<string></string>
-	<key>MGLAccuracyAuthorizationDescription</key>
+	
+    <key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1Ijoia29yY3ppcyIsImEiOiJjaW54MTZ3b2EwMHA0dzdrbHZkOGNvaGVlIn0.QyGT5VUe7_iVnA-o2eHhDw</string>
+	
+    <key>MGLAccuracyAuthorizationDescription</key>
 	<string>Allows tracking</string>
-	<key>NSLocationAlwaysUsageDescription</key>
+	
+    <key>NSLocationAlwaysUsageDescription</key>
 	<string>Allows tracking even if the application is running in the background</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
+	
+    <key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allows tracking only if the application is in use</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Allows tracking if the application is in use or running in the background</string>
 </dict>
 </plist>

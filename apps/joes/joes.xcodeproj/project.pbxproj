@@ -39,10 +39,11 @@
 		8BDD63CB264D238300249855 /* LocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63CA264D238300249855 /* LocationState.swift */; };
 		8BDD63CD264D256500249855 /* LocationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63CC264D256500249855 /* LocationActions.swift */; };
 		8BDD63D1264D264000249855 /* LocationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD63D0264D264000249855 /* LocationReducer.swift */; };
-		8BFBF78A264DCF1A005F422E /* MapboxMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBF789264DCF1A005F422E /* MapboxMap.swift */; };
 		8BFBF883264DDA89005F422E /* Mapbox.framework in Embed Frameworks (2 items) */ = {isa = PBXBuildFile; fileRef = 8BFBF87E264DDA26005F422E /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BFBF88B264DDFE8005F422E /* MapboxMobileEvents.framework in Embed Frameworks (2 items) */ = {isa = PBXBuildFile; fileRef = 8BFBF880264DDA2D005F422E /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BFBF88E264DE585005F422E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBF88D264DE585005F422E /* ImagePicker.swift */; };
+		8BFBF895264E7F2C005F422E /* MapboxMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBF894264E7F2C005F422E /* MapboxMap.swift */; };
+		8BFBF897264E8AAB005F422E /* UserLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBF896264E8AAB005F422E /* UserLocationButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,10 +168,11 @@
 		8BDD63CA264D238300249855 /* LocationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationState.swift; sourceTree = "<group>"; };
 		8BDD63CC264D256500249855 /* LocationActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationActions.swift; sourceTree = "<group>"; };
 		8BDD63D0264D264000249855 /* LocationReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReducer.swift; sourceTree = "<group>"; };
-		8BFBF789264DCF1A005F422E /* MapboxMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapboxMap.swift; path = joes/State/MapboxMap.swift; sourceTree = SOURCE_ROOT; };
 		8BFBF87E264DDA26005F422E /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = joes/Frameworks/Mapbox.framework; sourceTree = "<group>"; };
 		8BFBF880264DDA2D005F422E /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = joes/Frameworks/MapboxMobileEvents.framework; sourceTree = "<group>"; };
 		8BFBF88D264DE585005F422E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8BFBF894264E7F2C005F422E /* MapboxMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapboxMap.swift; sourceTree = "<group>"; };
+		8BFBF896264E8AAB005F422E /* UserLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,7 +390,8 @@
 		8BDD63BE264D0A6500249855 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				8BFBF789264DCF1A005F422E /* MapboxMap.swift */,
+				8BFBF894264E7F2C005F422E /* MapboxMap.swift */,
+				8BFBF896264E8AAB005F422E /* UserLocationButton.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -704,15 +707,16 @@
 				8B0F4A38264B1720006E6807 /* ContentView.swift in Sources */,
 				8BDD63D1264D264000249855 /* LocationReducer.swift in Sources */,
 				8BDD63CB264D238300249855 /* LocationState.swift in Sources */,
+				8BFBF897264E8AAB005F422E /* UserLocationButton.swift in Sources */,
 				8BDD63BC264D01AC00249855 /* AppActions.swift in Sources */,
 				8BDD63B5264D000D00249855 /* AppState.swift in Sources */,
 				8BDD63AF264C41DD00249855 /* SettingsView.swift in Sources */,
-				8BFBF78A264DCF1A005F422E /* MapboxMap.swift in Sources */,
 				8BDD63B1264C4D0700249855 /* DataView.swift in Sources */,
 				8BDD63CD264D256500249855 /* LocationActions.swift in Sources */,
 				8BDD63B9264D016200249855 /* AppReducer.swift in Sources */,
 				8B0F4A36264B1720006E6807 /* joesApp.swift in Sources */,
 				8BFBF88E264DE585005F422E /* ImagePicker.swift in Sources */,
+				8BFBF895264E7F2C005F422E /* MapboxMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

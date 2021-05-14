@@ -13,22 +13,18 @@ struct SettingsView: View {
     @State private var inputImage: UIImage?
     
     var body: some View {
-        // Text("Settings")
-        
-//        VStack {
-//            image?
-//                .resizable()
-//                .scaledToFit()
-//
-//            Button("Select Image") {
-//                showingImagePicker = true
-//            }
-//        }
-//        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
-//            ImagePicker(image: self.$inputImage)
-//        }
-        
-        MapboxMap()
+        VStack {
+            image?
+                .resizable()
+                .scaledToFit()
+
+            Button("Select Image") {
+                showingImagePicker = true
+            }
+        }
+        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+            ImagePicker(image: self.$inputImage)
+        }
     }
     
     func loadImage() {
