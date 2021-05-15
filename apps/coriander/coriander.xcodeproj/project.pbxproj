@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B467E2826507BF000F9C122 /* corianderAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B467E2726507BF000F9C122 /* corianderAppDelegate.swift */; };
 		8B7CB48B2650548100AE7B94 /* corianderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48A2650548100AE7B94 /* corianderApp.swift */; };
 		8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48C2650548100AE7B94 /* ContentView.swift */; };
 		8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */; };
@@ -134,6 +135,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B467E2726507BF000F9C122 /* corianderAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = corianderAppDelegate.swift; sourceTree = "<group>"; };
 		8B7CB4872650548100AE7B94 /* coriander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coriander.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7CB48A2650548100AE7B94 /* corianderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = corianderApp.swift; sourceTree = "<group>"; };
 		8B7CB48C2650548100AE7B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				8B7CB5282650633700AE7B94 /* Views */,
 				8B7CB4FD265054A400AE7B94 /* coriander.entitlements */,
 				8B7CB48A2650548100AE7B94 /* corianderApp.swift */,
+				8B467E2726507BF000F9C122 /* corianderAppDelegate.swift */,
 				8B7CB48C2650548100AE7B94 /* ContentView.swift */,
 				8B7CB4932650548200AE7B94 /* Info.plist */,
 				8B7CB4902650548200AE7B94 /* Preview Content */,
@@ -481,7 +484,7 @@
 				8B7CB4852650548100AE7B94 /* Resources */,
 				8B7CB4ED2650548300AE7B94 /* Embed Watch Content */,
 				8B7CB5542650672F00AE7B94 /* Embed Frameworks */,
-				8B7CB55726506A0E00AE7B94 /* ShellScript */,
+				8B7CB55726506A0E00AE7B94 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -729,20 +732,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8B7CB55726506A0E00AE7B94 /* ShellScript */ = {
+		8B7CB55726506A0E00AE7B94 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\n# skip if we run in debug\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\necho \"Skip frameworks cleaning in debug version\"\nexit 0\nfi\n\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
 		};
@@ -761,6 +765,7 @@
 				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
 				8B7CB5372650633800AE7B94 /* AppActions.swift in Sources */,
 				8B7CB48B2650548100AE7B94 /* corianderApp.swift in Sources */,
+				8B467E2826507BF000F9C122 /* corianderAppDelegate.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
 				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,
@@ -853,6 +858,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -916,6 +922,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -973,7 +980,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -999,7 +1006,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1028,7 +1035,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				IBSC_MODULE = coriander_WatchKit_Extension;
 				INFOPLIST_FILE = "coriander WatchKit App/Info.plist";
@@ -1050,7 +1057,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				IBSC_MODULE = coriander_WatchKit_Extension;
 				INFOPLIST_FILE = "coriander WatchKit App/Info.plist";
@@ -1069,12 +1076,12 @@
 		8B7CB4EF2650548300AE7B94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = arm64;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = coriander/coriander.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1099,12 +1106,12 @@
 		8B7CB4F02650548300AE7B94 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = arm64;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = coriander/coriander.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
