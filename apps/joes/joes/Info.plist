@@ -49,7 +49,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MGLMapboxAccessToken</key>
-	<string></string>
+	<string>pk.eyJ1Ijoia29yY3ppcyIsImEiOiJjaW54MTZ3b2EwMHA0dzdrbHZkOGNvaGVlIn0.QyGT5VUe7_iVnA-o2eHhDw</string>
 	<key>MGLAccuracyAuthorizationDescription</key>
 	<string>Allows tracking</string>
 	<key>NSLocationAlwaysUsageDescription</key>

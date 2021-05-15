@@ -1,0 +1,1414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B7CB48B2650548100AE7B94 /* corianderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48A2650548100AE7B94 /* corianderApp.swift */; };
+		8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48C2650548100AE7B94 /* ContentView.swift */; };
+		8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */; };
+		8B7CB49D2650548200AE7B94 /* corianderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB49C2650548200AE7B94 /* corianderTests.swift */; };
+		8B7CB4A82650548200AE7B94 /* corianderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB4A72650548200AE7B94 /* corianderUITests.swift */; };
+		8B7CB4AD2650548200AE7B94 /* coriander WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8B7CB4AC2650548200AE7B94 /* coriander WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8B7CB4B22650548200AE7B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4B12650548200AE7B94 /* Assets.xcassets */; };
+		8B7CB4B92650548300AE7B94 /* coriander WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B7CB4B82650548300AE7B94 /* coriander WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8B7CB4BE2650548300AE7B94 /* corianderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB4BD2650548300AE7B94 /* corianderApp.swift */; };
+		8B7CB4C02650548300AE7B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB4BF2650548300AE7B94 /* ContentView.swift */; };
+		8B7CB4C22650548300AE7B94 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB4C12650548300AE7B94 /* NotificationController.swift */; };
+		8B7CB4C42650548300AE7B94 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB4C32650548300AE7B94 /* NotificationView.swift */; };
+		8B7CB4C62650548300AE7B94 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB4C52650548300AE7B94 /* ComplicationController.swift */; };
+		8B7CB4C82650548300AE7B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4C72650548300AE7B94 /* Assets.xcassets */; };
+		8B7CB4CB2650548300AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4CA2650548300AE7B94 /* Preview Assets.xcassets */; };
+		8B7CB4D72650548300AE7B94 /* coriander_WatchKit_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB4D62650548300AE7B94 /* coriander_WatchKit_AppTests.swift */; };
+		8B7CB4E22650548300AE7B94 /* coriander_WatchKit_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB4E12650548300AE7B94 /* coriander_WatchKit_AppUITests.swift */; };
+		8B7CB500265054AF00AE7B94 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB4FF265054AF00AE7B94 /* CloudKit.framework */; };
+		8B7CB50F2650617700AE7B94 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5082650613700AE7B94 /* Mapbox.framework */; };
+		8B7CB5102650617700AE7B94 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5082650613700AE7B94 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B7CB5122650617A00AE7B94 /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB50C2650614600AE7B94 /* MapboxMobileEvents.framework */; };
+		8B7CB5132650617A00AE7B94 /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB50C2650614600AE7B94 /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B7CB5322650633700AE7B94 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB51A2650633700AE7B94 /* AppReducer.swift */; };
+		8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB51B2650633700AE7B94 /* LocationReducer.swift */; };
+		8B7CB5342650633700AE7B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB51C2650633700AE7B94 /* Assets.xcassets */; };
+		8B7CB5352650633700AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB51E2650633700AE7B94 /* Preview Assets.xcassets */; };
+		8B7CB5362650633700AE7B94 /* LocationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5202650633700AE7B94 /* LocationActions.swift */; };
+		8B7CB5372650633800AE7B94 /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5212650633700AE7B94 /* AppActions.swift */; };
+		8B7CB5382650633800AE7B94 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5232650633700AE7B94 /* AppState.swift */; };
+		8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5242650633700AE7B94 /* LocationState.swift */; };
+		8B7CB53A2650633800AE7B94 /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5262650633700AE7B94 /* MapboxMobileEvents.framework */; };
+		8B7CB53B2650633800AE7B94 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5272650633700AE7B94 /* Mapbox.framework */; };
+		8B7CB53C2650633800AE7B94 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52A2650633700AE7B94 /* SettingsView.swift */; };
+		8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52C2650633700AE7B94 /* ImagePicker.swift */; };
+		8B7CB53E2650633800AE7B94 /* MapboxMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52E2650633700AE7B94 /* MapboxMap.swift */; };
+		8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */; };
+		8B7CB5402650633800AE7B94 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5312650633700AE7B94 /* DataView.swift */; };
+		8B7CB543265063A500AE7B94 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB542265063A500AE7B94 /* ReSwift */; };
+		8B7CB549265063E200AE7B94 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB548265063E200AE7B94 /* RxSwift */; };
+		8B7CB54D265063E200AE7B94 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB54C265063E200AE7B94 /* RxRelay */; };
+		8B7CB54F265063E200AE7B94 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB54E265063E200AE7B94 /* RxCocoa */; };
+		8B7CB551265063E200AE7B94 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB550265063E200AE7B94 /* RxBlocking */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B7CB4992650548200AE7B94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B7CB47F2650548000AE7B94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B7CB4862650548100AE7B94;
+			remoteInfo = coriander;
+		};
+		8B7CB4A42650548200AE7B94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B7CB47F2650548000AE7B94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B7CB4862650548100AE7B94;
+			remoteInfo = coriander;
+		};
+		8B7CB4AE2650548200AE7B94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B7CB47F2650548000AE7B94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B7CB4AB2650548200AE7B94;
+			remoteInfo = "coriander WatchKit App";
+		};
+		8B7CB4BA2650548300AE7B94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B7CB47F2650548000AE7B94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B7CB4B72650548300AE7B94;
+			remoteInfo = "coriander WatchKit Extension";
+		};
+		8B7CB4D32650548300AE7B94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B7CB47F2650548000AE7B94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B7CB4B72650548300AE7B94;
+			remoteInfo = "coriander WatchKit Extension";
+		};
+		8B7CB4DE2650548300AE7B94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B7CB47F2650548000AE7B94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B7CB4AB2650548200AE7B94;
+			remoteInfo = "coriander WatchKit App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8B7CB4E92650548300AE7B94 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8B7CB4B92650548300AE7B94 /* coriander WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4ED2650548300AE7B94 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				8B7CB4AD2650548200AE7B94 /* coriander WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB5112650617700AE7B94 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B7CB5132650617A00AE7B94 /* MapboxMobileEvents.framework in Embed Frameworks */,
+				8B7CB5102650617700AE7B94 /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8B7CB4872650548100AE7B94 /* coriander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coriander.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7CB48A2650548100AE7B94 /* corianderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = corianderApp.swift; sourceTree = "<group>"; };
+		8B7CB48C2650548100AE7B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B7CB4932650548200AE7B94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7CB4982650548200AE7B94 /* corianderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = corianderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7CB49C2650548200AE7B94 /* corianderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = corianderTests.swift; sourceTree = "<group>"; };
+		8B7CB49E2650548200AE7B94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7CB4A32650548200AE7B94 /* corianderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = corianderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7CB4A72650548200AE7B94 /* corianderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = corianderUITests.swift; sourceTree = "<group>"; };
+		8B7CB4A92650548200AE7B94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7CB4AC2650548200AE7B94 /* coriander WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coriander WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7CB4B12650548200AE7B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B7CB4B32650548200AE7B94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7CB4B82650548300AE7B94 /* coriander WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "coriander WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7CB4BD2650548300AE7B94 /* corianderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = corianderApp.swift; sourceTree = "<group>"; };
+		8B7CB4BF2650548300AE7B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8B7CB4C12650548300AE7B94 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		8B7CB4C32650548300AE7B94 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		8B7CB4C52650548300AE7B94 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		8B7CB4C72650548300AE7B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B7CB4CA2650548300AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B7CB4CC2650548300AE7B94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7CB4CD2650548300AE7B94 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		8B7CB4D22650548300AE7B94 /* coriander WatchKit AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "coriander WatchKit AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7CB4D62650548300AE7B94 /* coriander_WatchKit_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coriander_WatchKit_AppTests.swift; sourceTree = "<group>"; };
+		8B7CB4D82650548300AE7B94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7CB4DD2650548300AE7B94 /* coriander WatchKit AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "coriander WatchKit AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7CB4E12650548300AE7B94 /* coriander_WatchKit_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coriander_WatchKit_AppUITests.swift; sourceTree = "<group>"; };
+		8B7CB4E32650548300AE7B94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7CB4FD265054A400AE7B94 /* coriander.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = coriander.entitlements; sourceTree = "<group>"; };
+		8B7CB4FF265054AF00AE7B94 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		8B7CB5082650613700AE7B94 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = coriander/Frameworks/Mapbox.framework; sourceTree = "<group>"; };
+		8B7CB50C2650614600AE7B94 /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = coriander/Frameworks/MapboxMobileEvents.framework; sourceTree = "<group>"; };
+		8B7CB51A2650633700AE7B94 /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		8B7CB51B2650633700AE7B94 /* LocationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationReducer.swift; sourceTree = "<group>"; };
+		8B7CB51C2650633700AE7B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../joes/joes/Assets.xcassets; sourceTree = "<group>"; };
+		8B7CB51E2650633700AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B7CB5202650633700AE7B94 /* LocationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationActions.swift; sourceTree = "<group>"; };
+		8B7CB5212650633700AE7B94 /* AppActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
+		8B7CB5232650633700AE7B94 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		8B7CB5242650633700AE7B94 /* LocationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationState.swift; sourceTree = "<group>"; };
+		8B7CB5262650633700AE7B94 /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxMobileEvents.framework; sourceTree = "<group>"; };
+		8B7CB5272650633700AE7B94 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		8B7CB52A2650633700AE7B94 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8B7CB52C2650633700AE7B94 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8B7CB52E2650633700AE7B94 /* MapboxMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapboxMap.swift; sourceTree = "<group>"; };
+		8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationButton.swift; sourceTree = "<group>"; };
+		8B7CB5312650633700AE7B94 /* DataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		8B7CB544265063C400AE7B94 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B7CB4842650548100AE7B94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7CB54D265063E200AE7B94 /* RxRelay in Frameworks */,
+				8B7CB551265063E200AE7B94 /* RxBlocking in Frameworks */,
+				8B7CB53A2650633800AE7B94 /* MapboxMobileEvents.framework in Frameworks */,
+				8B7CB54F265063E200AE7B94 /* RxCocoa in Frameworks */,
+				8B7CB5122650617A00AE7B94 /* MapboxMobileEvents.framework in Frameworks */,
+				8B7CB500265054AF00AE7B94 /* CloudKit.framework in Frameworks */,
+				8B7CB543265063A500AE7B94 /* ReSwift in Frameworks */,
+				8B7CB50F2650617700AE7B94 /* Mapbox.framework in Frameworks */,
+				8B7CB549265063E200AE7B94 /* RxSwift in Frameworks */,
+				8B7CB53B2650633800AE7B94 /* Mapbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4952650548200AE7B94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4A02650548200AE7B94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4B52650548300AE7B94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4CF2650548300AE7B94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4DA2650548300AE7B94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B7CB47E2650548000AE7B94 = {
+			isa = PBXGroup;
+			children = (
+				8B7CB4892650548100AE7B94 /* coriander */,
+				8B7CB49B2650548200AE7B94 /* corianderTests */,
+				8B7CB4A62650548200AE7B94 /* corianderUITests */,
+				8B7CB4B02650548200AE7B94 /* coriander WatchKit App */,
+				8B7CB4BC2650548300AE7B94 /* coriander WatchKit Extension */,
+				8B7CB4D52650548300AE7B94 /* coriander WatchKit AppTests */,
+				8B7CB4E02650548300AE7B94 /* coriander WatchKit AppUITests */,
+				8B7CB4882650548100AE7B94 /* Products */,
+				8B7CB4FE265054AF00AE7B94 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8B7CB4882650548100AE7B94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB4872650548100AE7B94 /* coriander.app */,
+				8B7CB4982650548200AE7B94 /* corianderTests.xctest */,
+				8B7CB4A32650548200AE7B94 /* corianderUITests.xctest */,
+				8B7CB4AC2650548200AE7B94 /* coriander WatchKit App.app */,
+				8B7CB4B82650548300AE7B94 /* coriander WatchKit Extension.appex */,
+				8B7CB4D22650548300AE7B94 /* coriander WatchKit AppTests.xctest */,
+				8B7CB4DD2650548300AE7B94 /* coriander WatchKit AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B7CB4892650548100AE7B94 /* coriander */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB51C2650633700AE7B94 /* Assets.xcassets */,
+				8B7CB51F2650633700AE7B94 /* Actions */,
+				8B7CB5252650633700AE7B94 /* Frameworks */,
+				8B7CB51D2650633700AE7B94 /* Preview Content */,
+				8B7CB5192650633700AE7B94 /* Reducers */,
+				8B7CB5222650633700AE7B94 /* State */,
+				8B7CB5282650633700AE7B94 /* Views */,
+				8B7CB4FD265054A400AE7B94 /* coriander.entitlements */,
+				8B7CB48A2650548100AE7B94 /* corianderApp.swift */,
+				8B7CB48C2650548100AE7B94 /* ContentView.swift */,
+				8B7CB4932650548200AE7B94 /* Info.plist */,
+				8B7CB4902650548200AE7B94 /* Preview Content */,
+			);
+			path = coriander;
+			sourceTree = "<group>";
+		};
+		8B7CB4902650548200AE7B94 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8B7CB49B2650548200AE7B94 /* corianderTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB49C2650548200AE7B94 /* corianderTests.swift */,
+				8B7CB49E2650548200AE7B94 /* Info.plist */,
+			);
+			path = corianderTests;
+			sourceTree = "<group>";
+		};
+		8B7CB4A62650548200AE7B94 /* corianderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB4A72650548200AE7B94 /* corianderUITests.swift */,
+				8B7CB4A92650548200AE7B94 /* Info.plist */,
+			);
+			path = corianderUITests;
+			sourceTree = "<group>";
+		};
+		8B7CB4B02650548200AE7B94 /* coriander WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB4B12650548200AE7B94 /* Assets.xcassets */,
+				8B7CB4B32650548200AE7B94 /* Info.plist */,
+			);
+			path = "coriander WatchKit App";
+			sourceTree = "<group>";
+		};
+		8B7CB4BC2650548300AE7B94 /* coriander WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB4BD2650548300AE7B94 /* corianderApp.swift */,
+				8B7CB4BF2650548300AE7B94 /* ContentView.swift */,
+				8B7CB4C12650548300AE7B94 /* NotificationController.swift */,
+				8B7CB4C32650548300AE7B94 /* NotificationView.swift */,
+				8B7CB4C52650548300AE7B94 /* ComplicationController.swift */,
+				8B7CB4C72650548300AE7B94 /* Assets.xcassets */,
+				8B7CB4CC2650548300AE7B94 /* Info.plist */,
+				8B7CB4CD2650548300AE7B94 /* PushNotificationPayload.apns */,
+				8B7CB4C92650548300AE7B94 /* Preview Content */,
+			);
+			path = "coriander WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		8B7CB4C92650548300AE7B94 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB4CA2650548300AE7B94 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8B7CB4D52650548300AE7B94 /* coriander WatchKit AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB4D62650548300AE7B94 /* coriander_WatchKit_AppTests.swift */,
+				8B7CB4D82650548300AE7B94 /* Info.plist */,
+			);
+			path = "coriander WatchKit AppTests";
+			sourceTree = "<group>";
+		};
+		8B7CB4E02650548300AE7B94 /* coriander WatchKit AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB4E12650548300AE7B94 /* coriander_WatchKit_AppUITests.swift */,
+				8B7CB4E32650548300AE7B94 /* Info.plist */,
+			);
+			path = "coriander WatchKit AppUITests";
+			sourceTree = "<group>";
+		};
+		8B7CB4FE265054AF00AE7B94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB544265063C400AE7B94 /* XCTest.framework */,
+				8B7CB50C2650614600AE7B94 /* MapboxMobileEvents.framework */,
+				8B7CB5082650613700AE7B94 /* Mapbox.framework */,
+				8B7CB4FF265054AF00AE7B94 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B7CB5192650633700AE7B94 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB51A2650633700AE7B94 /* AppReducer.swift */,
+				8B7CB51B2650633700AE7B94 /* LocationReducer.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		8B7CB51D2650633700AE7B94 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB51E2650633700AE7B94 /* Preview Assets.xcassets */,
+			);
+			name = "Preview Content";
+			path = "../../joes/joes/Preview Content";
+			sourceTree = "<group>";
+		};
+		8B7CB51F2650633700AE7B94 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB5202650633700AE7B94 /* LocationActions.swift */,
+				8B7CB5212650633700AE7B94 /* AppActions.swift */,
+			);
+			name = Actions;
+			path = ../../joes/joes/Actions;
+			sourceTree = "<group>";
+		};
+		8B7CB5222650633700AE7B94 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB5232650633700AE7B94 /* AppState.swift */,
+				8B7CB5242650633700AE7B94 /* LocationState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		8B7CB5252650633700AE7B94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB5262650633700AE7B94 /* MapboxMobileEvents.framework */,
+				8B7CB5272650633700AE7B94 /* Mapbox.framework */,
+			);
+			name = Frameworks;
+			path = ../../joes/joes/Frameworks;
+			sourceTree = "<group>";
+		};
+		8B7CB5282650633700AE7B94 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB5292650633700AE7B94 /* Settings */,
+				8B7CB52B2650633700AE7B94 /* Image */,
+				8B7CB52D2650633700AE7B94 /* Map */,
+				8B7CB5302650633700AE7B94 /* Data */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B7CB5292650633700AE7B94 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB52A2650633700AE7B94 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		8B7CB52B2650633700AE7B94 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB52C2650633700AE7B94 /* ImagePicker.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		8B7CB52D2650633700AE7B94 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB52E2650633700AE7B94 /* MapboxMap.swift */,
+				8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		8B7CB5302650633700AE7B94 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB5312650633700AE7B94 /* DataView.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B7CB4862650548100AE7B94 /* coriander */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7CB4EE2650548300AE7B94 /* Build configuration list for PBXNativeTarget "coriander" */;
+			buildPhases = (
+				8B7CB4832650548100AE7B94 /* Sources */,
+				8B7CB4842650548100AE7B94 /* Frameworks */,
+				8B7CB4852650548100AE7B94 /* Resources */,
+				8B7CB4ED2650548300AE7B94 /* Embed Watch Content */,
+				8B7CB5112650617700AE7B94 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B7CB4AF2650548200AE7B94 /* PBXTargetDependency */,
+			);
+			name = coriander;
+			packageProductDependencies = (
+				8B7CB542265063A500AE7B94 /* ReSwift */,
+				8B7CB548265063E200AE7B94 /* RxSwift */,
+				8B7CB54C265063E200AE7B94 /* RxRelay */,
+				8B7CB54E265063E200AE7B94 /* RxCocoa */,
+				8B7CB550265063E200AE7B94 /* RxBlocking */,
+			);
+			productName = coriander;
+			productReference = 8B7CB4872650548100AE7B94 /* coriander.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B7CB4972650548200AE7B94 /* corianderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7CB4F12650548300AE7B94 /* Build configuration list for PBXNativeTarget "corianderTests" */;
+			buildPhases = (
+				8B7CB4942650548200AE7B94 /* Sources */,
+				8B7CB4952650548200AE7B94 /* Frameworks */,
+				8B7CB4962650548200AE7B94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B7CB49A2650548200AE7B94 /* PBXTargetDependency */,
+			);
+			name = corianderTests;
+			productName = corianderTests;
+			productReference = 8B7CB4982650548200AE7B94 /* corianderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8B7CB4A22650548200AE7B94 /* corianderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7CB4F42650548300AE7B94 /* Build configuration list for PBXNativeTarget "corianderUITests" */;
+			buildPhases = (
+				8B7CB49F2650548200AE7B94 /* Sources */,
+				8B7CB4A02650548200AE7B94 /* Frameworks */,
+				8B7CB4A12650548200AE7B94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B7CB4A52650548200AE7B94 /* PBXTargetDependency */,
+			);
+			name = corianderUITests;
+			productName = corianderUITests;
+			productReference = 8B7CB4A32650548200AE7B94 /* corianderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		8B7CB4AB2650548200AE7B94 /* coriander WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7CB4EA2650548300AE7B94 /* Build configuration list for PBXNativeTarget "coriander WatchKit App" */;
+			buildPhases = (
+				8B7CB4AA2650548200AE7B94 /* Resources */,
+				8B7CB4E92650548300AE7B94 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B7CB4BB2650548300AE7B94 /* PBXTargetDependency */,
+			);
+			name = "coriander WatchKit App";
+			productName = "coriander WatchKit App";
+			productReference = 8B7CB4AC2650548200AE7B94 /* coriander WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		8B7CB4B72650548300AE7B94 /* coriander WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7CB4E62650548300AE7B94 /* Build configuration list for PBXNativeTarget "coriander WatchKit Extension" */;
+			buildPhases = (
+				8B7CB4B42650548300AE7B94 /* Sources */,
+				8B7CB4B52650548300AE7B94 /* Frameworks */,
+				8B7CB4B62650548300AE7B94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "coriander WatchKit Extension";
+			productName = "coriander WatchKit Extension";
+			productReference = 8B7CB4B82650548300AE7B94 /* coriander WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		8B7CB4D12650548300AE7B94 /* coriander WatchKit AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7CB4F72650548300AE7B94 /* Build configuration list for PBXNativeTarget "coriander WatchKit AppTests" */;
+			buildPhases = (
+				8B7CB4CE2650548300AE7B94 /* Sources */,
+				8B7CB4CF2650548300AE7B94 /* Frameworks */,
+				8B7CB4D02650548300AE7B94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B7CB4D42650548300AE7B94 /* PBXTargetDependency */,
+			);
+			name = "coriander WatchKit AppTests";
+			productName = "coriander WatchKit AppTests";
+			productReference = 8B7CB4D22650548300AE7B94 /* coriander WatchKit AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8B7CB4DC2650548300AE7B94 /* coriander WatchKit AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7CB4FA2650548300AE7B94 /* Build configuration list for PBXNativeTarget "coriander WatchKit AppUITests" */;
+			buildPhases = (
+				8B7CB4D92650548300AE7B94 /* Sources */,
+				8B7CB4DA2650548300AE7B94 /* Frameworks */,
+				8B7CB4DB2650548300AE7B94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B7CB4DF2650548300AE7B94 /* PBXTargetDependency */,
+			);
+			name = "coriander WatchKit AppUITests";
+			productName = "coriander WatchKit AppUITests";
+			productReference = 8B7CB4DD2650548300AE7B94 /* coriander WatchKit AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B7CB47F2650548000AE7B94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					8B7CB4862650548100AE7B94 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					8B7CB4972650548200AE7B94 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 8B7CB4862650548100AE7B94;
+					};
+					8B7CB4A22650548200AE7B94 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 8B7CB4862650548100AE7B94;
+					};
+					8B7CB4AB2650548200AE7B94 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					8B7CB4B72650548300AE7B94 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					8B7CB4D12650548300AE7B94 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 8B7CB4B72650548300AE7B94;
+					};
+					8B7CB4DC2650548300AE7B94 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 8B7CB4AB2650548200AE7B94;
+					};
+				};
+			};
+			buildConfigurationList = 8B7CB4822650548000AE7B94 /* Build configuration list for PBXProject "coriander" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B7CB47E2650548000AE7B94;
+			packageReferences = (
+				8B7CB541265063A500AE7B94 /* XCRemoteSwiftPackageReference "ReSwift" */,
+				8B7CB547265063E200AE7B94 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
+			productRefGroup = 8B7CB4882650548100AE7B94 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B7CB4862650548100AE7B94 /* coriander */,
+				8B7CB4972650548200AE7B94 /* corianderTests */,
+				8B7CB4A22650548200AE7B94 /* corianderUITests */,
+				8B7CB4AB2650548200AE7B94 /* coriander WatchKit App */,
+				8B7CB4B72650548300AE7B94 /* coriander WatchKit Extension */,
+				8B7CB4D12650548300AE7B94 /* coriander WatchKit AppTests */,
+				8B7CB4DC2650548300AE7B94 /* coriander WatchKit AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B7CB4852650548100AE7B94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7CB5352650633700AE7B94 /* Preview Assets.xcassets in Resources */,
+				8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */,
+				8B7CB5342650633700AE7B94 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4962650548200AE7B94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4A12650548200AE7B94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4AA2650548200AE7B94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7CB4B22650548200AE7B94 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4B62650548300AE7B94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7CB4CB2650548300AE7B94 /* Preview Assets.xcassets in Resources */,
+				8B7CB4C82650548300AE7B94 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4D02650548300AE7B94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4DB2650548300AE7B94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B7CB4832650548100AE7B94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */,
+				8B7CB53E2650633800AE7B94 /* MapboxMap.swift in Sources */,
+				8B7CB5362650633700AE7B94 /* LocationActions.swift in Sources */,
+				8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */,
+				8B7CB5382650633800AE7B94 /* AppState.swift in Sources */,
+				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
+				8B7CB5372650633800AE7B94 /* AppActions.swift in Sources */,
+				8B7CB48B2650548100AE7B94 /* corianderApp.swift in Sources */,
+				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
+				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
+				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,
+				8B7CB5322650633700AE7B94 /* AppReducer.swift in Sources */,
+				8B7CB53C2650633800AE7B94 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4942650548200AE7B94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7CB49D2650548200AE7B94 /* corianderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB49F2650548200AE7B94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7CB4A82650548200AE7B94 /* corianderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4B42650548300AE7B94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7CB4C22650548300AE7B94 /* NotificationController.swift in Sources */,
+				8B7CB4C02650548300AE7B94 /* ContentView.swift in Sources */,
+				8B7CB4C62650548300AE7B94 /* ComplicationController.swift in Sources */,
+				8B7CB4BE2650548300AE7B94 /* corianderApp.swift in Sources */,
+				8B7CB4C42650548300AE7B94 /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4CE2650548300AE7B94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7CB4D72650548300AE7B94 /* coriander_WatchKit_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7CB4D92650548300AE7B94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7CB4E22650548300AE7B94 /* coriander_WatchKit_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B7CB49A2650548200AE7B94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B7CB4862650548100AE7B94 /* coriander */;
+			targetProxy = 8B7CB4992650548200AE7B94 /* PBXContainerItemProxy */;
+		};
+		8B7CB4A52650548200AE7B94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B7CB4862650548100AE7B94 /* coriander */;
+			targetProxy = 8B7CB4A42650548200AE7B94 /* PBXContainerItemProxy */;
+		};
+		8B7CB4AF2650548200AE7B94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B7CB4AB2650548200AE7B94 /* coriander WatchKit App */;
+			targetProxy = 8B7CB4AE2650548200AE7B94 /* PBXContainerItemProxy */;
+		};
+		8B7CB4BB2650548300AE7B94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B7CB4B72650548300AE7B94 /* coriander WatchKit Extension */;
+			targetProxy = 8B7CB4BA2650548300AE7B94 /* PBXContainerItemProxy */;
+		};
+		8B7CB4D42650548300AE7B94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B7CB4B72650548300AE7B94 /* coriander WatchKit Extension */;
+			targetProxy = 8B7CB4D32650548300AE7B94 /* PBXContainerItemProxy */;
+		};
+		8B7CB4DF2650548300AE7B94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B7CB4AB2650548200AE7B94 /* coriander WatchKit App */;
+			targetProxy = 8B7CB4DE2650548300AE7B94 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8B7CB4E42650548300AE7B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_WORKSPACE = YES;
+			};
+			name = Debug;
+		};
+		8B7CB4E52650548300AE7B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_WORKSPACE = YES;
+			};
+			name = Release;
+		};
+		8B7CB4E72650548300AE7B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"coriander WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "coriander WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		8B7CB4E82650548300AE7B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"coriander WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "coriander WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		8B7CB4EB2650548300AE7B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				IBSC_MODULE = coriander_WatchKit_Extension;
+				INFOPLIST_FILE = "coriander WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		8B7CB4EC2650548300AE7B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				IBSC_MODULE = coriander_WatchKit_Extension;
+				INFOPLIST_FILE = "coriander WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		8B7CB4EF2650548300AE7B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = coriander/coriander.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"coriander/Preview Content\"";
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/coriander/Frameworks",
+				);
+				INFOPLIST_FILE = coriander/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B7CB4F02650548300AE7B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = coriander/coriander.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"coriander/Preview Content\"";
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/coriander/Frameworks",
+				);
+				INFOPLIST_FILE = coriander/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B7CB4F22650548300AE7B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = corianderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.corianderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coriander.app/coriander";
+			};
+			name = Debug;
+		};
+		8B7CB4F32650548300AE7B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = corianderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.corianderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coriander.app/coriander";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B7CB4F52650548300AE7B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = corianderUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.corianderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = coriander;
+			};
+			name = Debug;
+		};
+		8B7CB4F62650548300AE7B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = corianderUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.corianderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = coriander;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B7CB4F82650548300AE7B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = "coriander WatchKit AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.korczis.coriander-WatchKit-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coriander WatchKit Extension.appex/coriander WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		8B7CB4F92650548300AE7B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = "coriander WatchKit AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.korczis.coriander-WatchKit-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coriander WatchKit Extension.appex/coriander WatchKit Extension";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		8B7CB4FB2650548300AE7B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = "coriander WatchKit AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.korczis.coriander-WatchKit-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "coriander WatchKit App";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		8B7CB4FC2650548300AE7B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = "coriander WatchKit AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.korczis.coriander-WatchKit-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "coriander WatchKit App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B7CB4822650548000AE7B94 /* Build configuration list for PBXProject "coriander" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7CB4E42650548300AE7B94 /* Debug */,
+				8B7CB4E52650548300AE7B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B7CB4E62650548300AE7B94 /* Build configuration list for PBXNativeTarget "coriander WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7CB4E72650548300AE7B94 /* Debug */,
+				8B7CB4E82650548300AE7B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B7CB4EA2650548300AE7B94 /* Build configuration list for PBXNativeTarget "coriander WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7CB4EB2650548300AE7B94 /* Debug */,
+				8B7CB4EC2650548300AE7B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B7CB4EE2650548300AE7B94 /* Build configuration list for PBXNativeTarget "coriander" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7CB4EF2650548300AE7B94 /* Debug */,
+				8B7CB4F02650548300AE7B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B7CB4F12650548300AE7B94 /* Build configuration list for PBXNativeTarget "corianderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7CB4F22650548300AE7B94 /* Debug */,
+				8B7CB4F32650548300AE7B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B7CB4F42650548300AE7B94 /* Build configuration list for PBXNativeTarget "corianderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7CB4F52650548300AE7B94 /* Debug */,
+				8B7CB4F62650548300AE7B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B7CB4F72650548300AE7B94 /* Build configuration list for PBXNativeTarget "coriander WatchKit AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7CB4F82650548300AE7B94 /* Debug */,
+				8B7CB4F92650548300AE7B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B7CB4FA2650548300AE7B94 /* Build configuration list for PBXNativeTarget "coriander WatchKit AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7CB4FB2650548300AE7B94 /* Debug */,
+				8B7CB4FC2650548300AE7B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8B7CB541265063A500AE7B94 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
+		8B7CB547265063E200AE7B94 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8B7CB542265063A500AE7B94 /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B7CB541265063A500AE7B94 /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+		8B7CB548265063E200AE7B94 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B7CB547265063E200AE7B94 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		8B7CB54C265063E200AE7B94 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B7CB547265063E200AE7B94 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		8B7CB54E265063E200AE7B94 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B7CB547265063E200AE7B94 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		8B7CB550265063E200AE7B94 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B7CB547265063E200AE7B94 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 8B7CB47F2650548000AE7B94 /* Project object */;
+}
