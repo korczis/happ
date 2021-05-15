@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Coriander</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,6 +22,16 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLAccuracyAuthorizationDescription</key>
+	<string>Allows tracking</string>
+	<key>MGLMapboxAccessToken</key>
+	<string></string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allows tracking if the application is in use or running in the background</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allows tracking even if the application is running in the background</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allows tracking only if the application is in use</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -46,15 +58,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MGLMapboxAccessToken</key>
-	<string></string>
-	<key>MGLAccuracyAuthorizationDescription</key>
-	<string>Allows tracking</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Allows tracking even if the application is running in the background</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allows tracking only if the application is in use</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Allows tracking if the application is in use or running in the background</string>
 </dict>
 </plist>
