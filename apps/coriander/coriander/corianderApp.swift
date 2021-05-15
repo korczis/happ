@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct corianderApp: App {
-    @UIApplicationDelegateAdaptor(CorianderAppDelegate.self) var appDelegate
+     @UIApplicationDelegateAdaptor(CorianderAppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
