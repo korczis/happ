@@ -170,7 +170,7 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
 
         
         // Set the map view's delegate
-        mapView.delegate = self
+         mapView.delegate = self
         
         // And finally add as Subview of current View
         view.addSubview(mapView)
@@ -344,6 +344,8 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
     
     // - (void)mapView:(MGLMapView *)mapView didUpdateUserLocation:(nullable MGLUserLocation *)userLocation;
     func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
+        print("MapboxMap.mapView() - didUpdate, mapView: \(mapView), userLocation: \(userLocation)")
+        
         guard let userLocation = userLocation else { return }
         guard let userLocationRaw = userLocation.location else { return }
         
@@ -351,7 +353,13 @@ class MapboxMapViewController: UIViewController, MGLMapViewDelegate {
         // print("User location (raw): \(userLocationRaw)")
         
         guard let state = self.state else { return }
-        state.dispatch(SetLastKnownLocation(location: userLocationRaw))
+        
+        if (AddLocationAction.shouldUpdateLocation(
+            oldLocation: state.current.location.lastKnownLocation,
+                newLocation: userLocationRaw
+        )) {
+            state.dispatch(AddLocationAction(location: userLocationRaw))
+        }
     }
     
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {

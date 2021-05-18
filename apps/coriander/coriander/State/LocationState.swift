@@ -12,6 +12,6 @@ import MapKit
 
 struct LocationState {
     var lastKnownLocation: CLLocation = CLLocation()
-    var locationManager: CLLocationManager = CLLocationManager()
+    // var locationManager: CLLocationManager = CLLocationManager()
     var locationHistory: [CLLocation] = []
 }

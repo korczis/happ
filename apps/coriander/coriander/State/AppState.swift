@@ -45,11 +45,11 @@ public class ObservableState<T>: ObservableObject {
         store.dispatch(action)
     }
 
-    private func dispatch(_ action: Action) -> () -> Void {
-        {
-            self.store.dispatch(action)
-        }
-    }
+//    private func dispatch(_ action: Action) -> () -> Void {
+//        {
+//            self.store.dispatch(action)
+//        }
+//    }
 }
 
 // MARK: ObservableState - StoreSubscriber

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B467E2826507BF000F9C122 /* corianderAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B467E2726507BF000F9C122 /* corianderAppDelegate.swift */; };
-		8B7CB48B2650548100AE7B94 /* corianderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48A2650548100AE7B94 /* corianderApp.swift */; };
+		8B467E2826507BF000F9C122 /* CorianderAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B467E2726507BF000F9C122 /* CorianderAppDelegate.swift */; };
+		8B7CB48B2650548100AE7B94 /* CorianderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48A2650548100AE7B94 /* CorianderApp.swift */; };
 		8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48C2650548100AE7B94 /* ContentView.swift */; };
 		8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */; };
 		8B7CB49D2650548200AE7B94 /* corianderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB49C2650548200AE7B94 /* corianderTests.swift */; };
@@ -135,9 +135,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8B467E2726507BF000F9C122 /* corianderAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = corianderAppDelegate.swift; sourceTree = "<group>"; };
+		8B467E2726507BF000F9C122 /* CorianderAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorianderAppDelegate.swift; sourceTree = "<group>"; };
 		8B7CB4872650548100AE7B94 /* coriander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coriander.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B7CB48A2650548100AE7B94 /* corianderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = corianderApp.swift; sourceTree = "<group>"; };
+		8B7CB48A2650548100AE7B94 /* CorianderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorianderApp.swift; sourceTree = "<group>"; };
 		8B7CB48C2650548100AE7B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B7CB4932650548200AE7B94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -284,8 +284,8 @@
 				8B7CB5222650633700AE7B94 /* State */,
 				8B7CB5282650633700AE7B94 /* Views */,
 				8B7CB4FD265054A400AE7B94 /* coriander.entitlements */,
-				8B7CB48A2650548100AE7B94 /* corianderApp.swift */,
-				8B467E2726507BF000F9C122 /* corianderAppDelegate.swift */,
+				8B7CB48A2650548100AE7B94 /* CorianderApp.swift */,
+				8B467E2726507BF000F9C122 /* CorianderAppDelegate.swift */,
 				8B7CB48C2650548100AE7B94 /* ContentView.swift */,
 				8B7CB4932650548200AE7B94 /* Info.plist */,
 				8B7CB4902650548200AE7B94 /* Preview Content */,
@@ -764,8 +764,8 @@
 				8B7CB5382650633800AE7B94 /* AppState.swift in Sources */,
 				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
 				8B7CB5372650633800AE7B94 /* AppActions.swift in Sources */,
-				8B7CB48B2650548100AE7B94 /* corianderApp.swift in Sources */,
-				8B467E2826507BF000F9C122 /* corianderAppDelegate.swift in Sources */,
+				8B7CB48B2650548100AE7B94 /* CorianderApp.swift in Sources */,
+				8B467E2826507BF000F9C122 /* CorianderAppDelegate.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
 				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,
