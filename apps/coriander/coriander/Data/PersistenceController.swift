@@ -55,7 +55,7 @@ struct PersistenceController {
         // Update the container's list of store descriptions
         container.persistentStoreDescriptions = [
             cloudStoreDescription,
-            localStoreDescription
+            // localStoreDescription
         ]
 
         // Load stores

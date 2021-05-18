@@ -28,7 +28,7 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     
-                    MapView(state: self.state, parent: self)
+                    MapView(state: self.state)
                         .centerCoordinate(
                             .init(
                                 latitude: 37.791293,
@@ -51,7 +51,7 @@ struct ContentView: View {
             // Data
             NavigationView{
                 DataView(state: self.state)
-                    .navigationBarTitle("Data (\(state.current.location.locationHistory.count))", displayMode: .inline)
+                    .navigationBarTitle("Data (\(state.current.location.history.count))", displayMode: .inline)
             }
             .tabItem {
                 VStack{

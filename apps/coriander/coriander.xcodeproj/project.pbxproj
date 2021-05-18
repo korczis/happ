@@ -54,6 +54,9 @@
 		8BF4F3172654273B00EA619E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F3162654273B00EA619E /* MapView.swift */; };
 		8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F31A2654479500EA619E /* MapViewCache.swift */; };
 		8BF4F31D2654524F00EA619E /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F31C2654524F00EA619E /* MapViewWrapper.swift */; };
+		8BF4F32B265470CB00EA619E /* RingArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32A265470CB00EA619E /* RingArray.swift */; };
+		8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32D265470DA00EA619E /* Coriander.xcdatamodeld */; };
+		8BF4F331265470DA00EA619E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32F265470DA00EA619E /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +197,9 @@
 		8BF4F3162654273B00EA619E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8BF4F31A2654479500EA619E /* MapViewCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCache.swift; sourceTree = "<group>"; };
 		8BF4F31C2654524F00EA619E /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
+		8BF4F32A265470CB00EA619E /* RingArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingArray.swift; sourceTree = "<group>"; };
+		8BF4F32E265470DA00EA619E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		8BF4F32F265470DA00EA619E /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +292,8 @@
 			children = (
 				8B7CB51C2650633700AE7B94 /* Assets.xcassets */,
 				8B7CB51F2650633700AE7B94 /* Actions */,
+				8BF4F329265470CB00EA619E /* Algorithms */,
+				8BF4F32C265470DA00EA619E /* Data */,
 				8B7CB5252650633700AE7B94 /* Frameworks */,
 				8B7CB51D2650633700AE7B94 /* Preview Content */,
 				8B7CB5192650633700AE7B94 /* Reducers */,
@@ -480,6 +488,23 @@
 			isa = PBXGroup;
 			children = (
 				8B7CB5312650633700AE7B94 /* DataView.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8BF4F329265470CB00EA619E /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				8BF4F32A265470CB00EA619E /* RingArray.swift */,
+			);
+			path = Algorithms;
+			sourceTree = "<group>";
+		};
+		8BF4F32C265470DA00EA619E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8BF4F32D265470DA00EA619E /* Coriander.xcdatamodeld */,
+				8BF4F32F265470DA00EA619E /* PersistenceController.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -774,14 +799,17 @@
 				8B7CB53E2650633800AE7B94 /* MapboxMap.swift in Sources */,
 				8BF4F31D2654524F00EA619E /* MapViewWrapper.swift in Sources */,
 				8B7CB5362650633700AE7B94 /* LocationActions.swift in Sources */,
+				8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */,
 				8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */,
 				8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */,
+				8BF4F32B265470CB00EA619E /* RingArray.swift in Sources */,
 				8B7CB5382650633800AE7B94 /* AppState.swift in Sources */,
 				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
 				8B7CB5372650633800AE7B94 /* AppActions.swift in Sources */,
 				8B7CB48B2650548100AE7B94 /* CorianderApp.swift in Sources */,
 				8BF4F313265426E800EA619E /* CorianderSceneDelegate.swift in Sources */,
 				8B467E2826507BF000F9C122 /* CorianderAppDelegate.swift in Sources */,
+				8BF4F331265470DA00EA619E /* PersistenceController.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
 				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,
@@ -1455,6 +1483,19 @@
 			productName = RxBlocking;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		8BF4F32D265470DA00EA619E /* Coriander.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8BF4F32E265470DA00EA619E /* Model.xcdatamodel */,
+			);
+			currentVersion = 8BF4F32E265470DA00EA619E /* Model.xcdatamodel */;
+			path = Coriander.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8B7CB47F2650548000AE7B94 /* Project object */;
 }

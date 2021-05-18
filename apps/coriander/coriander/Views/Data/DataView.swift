@@ -54,7 +54,7 @@ struct DataView: View {
     
     var locations: [CLLocation] {
         let locationState: LocationState = state.current.location;
-        return locationState.locationHistory;
+        return locationState.history;
     }
     
     var body: some View {

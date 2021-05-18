@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__CFRunLoopServiceMachPort:(null)">
+         <PersistentStrings>
+            <PersistentString
+               value = "oldLocation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static AddLocationAction.shouldUpdateLocation(oldLocation:newLocation:):LocationActions.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "oldLocation == CLLocation()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

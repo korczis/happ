@@ -36,7 +36,6 @@ struct MapView: UIViewRepresentable {
     // -----
     
     @ObservedObject var state: ObservableState<AppState>
-    var parent: ContentView
         
     // ----
     // MARK: - Configuring UIViewRepresentable protocol
@@ -186,7 +185,7 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
-            // print("MapboxMap.mapView() - didUpdate, mapView: \(mapView), userLocation: \(String(describing: userLocation))")
+            print("MapboxMap.mapView() - didUpdate, userLocation: \(String(describing: userLocation)), mapView: \(mapView)")
             
             guard let userLocation = userLocation else { return }
             guard let userLocationRaw = userLocation.location else { return }
@@ -195,9 +194,8 @@ struct MapView: UIViewRepresentable {
             // print("User location (raw): \(userLocationRaw)")
                                    
             
-            // FIXME: Update only when needed
             if (AddLocationAction.shouldUpdateLocation(
-                oldLocation: control.state.current.location.lastKnownLocation,
+                oldLocation: control.state.current.location.lastLocation,
                 newLocation: userLocationRaw
             )) {
                 control.state.dispatch(AddLocationAction(location: userLocationRaw))
