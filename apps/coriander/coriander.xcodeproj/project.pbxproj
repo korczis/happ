@@ -50,6 +50,10 @@
 		8B7CB5532650672F00AE7B94 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5082650613700AE7B94 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B7CB5552650673400AE7B94 /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5262650633700AE7B94 /* MapboxMobileEvents.framework */; };
 		8B7CB5562650673400AE7B94 /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5262650633700AE7B94 /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8BF4F313265426E800EA619E /* CorianderSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F312265426E800EA619E /* CorianderSceneDelegate.swift */; };
+		8BF4F3172654273B00EA619E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F3162654273B00EA619E /* MapView.swift */; };
+		8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F31A2654479500EA619E /* MapViewCache.swift */; };
+		8BF4F31D2654524F00EA619E /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F31C2654524F00EA619E /* MapViewWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +190,10 @@
 		8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationButton.swift; sourceTree = "<group>"; };
 		8B7CB5312650633700AE7B94 /* DataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		8B7CB544265063C400AE7B94 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8BF4F312265426E800EA619E /* CorianderSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorianderSceneDelegate.swift; sourceTree = "<group>"; };
+		8BF4F3162654273B00EA619E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		8BF4F31A2654479500EA619E /* MapViewCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCache.swift; sourceTree = "<group>"; };
+		8BF4F31C2654524F00EA619E /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +297,7 @@
 				8B7CB48C2650548100AE7B94 /* ContentView.swift */,
 				8B7CB4932650548200AE7B94 /* Info.plist */,
 				8B7CB4902650548200AE7B94 /* Preview Content */,
+				8BF4F312265426E800EA619E /* CorianderSceneDelegate.swift */,
 			);
 			path = coriander;
 			sourceTree = "<group>";
@@ -459,6 +468,9 @@
 			isa = PBXGroup;
 			children = (
 				8B7CB52E2650633700AE7B94 /* MapboxMap.swift */,
+				8BF4F3162654273B00EA619E /* MapView.swift */,
+				8BF4F31A2654479500EA619E /* MapViewCache.swift */,
+				8BF4F31C2654524F00EA619E /* MapViewWrapper.swift */,
 				8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */,
 			);
 			path = Map;
@@ -758,13 +770,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */,
+				8BF4F3172654273B00EA619E /* MapView.swift in Sources */,
 				8B7CB53E2650633800AE7B94 /* MapboxMap.swift in Sources */,
+				8BF4F31D2654524F00EA619E /* MapViewWrapper.swift in Sources */,
 				8B7CB5362650633700AE7B94 /* LocationActions.swift in Sources */,
 				8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */,
+				8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */,
 				8B7CB5382650633800AE7B94 /* AppState.swift in Sources */,
 				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
 				8B7CB5372650633800AE7B94 /* AppActions.swift in Sources */,
 				8B7CB48B2650548100AE7B94 /* CorianderApp.swift in Sources */,
+				8BF4F313265426E800EA619E /* CorianderSceneDelegate.swift in Sources */,
 				8B467E2826507BF000F9C122 /* CorianderAppDelegate.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,

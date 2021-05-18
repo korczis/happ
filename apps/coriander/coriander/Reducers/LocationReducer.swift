@@ -21,7 +21,6 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
     }
 
     let addLocation = { (action: AddLocationAction) -> AppState in
-        
         let oldLocation = state.location.lastKnownLocation
         let newLocation = action.location
         

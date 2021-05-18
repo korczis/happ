@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct corianderApp: App {
+struct CorianderApp: App {
      // @UIApplicationDelegateAdaptor(CorianderAppDelegate.self) var appDelegate
     
     var body: some Scene {

@@ -10,9 +10,15 @@ import MapKit
 import ReSwift
 
 struct AddLocationAction: Action {
+    static let minUpdateInterval: Double = 3
+    
     var location: CLLocation
     
-    static func shouldUpdateLocation(oldLocation: CLLocation, newLocation: CLLocation) -> Bool{
+    static func shouldUpdateLocation(oldLocation: CLLocation, newLocation: CLLocation) -> Bool {
+        guard (oldLocation.coordinate.latitude != 0 && oldLocation.coordinate.longitude != 0) else {
+            return true
+        }
+        
         let oldCoordinate = oldLocation.coordinate
         let newCoordinate = newLocation.coordinate
         let sameCoordinates =
@@ -21,10 +27,10 @@ struct AddLocationAction: Action {
         
         let updateDelta = newLocation.timestamp.timeIntervalSince(oldLocation.timestamp)
         
-        guard updateDelta >= 10 else {
+        guard updateDelta >= minUpdateInterval else {
             return false
         }
-        print("addLocation() - updateDelta: \(updateDelta)")
+        print("AddLocationAction.shouldUpdateLocation() - updateDelta: \(updateDelta)")
         
         guard !sameCoordinates else {
             print("Coordinates are equal!")

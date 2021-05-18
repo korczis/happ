@@ -7,31 +7,37 @@
 
 // MARK: Imports
 import Foundation
-import SwiftUI
+import Mapbox
 import ReSwift
+import SwiftUI
 
-
-// Global store instance
+// -----
+// MARK: Global Store Instance
+// -----
 let mainStore = Store<AppState>(
     reducer: appReducer,
     state: nil
 )
 
 struct ContentView: View {
-    // MARK: Private Properties
-       
     @ObservedObject private var state = ObservableState(store: mainStore)
-    
-    // MARK: Body
     
     var body: some View {
         TabView {
             // Map
             NavigationView {
                 ZStack {
-                    MapboxMap(state: self.state)
+                    
+                    MapView(state: self.state, parent: self)
+                        .centerCoordinate(
+                            .init(
+                                latitude: 37.791293,
+                                longitude: -122.396324
+                            )
+                        )
+                        .zoomLevel(16)
                         .navigationBarTitle("Map", displayMode: .inline)
-                        .ignoresSafeArea()
+                      
                 }
                 
             }
