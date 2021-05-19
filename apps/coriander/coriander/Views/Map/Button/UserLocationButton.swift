@@ -1,6 +1,6 @@
 //
 //  UserLocationButton.swift
-//  joes
+//  coriander
 //
 //  Created by Tomas Korcak on 14.05.2021.
 //
@@ -10,7 +10,7 @@ import SwiftUI
 import Mapbox
 
 class UserLocationButton: UIButton {
-    private var arrow: CAShapeLayer?
+    private var shape: CAShapeLayer?
     private let buttonSize: CGFloat
 
     // Initializer to create the user tracking mode button
@@ -28,29 +28,32 @@ class UserLocationButton: UIButton {
         self.backgroundColor = UIColor.white.withAlphaComponent(0.9)
         self.layer.cornerRadius = 4
 
-        let arrow = CAShapeLayer()
-        arrow.path = arrowPath()
-        arrow.lineWidth = 2
-        arrow.lineJoin = CAShapeLayerLineJoin.round
-        arrow.bounds = CGRect(
+        let shape = CAShapeLayer()
+        shape.path = drawArrow()
+        shape.lineWidth = 2
+        shape.lineJoin = CAShapeLayerLineJoin.round
+        
+        shape.bounds = CGRect(
             x: 0,
             y: 0,
             width: buttonSize / 2,
             height: buttonSize / 2
         )
-        arrow.position = CGPoint(
+        
+        shape.position = CGPoint(
             x: buttonSize / 2,
             y: buttonSize / 2
         )
-        arrow.shouldRasterize = true
-        arrow.rasterizationScale = UIScreen.main.scale
-        arrow.drawsAsynchronously = true
+        
+        shape.shouldRasterize = true
+        shape.rasterizationScale = UIScreen.main.scale
+        shape.drawsAsynchronously = true
 
-        self.arrow = arrow
+        self.shape = shape
 
-        // Update arrow for initial tracking mode
-        updateArrowForTrackingMode(mode: .none)
-        layer.addSublayer(self.arrow!)
+        // Initial shape update
+        updateShape(mode: .none)
+        layer.addSublayer(self.shape!)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -60,7 +63,7 @@ class UserLocationButton: UIButton {
     // Create a new bezier path to represent the tracking mode arrow,
     // making sure the arrow does not get drawn outside of the
     // frame size of the UIButton.
-    private func arrowPath() -> CGPath {
+    private func drawArrow() -> CGPath {
         let bezierPath = UIBezierPath()
         let max: CGFloat = buttonSize / 2
         
@@ -75,7 +78,7 @@ class UserLocationButton: UIButton {
     }
 
     // Update the arrow's color and rotation when tracking mode is changed.
-    func updateArrowForTrackingMode(mode: MGLUserTrackingMode) {
+    func updateShape(mode: MGLUserTrackingMode) {
         let activePrimaryColor = UIColor.red
         let disabledPrimaryColor = UIColor.clear
         let disabledSecondaryColor = UIColor.black
@@ -96,14 +99,14 @@ class UserLocationButton: UIButton {
     }
 
     func updateArrow(fillColor: UIColor, strokeColor: UIColor, rotation: CGFloat) {
-        guard let arrow = arrow else { return }
-        arrow.fillColor = fillColor.cgColor
-        arrow.strokeColor = strokeColor.cgColor
-        arrow.setAffineTransform(CGAffineTransform.identity.rotated(by: rotation))
+        guard let shape = self.shape else { return }
+        shape.fillColor = fillColor.cgColor
+        shape.strokeColor = strokeColor.cgColor
+        shape.setAffineTransform(CGAffineTransform.identity.rotated(by: rotation))
 
         // Re-center the arrow within the button if rotated
         if rotation > 0 {
-            arrow.position = CGPoint(x: buttonSize / 2 + 2, y: buttonSize / 2 - 2)
+            shape.position = CGPoint(x: buttonSize / 2 + 2, y: buttonSize / 2 - 2)
         }
 
         layoutIfNeeded()

@@ -13,6 +13,8 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
     var state = state ?? AppState()
     let context = PersistenceController.shared.persistentContainer.viewContext
     
+    // -----
+    
     var stateLocation: LocationState {
         return state.location
     }
@@ -36,7 +38,8 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
         
         let shouldUpdateLocation = AddLocationAction.shouldUpdateLocation(
             oldLocation: oldLocation,
-            newLocation: newLocation
+            newLocation: newLocation,
+            updateInterval: state.location.updateInterval
         )
         guard shouldUpdateLocation else {
             return state
@@ -60,9 +63,31 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
         return state
     }
     
+    // -----
+    
+    let toggleRecording = { (action: ToggleRecordingLocationAction) -> AppState in
+        state.location.isRecording = !state.location.isRecording
+        return state
+    }
+    
+    // -----
+    
+    let setRecording = { (action: SetRecordingLocationAction) -> AppState in
+        state.location.isRecording = action.isRecording
+        return state
+    }
+        
+    // -----
+    
     switch action {
     case let action as AddLocationAction:
         return addLocation(action)
+        
+    case let action as SetRecordingLocationAction:
+        return setRecording(action)
+     
+    case let action as ToggleRecordingLocationAction:
+        return toggleRecording(action)
         
     default:
         return state

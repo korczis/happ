@@ -38,7 +38,6 @@
 		8B7CB53B2650633800AE7B94 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5272650633700AE7B94 /* Mapbox.framework */; };
 		8B7CB53C2650633800AE7B94 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52A2650633700AE7B94 /* SettingsView.swift */; };
 		8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52C2650633700AE7B94 /* ImagePicker.swift */; };
-		8B7CB53E2650633800AE7B94 /* MapboxMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52E2650633700AE7B94 /* MapboxMap.swift */; };
 		8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */; };
 		8B7CB5402650633800AE7B94 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5312650633700AE7B94 /* DataView.swift */; };
 		8B7CB543265063A500AE7B94 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB542265063A500AE7B94 /* ReSwift */; };
@@ -53,10 +52,10 @@
 		8BF4F313265426E800EA619E /* CorianderSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F312265426E800EA619E /* CorianderSceneDelegate.swift */; };
 		8BF4F3172654273B00EA619E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F3162654273B00EA619E /* MapView.swift */; };
 		8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F31A2654479500EA619E /* MapViewCache.swift */; };
-		8BF4F31D2654524F00EA619E /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F31C2654524F00EA619E /* MapViewWrapper.swift */; };
 		8BF4F32B265470CB00EA619E /* RingArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32A265470CB00EA619E /* RingArray.swift */; };
 		8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32D265470DA00EA619E /* Coriander.xcdatamodeld */; };
 		8BF4F331265470DA00EA619E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32F265470DA00EA619E /* PersistenceController.swift */; };
+		8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F3332655067C00EA619E /* LocationRecordingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,17 +188,16 @@
 		8B7CB5272650633700AE7B94 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		8B7CB52A2650633700AE7B94 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8B7CB52C2650633700AE7B94 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		8B7CB52E2650633700AE7B94 /* MapboxMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapboxMap.swift; sourceTree = "<group>"; };
 		8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationButton.swift; sourceTree = "<group>"; };
 		8B7CB5312650633700AE7B94 /* DataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		8B7CB544265063C400AE7B94 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8BF4F312265426E800EA619E /* CorianderSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorianderSceneDelegate.swift; sourceTree = "<group>"; };
 		8BF4F3162654273B00EA619E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8BF4F31A2654479500EA619E /* MapViewCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCache.swift; sourceTree = "<group>"; };
-		8BF4F31C2654524F00EA619E /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
 		8BF4F32A265470CB00EA619E /* RingArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingArray.swift; sourceTree = "<group>"; };
 		8BF4F32E265470DA00EA619E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8BF4F32F265470DA00EA619E /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		8BF4F3332655067C00EA619E /* LocationRecordingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRecordingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -475,11 +473,9 @@
 		8B7CB52D2650633700AE7B94 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				8B7CB52E2650633700AE7B94 /* MapboxMap.swift */,
+				8BF4F3322655063800EA619E /* Button */,
 				8BF4F3162654273B00EA619E /* MapView.swift */,
 				8BF4F31A2654479500EA619E /* MapViewCache.swift */,
-				8BF4F31C2654524F00EA619E /* MapViewWrapper.swift */,
-				8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -507,6 +503,15 @@
 				8BF4F32F265470DA00EA619E /* PersistenceController.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		8BF4F3322655063800EA619E /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */,
+				8BF4F3332655067C00EA619E /* LocationRecordingButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -796,8 +801,6 @@
 			files = (
 				8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */,
 				8BF4F3172654273B00EA619E /* MapView.swift in Sources */,
-				8B7CB53E2650633800AE7B94 /* MapboxMap.swift in Sources */,
-				8BF4F31D2654524F00EA619E /* MapViewWrapper.swift in Sources */,
 				8B7CB5362650633700AE7B94 /* LocationActions.swift in Sources */,
 				8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */,
 				8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */,
@@ -810,6 +813,7 @@
 				8BF4F313265426E800EA619E /* CorianderSceneDelegate.swift in Sources */,
 				8B467E2826507BF000F9C122 /* CorianderAppDelegate.swift in Sources */,
 				8BF4F331265470DA00EA619E /* PersistenceController.swift in Sources */,
+				8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
 				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,

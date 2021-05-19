@@ -13,4 +13,6 @@ import MapKit
 struct LocationState {
     var lastLocation: CLLocation = CLLocation()
     var history: [CLLocation] = []
+    var isRecording = false
+    var updateInterval: Double = 5
 }

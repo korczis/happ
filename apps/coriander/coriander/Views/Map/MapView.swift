@@ -85,6 +85,7 @@ struct MapView: UIViewRepresentable {
         // MARK: Private members
         // -----
         
+        private var locationRecordingButton: LocationRecordingButton?
         private var userLocationButton: UserLocationButton?
         
         // -----
@@ -156,7 +157,7 @@ struct MapView: UIViewRepresentable {
                 .flexibleHeight
             ]
             
-            setupLocationButton()
+            setupButtons()
             
             // Enable the always-on heading indicator for the user location annotation.
             mapView.showsUserLocation = true
@@ -165,7 +166,7 @@ struct MapView: UIViewRepresentable {
         
         func mapView(_ mapView: MGLMapView, didChange mode: MGLUserTrackingMode, animated: Bool) {
             guard let userLocationButton = userLocationButton else { return }
-            userLocationButton.updateArrowForTrackingMode(mode: mode)
+            userLocationButton.updateShape(mode: mode)
         }
                 
         func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
@@ -185,6 +186,10 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
+            guard control.state.current.location.isRecording else {
+                    return
+            }
+            
             print("MapboxMap.mapView() - didUpdate, userLocation: \(String(describing: userLocation)), mapView: \(mapView)")
             
             guard let userLocation = userLocation else { return }
@@ -196,7 +201,8 @@ struct MapView: UIViewRepresentable {
             
             if (AddLocationAction.shouldUpdateLocation(
                 oldLocation: control.state.current.location.lastLocation,
-                newLocation: userLocationRaw
+                newLocation: userLocationRaw,
+                updateInterval: control.state.current.location.updateInterval
             )) {
                 control.state.dispatch(AddLocationAction(location: userLocationRaw))
             }
@@ -231,7 +237,44 @@ struct MapView: UIViewRepresentable {
             control.mapView.userTrackingMode = mode
         }
         
-        // Button creation and autolayout setup
+        @IBAction func recordingButtonTapped(sender: LocationRecordingButton) {
+            print("recordingButtonTapped()")
+            
+            let isRecording = !control.state.current.location.isRecording;
+            control.state.dispatch(SetRecordingLocationAction(isRecording: isRecording))
+            locationRecordingButton?.updateShape(isRecording: isRecording)
+        }
+        
+        private func setupButtons() {
+            setupLocationButton()
+            setupRecordingButton()
+        }
+        
+        private func setupRecordingButton() {
+            let locationRecordingButton = LocationRecordingButton(buttonSize: 40, isRecording: control.state.current.location.isRecording)
+            
+            locationRecordingButton.addTarget(
+                self,
+                action: #selector(recordingButtonTapped),
+                for: .touchUpInside
+            )
+            
+            self.locationRecordingButton = locationRecordingButton
+
+            locationRecordingButton.tintColor = control.mapView.tintColor
+            locationRecordingButton.translatesAutoresizingMaskIntoConstraints = false
+
+            let constraints: [NSLayoutConstraint] = [
+                NSLayoutConstraint(item: locationRecordingButton, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: userLocationButton, attribute: .bottom, multiplier: 1, constant: 10),
+                NSLayoutConstraint(item: locationRecordingButton, attribute: .leading, relatedBy: .equal, toItem:  userLocationButton, attribute: .leading, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: locationRecordingButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: locationRecordingButton.frame.size.height),
+                NSLayoutConstraint(item: locationRecordingButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: locationRecordingButton.frame.size.width)
+            ]
+
+            control.mapView.addSubview(locationRecordingButton)
+            control.mapView.addConstraints(constraints)
+        }
+        
         private func setupLocationButton() {
             let userLocationButton = UserLocationButton(buttonSize: 40)
             userLocationButton.addTarget(
