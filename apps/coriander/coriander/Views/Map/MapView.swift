@@ -32,10 +32,12 @@ struct MapView: UIViewRepresentable {
     )
         
     // -----
-    // MARK: Public members
+    // MARK: State Variables
     // -----
     
     @ObservedObject var state: ObservableState<AppState>
+    
+    @Binding var showingAlert: Bool
         
     // ----
     // MARK: - Configuring UIViewRepresentable protocol
@@ -52,7 +54,7 @@ struct MapView: UIViewRepresentable {
     }
     
     func makeCoordinator() -> MapView.Coordinator {
-        Coordinator(self)
+        Coordinator(self, showingAlert: self.$showingAlert)
     }
     
     // -----

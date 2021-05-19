@@ -21,11 +21,20 @@ extension MapView {
         private var userLocationButton: UserLocationButton?
         
         // -----
+        // MARK: State Variables
+        // -----
+        
+        @Binding var showAlert: Bool
+        
+        // -----
         // MARK: Handlers
         // -----
                 
-        init(_ control: MapView) {
+        init(_ control: MapView, showingAlert: Binding<Bool>) {
             self.control = control
+            self._showAlert = showingAlert
+            
+            super.init()
         }
         
         func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
@@ -94,6 +103,7 @@ extension MapView {
             // Enable the always-on heading indicator for the user location annotation.
             mapView.showsUserLocation = true
             mapView.showsUserHeadingIndicator = true
+            
         }
         
         func mapView(_ mapView: MGLMapView, didChange mode: MGLUserTrackingMode, animated: Bool) {
@@ -125,6 +135,11 @@ extension MapView {
         func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
             guard control.state.current.location.isRecording else {
                     return
+            }
+            
+            let processedCount = control.state.current.location.processedCount;
+            if processedCount == 0 {
+                self.showAlert = true
             }
             
             // print("MapboxMap.mapView() - didUpdate, userLocation: \(String(describing: userLocation)), mapView: \(mapView)")

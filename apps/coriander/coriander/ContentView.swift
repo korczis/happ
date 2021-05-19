@@ -22,13 +22,23 @@ let mainStore = Store<AppState>(
 struct ContentView: View {
     @ObservedObject private var state = ObservableState(store: mainStore)
     
+    // -----
+    // MARK: State Variables
+    // -----
+    
+    @State var showingAlert: Bool = false
+    
+    // -----
+    // MARK: View Render Function
+    // -----
+    
     var body: some View {
         TabView {
             // Map
             NavigationView {
                 ZStack {
                     
-                    MapView(state: self.state)
+                    MapView(state: self.state, showingAlert: $showingAlert)
                         .centerCoordinate(
                             .init(
                                 latitude: 37.791293,
@@ -37,7 +47,14 @@ struct ContentView: View {
                         )
                         .zoomLevel(16)
                         .navigationBarTitle("Map", displayMode: .inline)
-                      
+                        .alert(isPresented: $showingAlert) { () -> Alert in
+                            print("SHOWING ALERT BODY: --> \($showingAlert.wrappedValue)")
+                            return Alert(
+                                title: Text("Important message"),
+                                message: Text("Go out and have a girlfriend!"),
+                                dismissButton: .default(Text("Got it!")))
+                        }
+                    
                 }
                 
             }
@@ -59,12 +76,12 @@ struct ContentView: View {
                     Text("Data")
                 }
             }
-
+            
             // Settings
             NavigationView{
                 SettingsView()
                     .navigationBarTitle("Settings", displayMode: .inline)
-                    
+                
             }
             .tabItem {
                 VStack{
@@ -73,7 +90,7 @@ struct ContentView: View {
                 }
             }
         }
-
+        
     }
 }
 
