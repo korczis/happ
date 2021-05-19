@@ -26,16 +26,11 @@
 		8B7CB4D72650548300AE7B94 /* coriander_WatchKit_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB4D62650548300AE7B94 /* coriander_WatchKit_AppTests.swift */; };
 		8B7CB4E22650548300AE7B94 /* coriander_WatchKit_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB4E12650548300AE7B94 /* coriander_WatchKit_AppUITests.swift */; };
 		8B7CB500265054AF00AE7B94 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB4FF265054AF00AE7B94 /* CloudKit.framework */; };
-		8B7CB5122650617A00AE7B94 /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB50C2650614600AE7B94 /* MapboxMobileEvents.framework */; };
 		8B7CB5322650633700AE7B94 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB51A2650633700AE7B94 /* AppReducer.swift */; };
 		8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB51B2650633700AE7B94 /* LocationReducer.swift */; };
-		8B7CB5342650633700AE7B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB51C2650633700AE7B94 /* Assets.xcassets */; };
 		8B7CB5352650633700AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB51E2650633700AE7B94 /* Preview Assets.xcassets */; };
-		8B7CB5362650633700AE7B94 /* LocationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5202650633700AE7B94 /* LocationActions.swift */; };
-		8B7CB5372650633800AE7B94 /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5212650633700AE7B94 /* AppActions.swift */; };
 		8B7CB5382650633800AE7B94 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5232650633700AE7B94 /* AppState.swift */; };
 		8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5242650633700AE7B94 /* LocationState.swift */; };
-		8B7CB53B2650633800AE7B94 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5272650633700AE7B94 /* Mapbox.framework */; };
 		8B7CB53C2650633800AE7B94 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52A2650633700AE7B94 /* SettingsView.swift */; };
 		8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52C2650633700AE7B94 /* ImagePicker.swift */; };
 		8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */; };
@@ -45,10 +40,6 @@
 		8B7CB54D265063E200AE7B94 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB54C265063E200AE7B94 /* RxRelay */; };
 		8B7CB54F265063E200AE7B94 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB54E265063E200AE7B94 /* RxCocoa */; };
 		8B7CB551265063E200AE7B94 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB550265063E200AE7B94 /* RxBlocking */; };
-		8B7CB5522650672F00AE7B94 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5082650613700AE7B94 /* Mapbox.framework */; };
-		8B7CB5532650672F00AE7B94 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5082650613700AE7B94 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B7CB5552650673400AE7B94 /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5262650633700AE7B94 /* MapboxMobileEvents.framework */; };
-		8B7CB5562650673400AE7B94 /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB5262650633700AE7B94 /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BF4F313265426E800EA619E /* CorianderSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F312265426E800EA619E /* CorianderSceneDelegate.swift */; };
 		8BF4F3172654273B00EA619E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F3162654273B00EA619E /* MapView.swift */; };
 		8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F31A2654479500EA619E /* MapViewCache.swift */; };
@@ -56,6 +47,13 @@
 		8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32D265470DA00EA619E /* Coriander.xcdatamodeld */; };
 		8BF4F331265470DA00EA619E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32F265470DA00EA619E /* PersistenceController.swift */; };
 		8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F3332655067C00EA619E /* LocationRecordingButton.swift */; };
+		8BF4F338265525AC00EA619E /* LocationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F336265525AC00EA619E /* LocationActions.swift */; };
+		8BF4F339265525AC00EA619E /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F337265525AC00EA619E /* AppActions.swift */; };
+		8BF4F33B265525F600EA619E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF4F33A265525F600EA619E /* Assets.xcassets */; };
+		8BF4F345265527C500EA619E /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33C2655276300EA619E /* Mapbox.framework */; };
+		8BF4F346265527C500EA619E /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33C2655276300EA619E /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8BF4F348265527C600EA619E /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */; };
+		8BF4F349265527C600EA619E /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,14 +124,14 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B7CB5542650672F00AE7B94 /* Embed Frameworks */ = {
+		8BF4F347265527C500EA619E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8B7CB5562650673400AE7B94 /* MapboxMobileEvents.framework in Embed Frameworks */,
-				8B7CB5532650672F00AE7B94 /* Mapbox.framework in Embed Frameworks */,
+				8BF4F349265527C600EA619E /* MapboxMobileEvents.framework in Embed Frameworks */,
+				8BF4F346265527C500EA619E /* Mapbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,14 +172,9 @@
 		8B7CB4E32650548300AE7B94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B7CB4FD265054A400AE7B94 /* coriander.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = coriander.entitlements; sourceTree = "<group>"; };
 		8B7CB4FF265054AF00AE7B94 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
-		8B7CB5082650613700AE7B94 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = coriander/Frameworks/Mapbox.framework; sourceTree = "<group>"; };
-		8B7CB50C2650614600AE7B94 /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = coriander/Frameworks/MapboxMobileEvents.framework; sourceTree = "<group>"; };
 		8B7CB51A2650633700AE7B94 /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		8B7CB51B2650633700AE7B94 /* LocationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationReducer.swift; sourceTree = "<group>"; };
-		8B7CB51C2650633700AE7B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../joes/joes/Assets.xcassets; sourceTree = "<group>"; };
 		8B7CB51E2650633700AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8B7CB5202650633700AE7B94 /* LocationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationActions.swift; sourceTree = "<group>"; };
-		8B7CB5212650633700AE7B94 /* AppActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
 		8B7CB5232650633700AE7B94 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8B7CB5242650633700AE7B94 /* LocationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationState.swift; sourceTree = "<group>"; };
 		8B7CB5262650633700AE7B94 /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxMobileEvents.framework; sourceTree = "<group>"; };
@@ -198,6 +191,11 @@
 		8BF4F32E265470DA00EA619E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8BF4F32F265470DA00EA619E /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		8BF4F3332655067C00EA619E /* LocationRecordingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRecordingButton.swift; sourceTree = "<group>"; };
+		8BF4F336265525AC00EA619E /* LocationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationActions.swift; sourceTree = "<group>"; };
+		8BF4F337265525AC00EA619E /* AppActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
+		8BF4F33A265525F600EA619E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = coriander/Assets.xcassets; sourceTree = "<group>"; };
+		8BF4F33C2655276300EA619E /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = coriander/Frameworks/Mapbox.framework; sourceTree = "<group>"; };
+		8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = coriander/Frameworks/MapboxMobileEvents.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,13 +206,11 @@
 				8B7CB54D265063E200AE7B94 /* RxRelay in Frameworks */,
 				8B7CB551265063E200AE7B94 /* RxBlocking in Frameworks */,
 				8B7CB54F265063E200AE7B94 /* RxCocoa in Frameworks */,
-				8B7CB5122650617A00AE7B94 /* MapboxMobileEvents.framework in Frameworks */,
+				8BF4F345265527C500EA619E /* Mapbox.framework in Frameworks */,
+				8BF4F348265527C600EA619E /* MapboxMobileEvents.framework in Frameworks */,
 				8B7CB500265054AF00AE7B94 /* CloudKit.framework in Frameworks */,
 				8B7CB543265063A500AE7B94 /* ReSwift in Frameworks */,
-				8B7CB5552650673400AE7B94 /* MapboxMobileEvents.framework in Frameworks */,
 				8B7CB549265063E200AE7B94 /* RxSwift in Frameworks */,
-				8B7CB53B2650633800AE7B94 /* Mapbox.framework in Frameworks */,
-				8B7CB5522650672F00AE7B94 /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +255,7 @@
 		8B7CB47E2650548000AE7B94 = {
 			isa = PBXGroup;
 			children = (
+				8BF4F33A265525F600EA619E /* Assets.xcassets */,
 				8B7CB4892650548100AE7B94 /* coriander */,
 				8B7CB49B2650548200AE7B94 /* corianderTests */,
 				8B7CB4A62650548200AE7B94 /* corianderUITests */,
@@ -288,8 +285,7 @@
 		8B7CB4892650548100AE7B94 /* coriander */ = {
 			isa = PBXGroup;
 			children = (
-				8B7CB51C2650633700AE7B94 /* Assets.xcassets */,
-				8B7CB51F2650633700AE7B94 /* Actions */,
+				8BF4F335265525AC00EA619E /* Actions */,
 				8BF4F329265470CB00EA619E /* Algorithms */,
 				8BF4F32C265470DA00EA619E /* Data */,
 				8B7CB5252650633700AE7B94 /* Frameworks */,
@@ -388,9 +384,9 @@
 		8B7CB4FE265054AF00AE7B94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BF4F33C2655276300EA619E /* Mapbox.framework */,
+				8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */,
 				8B7CB544265063C400AE7B94 /* XCTest.framework */,
-				8B7CB50C2650614600AE7B94 /* MapboxMobileEvents.framework */,
-				8B7CB5082650613700AE7B94 /* Mapbox.framework */,
 				8B7CB4FF265054AF00AE7B94 /* CloudKit.framework */,
 			);
 			name = Frameworks;
@@ -412,16 +408,6 @@
 			);
 			name = "Preview Content";
 			path = "../../joes/joes/Preview Content";
-			sourceTree = "<group>";
-		};
-		8B7CB51F2650633700AE7B94 /* Actions */ = {
-			isa = PBXGroup;
-			children = (
-				8B7CB5202650633700AE7B94 /* LocationActions.swift */,
-				8B7CB5212650633700AE7B94 /* AppActions.swift */,
-			);
-			name = Actions;
-			path = ../../joes/joes/Actions;
 			sourceTree = "<group>";
 		};
 		8B7CB5222650633700AE7B94 /* State */ = {
@@ -514,6 +500,15 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		8BF4F335265525AC00EA619E /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				8BF4F336265525AC00EA619E /* LocationActions.swift */,
+				8BF4F337265525AC00EA619E /* AppActions.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -525,8 +520,8 @@
 				8B7CB4842650548100AE7B94 /* Frameworks */,
 				8B7CB4852650548100AE7B94 /* Resources */,
 				8B7CB4ED2650548300AE7B94 /* Embed Watch Content */,
-				8B7CB5542650672F00AE7B94 /* Embed Frameworks */,
 				8B7CB55726506A0E00AE7B94 /* Run Script */,
+				8BF4F347265527C500EA619E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -721,8 +716,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B7CB5352650633700AE7B94 /* Preview Assets.xcassets in Resources */,
+				8BF4F33B265525F600EA619E /* Assets.xcassets in Resources */,
 				8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */,
-				8B7CB5342650633700AE7B94 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,20 +796,20 @@
 			files = (
 				8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */,
 				8BF4F3172654273B00EA619E /* MapView.swift in Sources */,
-				8B7CB5362650633700AE7B94 /* LocationActions.swift in Sources */,
 				8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */,
 				8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */,
 				8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */,
 				8BF4F32B265470CB00EA619E /* RingArray.swift in Sources */,
 				8B7CB5382650633800AE7B94 /* AppState.swift in Sources */,
 				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
-				8B7CB5372650633800AE7B94 /* AppActions.swift in Sources */,
 				8B7CB48B2650548100AE7B94 /* CorianderApp.swift in Sources */,
+				8BF4F339265525AC00EA619E /* AppActions.swift in Sources */,
 				8BF4F313265426E800EA619E /* CorianderSceneDelegate.swift in Sources */,
 				8B467E2826507BF000F9C122 /* CorianderAppDelegate.swift in Sources */,
 				8BF4F331265470DA00EA619E /* PersistenceController.swift in Sources */,
 				8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
+				8BF4F338265525AC00EA619E /* LocationActions.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
 				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,
 				8B7CB5322650633700AE7B94 /* AppReducer.swift in Sources */,

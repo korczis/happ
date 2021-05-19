@@ -238,8 +238,6 @@ struct MapView: UIViewRepresentable {
         }
         
         @IBAction func recordingButtonTapped(sender: LocationRecordingButton) {
-            print("recordingButtonTapped()")
-            
             let isRecording = !control.state.current.location.isRecording;
             control.state.dispatch(SetRecordingLocationAction(isRecording: isRecording))
             locationRecordingButton?.updateShape(isRecording: isRecording)
