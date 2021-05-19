@@ -28,7 +28,6 @@
 		8B7CB500265054AF00AE7B94 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CB4FF265054AF00AE7B94 /* CloudKit.framework */; };
 		8B7CB5322650633700AE7B94 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB51A2650633700AE7B94 /* AppReducer.swift */; };
 		8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB51B2650633700AE7B94 /* LocationReducer.swift */; };
-		8B7CB5352650633700AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB51E2650633700AE7B94 /* Preview Assets.xcassets */; };
 		8B7CB5382650633800AE7B94 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5232650633700AE7B94 /* AppState.swift */; };
 		8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB5242650633700AE7B94 /* LocationState.swift */; };
 		8B7CB53C2650633800AE7B94 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB52A2650633700AE7B94 /* SettingsView.swift */; };
@@ -50,10 +49,10 @@
 		8BF4F338265525AC00EA619E /* LocationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F336265525AC00EA619E /* LocationActions.swift */; };
 		8BF4F339265525AC00EA619E /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F337265525AC00EA619E /* AppActions.swift */; };
 		8BF4F33B265525F600EA619E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF4F33A265525F600EA619E /* Assets.xcassets */; };
-		8BF4F345265527C500EA619E /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33C2655276300EA619E /* Mapbox.framework */; };
-		8BF4F346265527C500EA619E /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33C2655276300EA619E /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8BF4F348265527C600EA619E /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */; };
-		8BF4F349265527C600EA619E /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8BF4F34A26552EF500EA619E /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33C2655276300EA619E /* Mapbox.framework */; };
+		8BF4F34B26552EF500EA619E /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33C2655276300EA619E /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8BF4F34D26552EF600EA619E /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */; };
+		8BF4F34E26552EF600EA619E /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,14 +123,14 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BF4F347265527C500EA619E /* Embed Frameworks */ = {
+		8BF4F34C26552EF500EA619E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8BF4F349265527C600EA619E /* MapboxMobileEvents.framework in Embed Frameworks */,
-				8BF4F346265527C500EA619E /* Mapbox.framework in Embed Frameworks */,
+				8BF4F34E26552EF600EA619E /* MapboxMobileEvents.framework in Embed Frameworks */,
+				8BF4F34B26552EF500EA619E /* Mapbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,11 +173,8 @@
 		8B7CB4FF265054AF00AE7B94 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		8B7CB51A2650633700AE7B94 /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		8B7CB51B2650633700AE7B94 /* LocationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationReducer.swift; sourceTree = "<group>"; };
-		8B7CB51E2650633700AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B7CB5232650633700AE7B94 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8B7CB5242650633700AE7B94 /* LocationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationState.swift; sourceTree = "<group>"; };
-		8B7CB5262650633700AE7B94 /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxMobileEvents.framework; sourceTree = "<group>"; };
-		8B7CB5272650633700AE7B94 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		8B7CB52A2650633700AE7B94 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8B7CB52C2650633700AE7B94 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationButton.swift; sourceTree = "<group>"; };
@@ -206,8 +202,8 @@
 				8B7CB54D265063E200AE7B94 /* RxRelay in Frameworks */,
 				8B7CB551265063E200AE7B94 /* RxBlocking in Frameworks */,
 				8B7CB54F265063E200AE7B94 /* RxCocoa in Frameworks */,
-				8BF4F345265527C500EA619E /* Mapbox.framework in Frameworks */,
-				8BF4F348265527C600EA619E /* MapboxMobileEvents.framework in Frameworks */,
+				8BF4F34A26552EF500EA619E /* Mapbox.framework in Frameworks */,
+				8BF4F34D26552EF600EA619E /* MapboxMobileEvents.framework in Frameworks */,
 				8B7CB500265054AF00AE7B94 /* CloudKit.framework in Frameworks */,
 				8B7CB543265063A500AE7B94 /* ReSwift in Frameworks */,
 				8B7CB549265063E200AE7B94 /* RxSwift in Frameworks */,
@@ -288,8 +284,6 @@
 				8BF4F335265525AC00EA619E /* Actions */,
 				8BF4F329265470CB00EA619E /* Algorithms */,
 				8BF4F32C265470DA00EA619E /* Data */,
-				8B7CB5252650633700AE7B94 /* Frameworks */,
-				8B7CB51D2650633700AE7B94 /* Preview Content */,
 				8B7CB5192650633700AE7B94 /* Reducers */,
 				8B7CB5222650633700AE7B94 /* State */,
 				8B7CB5282650633700AE7B94 /* Views */,
@@ -401,15 +395,6 @@
 			path = Reducers;
 			sourceTree = "<group>";
 		};
-		8B7CB51D2650633700AE7B94 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				8B7CB51E2650633700AE7B94 /* Preview Assets.xcassets */,
-			);
-			name = "Preview Content";
-			path = "../../joes/joes/Preview Content";
-			sourceTree = "<group>";
-		};
 		8B7CB5222650633700AE7B94 /* State */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,16 +402,6 @@
 				8B7CB5242650633700AE7B94 /* LocationState.swift */,
 			);
 			path = State;
-			sourceTree = "<group>";
-		};
-		8B7CB5252650633700AE7B94 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8B7CB5262650633700AE7B94 /* MapboxMobileEvents.framework */,
-				8B7CB5272650633700AE7B94 /* Mapbox.framework */,
-			);
-			name = Frameworks;
-			path = ../../joes/joes/Frameworks;
 			sourceTree = "<group>";
 		};
 		8B7CB5282650633700AE7B94 /* Views */ = {
@@ -521,7 +496,7 @@
 				8B7CB4852650548100AE7B94 /* Resources */,
 				8B7CB4ED2650548300AE7B94 /* Embed Watch Content */,
 				8B7CB55726506A0E00AE7B94 /* Run Script */,
-				8BF4F347265527C500EA619E /* Embed Frameworks */,
+				8BF4F34C26552EF500EA619E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -715,7 +690,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B7CB5352650633700AE7B94 /* Preview Assets.xcassets in Resources */,
 				8BF4F33B265525F600EA619E /* Assets.xcassets in Resources */,
 				8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */,
 			);
@@ -1023,7 +997,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1033,6 +1007,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1049,7 +1024,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1059,6 +1034,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1078,10 +1054,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				IBSC_MODULE = coriander_WatchKit_Extension;
 				INFOPLIST_FILE = "coriander WatchKit App/Info.plist";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1100,10 +1077,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				IBSC_MODULE = coriander_WatchKit_Extension;
 				INFOPLIST_FILE = "coriander WatchKit App/Info.plist";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1124,7 +1102,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = coriander/coriander.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1138,6 +1116,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1154,7 +1133,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = coriander/coriander.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1168,6 +1147,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korczis.coriander;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
