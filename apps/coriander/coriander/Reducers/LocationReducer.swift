@@ -47,6 +47,7 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
         
         state.location.lastLocation = action.location
         state.location.history.append(action.location)
+        state.location.processedCount += 1
         
         // TODO: Use bulk mode
         addLocationToContext(action.location)

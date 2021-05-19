@@ -52,14 +52,14 @@ struct LocationListView: View {
 struct DataView: View {
     @ObservedObject var state: ObservableState<AppState>
     
-    var locations: [CLLocation] {
+    var locations: RingArray<CLLocation> {
         let locationState: LocationState = state.current.location;
         return locationState.history;
     }
     
     var body: some View {
         // let lastLocations: [CLLocation] = locations.suffix(5);
-        LocationListView(locations: locations)
+        LocationListView(locations: Array(locations))
         
     }
 }

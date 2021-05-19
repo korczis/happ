@@ -51,7 +51,7 @@ struct ContentView: View {
             // Data
             NavigationView{
                 DataView(state: self.state)
-                    .navigationBarTitle("Data (\(state.current.location.history.count))", displayMode: .inline)
+                    .navigationBarTitle("Data (\(state.current.location.history.count) / \(state.current.location.processedCount))", displayMode: .inline)
             }
             .tabItem {
                 VStack{
