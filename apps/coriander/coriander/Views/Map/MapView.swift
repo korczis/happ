@@ -165,8 +165,13 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MGLMapView, didChange mode: MGLUserTrackingMode, animated: Bool) {
-            guard let userLocationButton = userLocationButton else { return }
-            userLocationButton.updateShape(mode: mode)
+            if let userLocationButton = self.userLocationButton {
+                userLocationButton.updateShape(mode: mode)
+            }
+            
+            if let locationRecordingButton = self.locationRecordingButton {
+                locationRecordingButton.updateShape(isRecording: control.state.current.location.isRecording)
+            }
         }
                 
         func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
@@ -190,7 +195,7 @@ struct MapView: UIViewRepresentable {
                     return
             }
             
-            print("MapboxMap.mapView() - didUpdate, userLocation: \(String(describing: userLocation)), mapView: \(mapView)")
+            // print("MapboxMap.mapView() - didUpdate, userLocation: \(String(describing: userLocation)), mapView: \(mapView)")
             
             guard let userLocation = userLocation else { return }
             guard let userLocationRaw = userLocation.location else { return }

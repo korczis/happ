@@ -96,9 +96,9 @@ class LocationRecordingButton: UIButton {
         guard let shape = self.shape else { return }
         
         if isRecording {
-            shape.path = drawCircle()
-        } else {
             shape.path = drawSquare()
+        } else {
+            shape.path = drawCircle()
         }
         
         layoutIfNeeded()
