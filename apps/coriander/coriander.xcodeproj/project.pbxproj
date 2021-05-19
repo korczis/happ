@@ -53,6 +53,7 @@
 		8BF4F34B26552EF500EA619E /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33C2655276300EA619E /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BF4F34D26552EF600EA619E /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */; };
 		8BF4F34E26552EF600EA619E /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8BF4F3512655A06900EA619E /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F3502655A06900EA619E /* MapViewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +193,7 @@
 		8BF4F33A265525F600EA619E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = coriander/Assets.xcassets; sourceTree = "<group>"; };
 		8BF4F33C2655276300EA619E /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = coriander/Frameworks/Mapbox.framework; sourceTree = "<group>"; };
 		8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = coriander/Frameworks/MapboxMobileEvents.framework; sourceTree = "<group>"; };
+		8BF4F3502655A06900EA619E /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +439,7 @@
 				8BF4F3322655063800EA619E /* Button */,
 				8BF4F3162654273B00EA619E /* MapView.swift */,
 				8BF4F31A2654479500EA619E /* MapViewCache.swift */,
+				8BF4F3502655A06900EA619E /* MapViewCoordinator.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -495,8 +498,9 @@
 				8B7CB4842650548100AE7B94 /* Frameworks */,
 				8B7CB4852650548100AE7B94 /* Resources */,
 				8B7CB4ED2650548300AE7B94 /* Embed Watch Content */,
-				8B7CB55726506A0E00AE7B94 /* Run Script */,
 				8BF4F34C26552EF500EA619E /* Embed Frameworks */,
+				8BF4F34F26558E4200EA619E /* ShellScript */,
+				8B7CB55726506A0E00AE7B94 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -761,6 +765,24 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\n# skip if we run in debug\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\necho \"Skip frameworks cleaning in debug version\"\nexit 0\nfi\n\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
 		};
+		8BF4F34F26558E4200EA619E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Look for a global file named 'mapbox' or '.mapbox' within the home directory\ntoken_file=.mapbox/token\ntoken=\"$(cat $token_file 2>/dev/null)\"\nif [ \"$token\" ]; then\n  plutil -replace MGLMapboxAccessToken -string $token \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\nelse\n  echo 'warning: Missing Mapbox access token'\n  open 'https://account.mapbox.com/access-tokens/'\n  echo \"warning: Get an access token from <https://account.mapbox.com/access-tokens/>, then create a new file at $token_file or $token_file2 that contains the access token.\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -784,6 +806,7 @@
 				8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
 				8BF4F338265525AC00EA619E /* LocationActions.swift in Sources */,
+				8BF4F3512655A06900EA619E /* MapViewCoordinator.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
 				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,
 				8B7CB5322650633700AE7B94 /* AppReducer.swift in Sources */,
@@ -997,7 +1020,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1024,7 +1047,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1054,7 +1077,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				IBSC_MODULE = coriander_WatchKit_Extension;
 				INFOPLIST_FILE = "coriander WatchKit App/Info.plist";
@@ -1077,7 +1100,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				IBSC_MODULE = coriander_WatchKit_Extension;
 				INFOPLIST_FILE = "coriander WatchKit App/Info.plist";
@@ -1102,7 +1125,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = coriander/coriander.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1133,7 +1156,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = coriander/coriander.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
