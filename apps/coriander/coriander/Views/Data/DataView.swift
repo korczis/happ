@@ -58,9 +58,8 @@ struct DataView: View {
     }
     
     var body: some View {
-        // let lastLocations: [CLLocation] = locations.suffix(5);
         LocationListView(locations: Array(locations))
-        
+            .navigationBarTitle("Data (\(state.current.location.history.count) / \(state.current.location.processedCount))", displayMode: .inline)
     }
 }
 

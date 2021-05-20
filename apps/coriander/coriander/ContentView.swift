@@ -23,62 +23,18 @@ struct ContentView: View {
     @ObservedObject private var state = ObservableState(store: mainStore)
     
     var body: some View {
-        TabView {
-            // Map
-            NavigationView {
-                ZStack {
-                    
-                    MapView(state: self.state)
-                        .centerCoordinate(
-                            .init(
-                                latitude: 37.791293,
-                                longitude: -122.396324
-                            )
-                        )
-                        .zoomLevel(16)
-                        .navigationBarTitle("Map", displayMode: .inline)
-                      
-                }
-                
-            }
-            .tabItem {
-                VStack{
-                    Image(systemName: "map")
-                    Text("Map")
-                }
-            }
-            
-            // Data
-            NavigationView{
-                DataView(state: self.state)
-                    .navigationBarTitle("Data (\(state.current.location.history.count) / \(state.current.location.processedCount))", displayMode: .inline)
-            }
-            .tabItem {
-                VStack{
-                    Image(systemName: "eye")
-                    Text("Data")
-                }
-            }
-
-            // Settings
-            NavigationView{
-                SettingsView()
-                    .navigationBarTitle("Settings", displayMode: .inline)
-                    
-            }
-            .tabItem {
-                VStack{
-                    Image(systemName: "gear")
-                    Text("Settings")
-                }
-            }
-        }
-
+        HomeView(state: state)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static let previewStore = Store<AppState>(
+        reducer: appReducer,
+        state: nil
+    )
+    
     static var previews: some View {
-        ContentView()
+        let state = ObservableState(store: previewStore)
+        DataView(state: state)
     }
 }

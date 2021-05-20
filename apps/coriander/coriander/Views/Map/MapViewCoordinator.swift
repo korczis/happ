@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 import Mapbox
 
-extension MapView {
+extension MapComponentView {
     final class Coordinator: NSObject, MGLMapViewDelegate {
-        var control: MapView
+        var control: MapComponentView
         
         // -----
         // MARK: Private members
@@ -24,7 +24,7 @@ extension MapView {
         // MARK: Handlers
         // -----
                 
-        init(_ control: MapView) {
+        init(_ control: MapComponentView) {
             self.control = control
         }
         
@@ -79,8 +79,8 @@ extension MapView {
             mapView.compassView.compassVisibility = .visible;
             
             mapView.setCenter(
-                MapView.defaultCenterCoordinate,
-                zoomLevel: MapView.defaultZoom,
+                MapComponentView.defaultCenterCoordinate,
+                zoomLevel: MapComponentView.defaultZoom,
                 animated: false
             )
             
