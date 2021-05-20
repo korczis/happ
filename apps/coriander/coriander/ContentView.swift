@@ -19,8 +19,12 @@ let mainStore = Store<AppState>(
     state: nil
 )
 
+var globalState = ObservableState(store: mainStore)
+
 struct ContentView: View {
-    @ObservedObject private var state = ObservableState(store: mainStore)
+    @ObservedObject private var state = globalState
+    
+    var geolocationService: GeolocationService = GeolocationService(state: globalState)
     
     var body: some View {
         HomeView(state: state)

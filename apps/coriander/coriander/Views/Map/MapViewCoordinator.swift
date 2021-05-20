@@ -122,28 +122,28 @@ extension MapComponentView {
             )
         }
         
-        func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
-            guard control.state.current.location.isRecording else {
-                    return
-            }
-            
-            // print("MapboxMap.mapView() - didUpdate, userLocation: \(String(describing: userLocation)), mapView: \(mapView)")
-            
-            guard let userLocation = userLocation else { return }
-            guard let userLocationRaw = userLocation.location else { return }
-            
-            // print("User location: \(userLocation)")
-            // print("User location (raw): \(userLocationRaw)")
-                                   
-            
-            if (AddLocationAction.shouldUpdateLocation(
-                oldLocation: control.state.current.location.lastLocation,
-                newLocation: userLocationRaw,
-                updateInterval: control.state.current.location.updateInterval
-            )) {
-                control.state.dispatch(AddLocationAction(location: userLocationRaw))
-            }
-        }
+//        func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
+//            guard control.state.current.location.isRecording else {
+//                    return
+//            }
+//            
+//            // print("MapboxMap.mapView() - didUpdate, userLocation: \(String(describing: userLocation)), mapView: \(mapView)")
+//            
+//            guard let userLocation = userLocation else { return }
+//            guard let userLocationRaw = userLocation.location else { return }
+//            
+//            // print("User location: \(userLocation)")
+//            // print("User location (raw): \(userLocationRaw)")
+//                                   
+//            
+//            if (AddLocationAction.shouldUpdateLocation(
+//                oldLocation: control.state.current.location.lastLocation,
+//                newLocation: userLocationRaw,
+//                updateInterval: control.state.current.location.updateInterval
+//            )) {
+//                control.state.dispatch(AddLocationAction(location: userLocationRaw))
+//            }
+//        }
         
         // -----
         // MARK: Private implementation
