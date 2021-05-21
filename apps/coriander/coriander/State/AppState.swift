@@ -11,6 +11,7 @@ import ReSwift
 // MARK: AppState
 
 struct AppState {
+    var auth: AuthState = AuthState()
     var location: LocationState = LocationState()
 }
 
@@ -64,3 +65,14 @@ extension ObservableState: StoreSubscriber {
         }
     }
 }
+
+// MARKL Create state global instance
+// -----
+// MARK: Global Store Instance
+// -----
+let mainStore = Store<AppState>(
+    reducer: appReducer,
+    state: nil
+)
+
+var globalState = ObservableState(store: mainStore)

@@ -11,9 +11,12 @@
 		8B4E5BF32656A1D5003EE4EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5BF12656A1D5003EE4EB /* HomeView.swift */; };
 		8B4E5BF42656A1D5003EE4EB /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5BF22656A1D5003EE4EB /* HomeNavigationView.swift */; };
 		8B4E5C042656BB64003EE4EB /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C032656BB64003EE4EB /* GeolocationService.swift */; };
-		8B4E5C75265805F9003EE4EB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C74265805F9003EE4EB /* MainView.swift */; };
+		8B4E5C75265805F9003EE4EB /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C74265805F9003EE4EB /* AuthView.swift */; };
 		8B4E5C7726580A1B003EE4EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7626580A1B003EE4EB /* LaunchScreen.storyboard */; };
 		8B4E5C7B26581C15003EE4EB /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7A26581C15003EE4EB /* KeychainItem.swift */; };
+		8B4E5C7D2658469F003EE4EB /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7C2658469F003EE4EB /* AuthState.swift */; };
+		8B4E5C7F26584773003EE4EB /* AuthActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7E26584773003EE4EB /* AuthActions.swift */; };
+		8B4E5C81265847C3003EE4EB /* AuthReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C80265847C3003EE4EB /* AuthReducer.swift */; };
 		8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48C2650548100AE7B94 /* ContentView.swift */; };
 		8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */; };
 		8B7CB49D2650548200AE7B94 /* corianderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB49C2650548200AE7B94 /* corianderTests.swift */; };
@@ -148,9 +151,12 @@
 		8B4E5BF12656A1D5003EE4EB /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8B4E5BF22656A1D5003EE4EB /* HomeNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
 		8B4E5C032656BB64003EE4EB /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
-		8B4E5C74265805F9003EE4EB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8B4E5C74265805F9003EE4EB /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		8B4E5C7626580A1B003EE4EB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B4E5C7A26581C15003EE4EB /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
+		8B4E5C7C2658469F003EE4EB /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
+		8B4E5C7E26584773003EE4EB /* AuthActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthActions.swift; sourceTree = "<group>"; };
+		8B4E5C80265847C3003EE4EB /* AuthReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReducer.swift; sourceTree = "<group>"; };
 		8B7CB4872650548100AE7B94 /* coriander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coriander.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7CB48C2650548100AE7B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -277,12 +283,12 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		8B4E5C73265805E3003EE4EB /* Main */ = {
+		8B4E5C73265805E3003EE4EB /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				8B4E5C74265805F9003EE4EB /* MainView.swift */,
+				8B4E5C74265805F9003EE4EB /* AuthView.swift */,
 			);
-			path = Main;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		8B7CB47E2650548000AE7B94 = {
@@ -429,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				8B7CB51A2650633700AE7B94 /* AppReducer.swift */,
+				8B4E5C80265847C3003EE4EB /* AuthReducer.swift */,
 				8B7CB51B2650633700AE7B94 /* LocationReducer.swift */,
 			);
 			path = Reducers;
@@ -438,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				8B7CB5232650633700AE7B94 /* AppState.swift */,
+				8B4E5C7C2658469F003EE4EB /* AuthState.swift */,
 				8B7CB5242650633700AE7B94 /* LocationState.swift */,
 			);
 			path = State;
@@ -446,10 +454,10 @@
 		8B7CB5282650633700AE7B94 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8B4E5C73265805E3003EE4EB /* Auth */,
 				8B7CB5302650633700AE7B94 /* Data */,
 				8B4E5BF02656A1D5003EE4EB /* Home */,
 				8B7CB52B2650633700AE7B94 /* Image */,
-				8B4E5C73265805E3003EE4EB /* Main */,
 				8B7CB52D2650633700AE7B94 /* Map */,
 				8B7CB5292650633700AE7B94 /* Settings */,
 			);
@@ -522,6 +530,7 @@
 			children = (
 				8BF4F336265525AC00EA619E /* LocationActions.swift */,
 				8BF4F337265525AC00EA619E /* AppActions.swift */,
+				8B4E5C7E26584773003EE4EB /* AuthActions.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -833,6 +842,7 @@
 				8B4E5C042656BB64003EE4EB /* GeolocationService.swift in Sources */,
 				8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */,
 				8BF4F3172654273B00EA619E /* MapView.swift in Sources */,
+				8B4E5C7F26584773003EE4EB /* AuthActions.swift in Sources */,
 				8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */,
 				8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */,
 				8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */,
@@ -842,8 +852,10 @@
 				8B7CB5382650633800AE7B94 /* AppState.swift in Sources */,
 				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
 				8BF4F339265525AC00EA619E /* AppActions.swift in Sources */,
-				8B4E5C75265805F9003EE4EB /* MainView.swift in Sources */,
+				8B4E5C7D2658469F003EE4EB /* AuthState.swift in Sources */,
+				8B4E5C75265805F9003EE4EB /* AuthView.swift in Sources */,
 				8BF4F313265426E800EA619E /* CorianderSceneDelegate.swift in Sources */,
+				8B4E5C81265847C3003EE4EB /* AuthReducer.swift in Sources */,
 				8B467E2826507BF000F9C122 /* CorianderAppDelegate.swift in Sources */,
 				8BF4F331265470DA00EA619E /* PersistenceController.swift in Sources */,
 				8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */,

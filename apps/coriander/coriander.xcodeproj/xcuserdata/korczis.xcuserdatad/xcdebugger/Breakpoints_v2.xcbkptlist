@@ -14,8 +14,8 @@
             filePath = "coriander/Reducers/LocationReducer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "locationReducer(action:state:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -199,33 +199,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "56AD854F-81FD-47AC-829C-E6DA1246B8CD"
-            shouldBeEnabled = "No"
+            uuid = "D4D4063B-9ADB-47BD-A1EC-70341074CC68"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "coriander/CorianderSceneDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "scene(_:willConnectTo:options:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D4D4063B-9ADB-47BD-A1EC-70341074CC68 - 10d80ffe794bc6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.ASAuthorizationAppleIDProviderCredentialState, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in coriander.SceneDelegate.scene(_: __C.UIScene, willConnectTo: __C.UISceneSession, options: __C.UISceneConnectionOptions) -&gt; ()"
+                  moduleName = "coriander"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/korczis/dev/happ/apps/coriander/coriander/CorianderSceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "864">
+               </Location>
+               <Location
+                  uuid = "D4D4063B-9ADB-47BD-A1EC-70341074CC68 - 4ed31e59c1340099"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (__C.ASAuthorizationAppleIDProviderCredentialState, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in coriander.SceneDelegate.scene(_: __C.UIScene, willConnectTo: __C.UISceneSession, options: __C.UISceneConnectionOptions) -&gt; ()"
+                  moduleName = "coriander"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/korczis/dev/happ/apps/coriander/coriander/CorianderSceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "438C60AA-AC70-4FEF-8240-95144C76AEEF"
-            shouldBeEnabled = "No"
+            uuid = "9887EFB1-C65F-42AE-A2A5-51DC523A1B93"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "coriander/CorianderSceneDelegate.swift"
+            filePath = "coriander/Reducers/AuthReducer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "scene(_:willConnectTo:options:)"
-            landmarkType = "7">
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "authReducer(action:state:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

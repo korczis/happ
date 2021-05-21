@@ -43,8 +43,8 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
     private weak var window: UIWindow!
     
     init(window: UIWindow?, onSignedIn: @escaping (Bool) -> Void) {
-      self.window = window
-      self.signInSucceeded = onSignedIn
+        self.window = window
+        self.signInSucceeded = onSignedIn
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
@@ -53,10 +53,10 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
         
         // self.present(alert, animated: true, completion: nil)
     }
-        
+    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-
+            
             // Create an account in your system.
             // For the purpose of this demo app, store the these details in the keychain.
             KeychainItem.currentUserIdentifier = appleIDCredential.user
@@ -70,13 +70,20 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
             print("Real User Status - \(appleIDCredential.realUserStatus.rawValue)")
             
             if let identityTokenData = appleIDCredential.identityToken,
-                let identityTokenString = String(data: identityTokenData, encoding: .utf8) {
+               let identityTokenString = String(data: identityTokenData, encoding: .utf8) {
                 print("Identity Token \(identityTokenString)")
             }
+           
+            let user = AuthUser(
+                id: appleIDCredential.user,
+                firstname: appleIDCredential.fullName?.givenName,
+                lastname: appleIDCredential.fullName?.familyName,
+                email: appleIDCredential.email
+            )
             
-            // Show Home View Controller
-            // let rootView = MainView()
-            //     .environment(\.window, window)
+            globalState.dispatch(SetAuthUserAction(
+                user: user
+            ))
             
             let rootView = ContentView()
             
@@ -95,7 +102,7 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
                                                         message: message,
                                                         preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-               
+                
                 //self.present(alertController, animated: true, completion: nil)
             }
         }
@@ -150,9 +157,9 @@ struct MainView: View {
                 print("SignInWithAppleDelegates.performSignIn() - error")
             }
         }
-
+        
         let controller = ASAuthorizationController(authorizationRequests: requests)
-                
+        
         controller.delegate = appleSignInDelegates
         
         // controller.presentationContextProvider = appleSignInDelegates

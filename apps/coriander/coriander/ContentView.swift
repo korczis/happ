@@ -11,16 +11,6 @@ import Mapbox
 import ReSwift
 import SwiftUI
 
-// -----
-// MARK: Global Store Instance
-// -----
-let mainStore = Store<AppState>(
-    reducer: appReducer,
-    state: nil
-)
-
-var globalState = ObservableState(store: mainStore)
-
 struct ContentView: View {
     @ObservedObject private var state = globalState
     
