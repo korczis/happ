@@ -5,15 +5,43 @@
 //  Created by Tomas Korcak on 16.05.2021.
 //
 
-import Foundation
+import AuthenticationServices
 import CoreData
+import Foundation
+import Security
 import UIKit
 
 class CorianderAppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        // application.setMinimumBackgroundFetchInterval(10)
+//        let appleIDProvider = ASAuthorizationAppleIDProvider()
+//        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier ?? "") { (credentialState, error) in
+//            switch credentialState {
+//            case .authorized:
+//                // The Apple ID credential is valid. Show Home UI Here
+//                DispatchQueue.main.async {
+//                    HomeViewController.Push()
+//                }
+//
+//                let identifier = KeychainItem.currentUserIdentifier
+//                let firstName = KeychainItem.currentUserFirstName
+//                let lastName = KeychainItem.currentUserLastName
+//                let email = KeychainItem.currentUserEmail
+//
+//                break
+//            case .revoked:
+//                // The Apple ID credential is revoked. Show SignIn UI Here.
+//
+//                // AuthService.shared.performExistingAccountSetupFlows()
+//                break
+//            case .notFound:
+//                // No credential was found. Show SignIn UI Here.
+//                break
+//            default:
+//                break
+//            }
+//        }
+//
+//         AuthService.shared.performExistingAccountSetupFlows()
         
         return true
     }

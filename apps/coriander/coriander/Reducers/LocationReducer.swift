@@ -11,7 +11,7 @@ import MapKit
 
 func locationReducer(action: Action, state: AppState?) -> AppState {
     var state = state ?? AppState()
-    let context = PersistenceController.shared.persistentContainer.viewContext
+    let context = PersistenceService.shared.context
     
     // -----
     
@@ -54,10 +54,10 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
         DispatchQueue.main.async {
             do {
                 try context.save()
-                print("locationReducer() - Location was saved.")
+                // print("locationReducer() - Location was saved.")
                 
             } catch let error {
-                print("locationReducer() - Unable to save location - \(error).")
+                print("Unable to save location - \(error.localizedDescription).")
             }
         }
         

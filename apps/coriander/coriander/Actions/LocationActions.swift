@@ -28,12 +28,13 @@ struct AddLocationAction: Action {
         guard updateDelta >= updateInterval else {
             return false
         }
-        print("AddLocationAction.shouldUpdateLocation() - updateDelta: \(updateDelta)")
+        
+        // print("AddLocationAction.shouldUpdateLocation() - updateDelta: \(updateDelta)")
         
         guard !sameCoordinates else {
-            print("Coordinates are equal!")
-            print("Last: \(oldLocation)")
-            print("New: \(newLocation)")
+            // print("Coordinates are equal!")
+            // print("Last: \(oldLocation)")
+            // print("New: \(newLocation)")
             
             return false
         }

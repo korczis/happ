@@ -14,7 +14,7 @@ struct CorianderApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, PersistenceController.shared.persistentContainer.viewContext)
+                .environment(\.managedObjectContext, PersistenceService.shared.context)
         }
     }
 }

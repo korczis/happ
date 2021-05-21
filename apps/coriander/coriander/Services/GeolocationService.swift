@@ -25,7 +25,7 @@ class GeolocationServiceEventHandler: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("GeolocationServiceEventHandler.didUpdateLocations() - locations: \(locations)")
+        // print("GeolocationServiceEventHandler.didUpdateLocations() - locations: \(locations)")
         
         guard state.current.location.isRecording else {
                 return
@@ -51,7 +51,7 @@ class GeolocationService {
     private var eventHandler: GeolocationServiceEventHandler
     
     init(state: ObservableState<AppState>) {
-        print("Initializing GeoLocation Service")
+        // print("Initializing GeoLocation Service")
         
         self.state = state
         
@@ -63,24 +63,20 @@ class GeolocationService {
         
         locationManager.delegate = eventHandler
         
-//        BGTaskScheduler.shared.register(
-//          forTaskWithIdentifier: "com.korczis.coriander.requestLocationUpdateTask", using: nil) { (task) in
-//            self.handleRequestLocationUpdateTask(task: task as! BGAppRefreshTask)
-//        }
-//
-//        let requestLocationUpdateTask = BGAppRefreshTaskRequest(identifier: "com.korczis.coriander.requestLocationUpdateTask")
-//        requestLocationUpdateTask.earliestBeginDate = Date(timeIntervalSinceNow: 10)
-//
-//        do {
-//          try BGTaskScheduler.shared.submit(requestLocationUpdateTask)
-//        } catch {
-//          print("Unable to submit task: \(error.localizedDescription)")
-//        }
+        BGTaskScheduler.shared.register(
+          forTaskWithIdentifier: "com.korczis.coriander.requestLocationUpdateTask", using: nil) { (task) in
+            task.expirationHandler = {
+                self.locationManager.requestLocation()
+            }
+        }
+
+        let requestLocationUpdateTask = BGAppRefreshTaskRequest(identifier: "com.korczis.coriander.requestLocationUpdateTask")
+        requestLocationUpdateTask.earliestBeginDate = Date(timeIntervalSinceNow: 10)
+
+        do {
+          try BGTaskScheduler.shared.submit(requestLocationUpdateTask)
+        } catch {
+          print("Unable to submit task: \(error.localizedDescription)")
+        }
     }
-    
-//    private func handleRequestLocationUpdateTask(task: BGAppRefreshTask) {
-//        task.expirationHandler = {
-//            self.locationManager.requestLocation()
-//        }
-//    }
 }

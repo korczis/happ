@@ -8,13 +8,13 @@
 import Foundation
 import CoreData
 
-struct PersistenceController {
+struct PersistenceService {
     // A singleton for our entire app to use
-    public static var shared = PersistenceController()
+    public static var shared = PersistenceService()
 
     // MARK: - Core Data stack
 
-    lazy var persistentContainer: NSPersistentCloudKitContainer = {
+    private lazy var _persistentContainer: NSPersistentCloudKitContainer = {
         let container = NSPersistentCloudKitContainer(name: "Coriander")
 
         // Create a store description for a local store
@@ -72,6 +72,14 @@ struct PersistenceController {
         context.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
         
         return container
+    }()
+        
+    lazy var container: NSPersistentCloudKitContainer = {
+        return self._persistentContainer
+    }()
+    
+    lazy var context: NSManagedObjectContext = {
+        return self.container.viewContext
     }()
     
 //    // Storage for Core Data
