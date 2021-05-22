@@ -206,7 +206,7 @@
 		8BF4F3332655067C00EA619E /* LocationRecordingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRecordingButton.swift; sourceTree = "<group>"; };
 		8BF4F336265525AC00EA619E /* LocationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationActions.swift; sourceTree = "<group>"; };
 		8BF4F337265525AC00EA619E /* AppActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
-		8BF4F33A265525F600EA619E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = coriander/Assets.xcassets; sourceTree = "<group>"; };
+		8BF4F33A265525F600EA619E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BF4F33C2655276300EA619E /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = coriander/Frameworks/Mapbox.framework; sourceTree = "<group>"; };
 		8BF4F33D2655276300EA619E /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = coriander/Frameworks/MapboxMobileEvents.framework; sourceTree = "<group>"; };
 		8BF4F3502655A06900EA619E /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
@@ -294,7 +294,6 @@
 		8B7CB47E2650548000AE7B94 = {
 			isa = PBXGroup;
 			children = (
-				8BF4F33A265525F600EA619E /* Assets.xcassets */,
 				8B7CB4892650548100AE7B94 /* coriander */,
 				8B7CB49B2650548200AE7B94 /* corianderTests */,
 				8B7CB4A62650548200AE7B94 /* corianderUITests */,
@@ -324,6 +323,7 @@
 		8B7CB4892650548100AE7B94 /* coriander */ = {
 			isa = PBXGroup;
 			children = (
+				8BF4F33A265525F600EA619E /* Assets.xcassets */,
 				8BF4F335265525AC00EA619E /* Actions */,
 				8BF4F329265470CB00EA619E /* Algorithms */,
 				8BF4F32C265470DA00EA619E /* Data */,

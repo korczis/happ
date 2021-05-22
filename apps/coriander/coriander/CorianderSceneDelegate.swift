@@ -25,8 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
                 let user = AuthUser(
                     id: KeychainItem.currentUserIdentifier,
-                    firstname: KeychainItem.currentUserFirstName,
-                    lastname: KeychainItem.currentUserLastName,
+                    name: KeychainItem.currentUserFullName,
                     email: KeychainItem.currentUserEmail
                 )
                 
@@ -44,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 break
             case .revoked, .notFound:
                 DispatchQueue.main.async {
-                    let rootView = MainView()
+                    let rootView = AuthView()
                         .environment(\.window, window)
                     
                     window.rootViewController = UIHostingController(rootView: rootView)

@@ -3,6 +3,36 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "static AddLocationAction.shouldUpdateLocation(oldLocation:newLocation:):LocationActions.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "oldLocation == CLLocation()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in closure #1 in AuthView.body.getter:AuthView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "geometry">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in AuthView.body.getter:AuthView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "window?.rootViewController?.view.intrinsicContentSize">
+            </PersistentString>
+            <PersistentString
+               value = "window?.safeAreaInsets">
+            </PersistentString>
+            <PersistentString
+               value = "window?.rootViewController?.view.safeAreaInsets">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "__CFRunLoopServiceMachPort:(null)">
          <PersistentStrings>
             <PersistentString
@@ -11,10 +41,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static AddLocationAction.shouldUpdateLocation(oldLocation:newLocation:):LocationActions.swift">
+         contextName = "specialized closure #1 in authReducer(action:state:):AuthReducer.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AuthView.body.getter:AuthView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "oldLocation == CLLocation()">
+               value = "geometry.size">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

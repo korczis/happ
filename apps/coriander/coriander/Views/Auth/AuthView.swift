@@ -60,9 +60,9 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
             // Create an account in your system.
             // For the purpose of this demo app, store the these details in the keychain.
             KeychainItem.currentUserIdentifier = appleIDCredential.user
-            KeychainItem.currentUserFirstName = appleIDCredential.fullName?.givenName
-            KeychainItem.currentUserLastName = appleIDCredential.fullName?.familyName
+            KeychainItem.currentUserFullName = appleIDCredential.fullName
             KeychainItem.currentUserEmail = appleIDCredential.email
+            
             
             print("User Id - \(appleIDCredential.user)")
             print("User Name - \(appleIDCredential.fullName?.description ?? "N/A")")
@@ -73,11 +73,10 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
                let identityTokenString = String(data: identityTokenData, encoding: .utf8) {
                 print("Identity Token \(identityTokenString)")
             }
-           
+            
             let user = AuthUser(
                 id: appleIDCredential.user,
-                firstname: appleIDCredential.fullName?.givenName,
-                lastname: appleIDCredential.fullName?.familyName,
+                name: appleIDCredential.fullName,
                 email: appleIDCredential.email
             )
             
@@ -90,42 +89,58 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
             window.rootViewController = UIHostingController(rootView: rootView)
             window.makeKeyAndVisible()
             
-        } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
-            // Sign in using an existing iCloud Keychain credential.
-            let username = passwordCredential.user
-            let password = passwordCredential.password
-            
-            // For the purpose of this demo app, show the password credential as an alert.
-            DispatchQueue.main.async {
-                let message = "The app has received your selected credential from the keychain. \n\n Username: \(username)\n Password: \(password)"
-                let alertController = UIAlertController(title: "Keychain Credential Received",
-                                                        message: message,
-                                                        preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-                
-                //self.present(alertController, animated: true, completion: nil)
-            }
         }
+        //        else if let passwordCredential = authorization.credential as? ASPasswordCredential {
+        //            // Sign in using an existing iCloud Keychain credential.
+        //            let username = passwordCredential.user
+        //            let password = passwordCredential.password
+        //
+        //            // For the purpose of this demo app, show the password credential as an alert.
+        //            DispatchQueue.main.async {
+        //                let message = "The app has received your selected credential from the keychain. \n\n Username: \(username)\n Password: \(password)"
+        //                let alertController = UIAlertController(
+        //                    title: "Keychain Credential Received",
+        //                    message: message,
+        //                    preferredStyle: .alert
+        //                )
+        //                alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        //                self.present(alertController, animated: true, completion: nil)
+        //            }
+        //        }
     }
 }
 
 // -----
 
-struct MainView: View {
+struct AuthView: View {
     @Environment(\.window) var window: UIWindow?
     @State var appleSignInDelegates: SignInWithAppleDelegates! = nil
     
     var body: some View {
         ZStack {
-            Text(String("MainView"))
+            Color(UIColor(named: "BackgroundColor") ?? UIColor())
+                .ignoresSafeArea()
             
             VStack {
+                Spacer()
+                
+                // window?.rootViewController?.view.intrinsicContentSize
+                // let height = ((window?.safeAreaInsets.bottom)! - (window?.safeAreaInsets.top)!) / 3
+                // TODO: Compute top insect/padding automatically
+                Text(String("CORIANDER"))
+                    // .padding(EdgeInsets(top: 198, leading: 0, bottom: 0, trailing: 0))
+                    .font(Font.custom("Papyrus", size: 50))
+                                
                 SignInWithApple()
                     .frame(width: 280, height: 60)
                     .onTapGesture(perform: showAppleLogin)
+                
+                Spacer()
+                
+                Spacer()
             }
+            // .background(Color(UIColor(named: "BackgroundColor") ?? UIColor()))
         }
-        
     }
     
     private func showAppleLogin() {
@@ -165,5 +180,23 @@ struct MainView: View {
         // controller.presentationContextProvider = appleSignInDelegates
         
         controller.performRequests()
+    }
+}
+
+struct AuthAppleView_Previews: PreviewProvider {
+    static var previews: some View {
+        AuthView()
+        // .environment(\.window, self.)
+    }
+}
+
+class ChildHostingController: UIHostingController<AuthView> {
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder, rootView: AuthView());
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 }

@@ -42,10 +42,10 @@ struct KeychainItem {
         
         // Parse the password string from the query result.
         guard let existingItem = queryResult as? [String: AnyObject],
-            let passwordData = existingItem[kSecValueData as String] as? Data,
-            let password = String(data: passwordData, encoding: String.Encoding.utf8)
-            else {
-                throw KeychainError.unexpectedPasswordData
+              let passwordData = existingItem[kSecValueData as String] as? Data,
+              let password = String(data: passwordData, encoding: String.Encoding.utf8)
+        else {
+            throw KeychainError.unexpectedPasswordData
         }
         
         return password
@@ -132,41 +132,71 @@ extension KeychainItem {
         }
     }
     
+    // PersonNameComponents?
+    
     //Get and Set Current User First Name. Set nil to delete.
-    static var currentUserFirstName: String? {
+    static var currentUserFullName: PersonNameComponents? {
         get {
-            return try? KeychainItem(service: bundleIdentifier, account: "userFirstName").readItem()
+            let json = try? KeychainItem(service: bundleIdentifier, account: "userFullName").readItem()
+            
+            let decoder = JSONDecoder()
+            let value = try! decoder.decode(PersonNameComponents.self, from: json!.data(using: .utf8)!)
+            return value
         }
         set {
             guard let value = newValue else {
-                try? KeychainItem(service: bundleIdentifier, account: "userFirstName").deleteItem()
+                try? KeychainItem(service: bundleIdentifier, account: "userFullName").deleteItem()
                 return
             }
             do {
-                try KeychainItem(service: bundleIdentifier, account: "userFirstName").saveItem(value)
+                let encoder = JSONEncoder()
+                encoder.outputFormatting = .prettyPrinted
+
+                let data = try! encoder.encode(value)
+                let json = String(data: data, encoding: .utf8)!
+                
+                try KeychainItem(service: bundleIdentifier, account: "userFullName").saveItem(json)
             } catch {
-                print("Unable to save userFirstName to keychain.")
+                print("Unable to save userFullName to keychain.")
             }
         }
     }
     
-    //Get and Set Current User Last Name. Set nil to delete.
-    static var currentUserLastName: String? {
-        get {
-            return try? KeychainItem(service: bundleIdentifier, account: "userLastName").readItem()
-        }
-        set {
-            guard let value = newValue else {
-                try? KeychainItem(service: bundleIdentifier, account: "userLastName").deleteItem()
-                return
-            }
-            do {
-                try KeychainItem(service: bundleIdentifier, account: "userLastName").saveItem(value)
-            } catch {
-                print("Unable to save userLastName to keychain.")
-            }
-        }
-    }
+    //    //Get and Set Current User First Name. Set nil to delete.
+    //    static var currentUserFirstName: String? {
+    //        get {
+    //            return try? KeychainItem(service: bundleIdentifier, account: "userFirstName").readItem()
+    //        }
+    //        set {
+    //            guard let value = newValue else {
+    //                try? KeychainItem(service: bundleIdentifier, account: "userFirstName").deleteItem()
+    //                return
+    //            }
+    //            do {
+    //                try KeychainItem(service: bundleIdentifier, account: "userFirstName").saveItem(value)
+    //            } catch {
+    //                print("Unable to save userFirstName to keychain.")
+    //            }
+    //        }
+    //    }
+    //
+    //    //Get and Set Current User Last Name. Set nil to delete.
+    //    static var currentUserLastName: String? {
+    //        get {
+    //            return try? KeychainItem(service: bundleIdentifier, account: "userLastName").readItem()
+    //        }
+    //        set {
+    //            guard let value = newValue else {
+    //                try? KeychainItem(service: bundleIdentifier, account: "userLastName").deleteItem()
+    //                return
+    //            }
+    //            do {
+    //                try KeychainItem(service: bundleIdentifier, account: "userLastName").saveItem(value)
+    //            } catch {
+    //                print("Unable to save userLastName to keychain.")
+    //            }
+    //        }
+    //    }
     
     
     //Get and Set Current User Email. Set nil to delete.
