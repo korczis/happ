@@ -124,9 +124,7 @@ struct AuthView: View {
             VStack {
                 Spacer()
                 
-                // window?.rootViewController?.view.intrinsicContentSize
-                // let height = ((window?.safeAreaInsets.bottom)! - (window?.safeAreaInsets.top)!) / 3
-                // TODO: Compute top insect/padding automatically
+                // TODO: Compute top insect/padding automatically - LaunchScreen.storyboard
                 Text(String("CORIANDER"))
                     // .padding(EdgeInsets(top: 198, leading: 0, bottom: 0, trailing: 0))
                     .font(Font.custom("Papyrus", size: 50))
@@ -139,7 +137,6 @@ struct AuthView: View {
                 
                 Spacer()
             }
-            // .background(Color(UIColor(named: "BackgroundColor") ?? UIColor()))
         }
     }
     
