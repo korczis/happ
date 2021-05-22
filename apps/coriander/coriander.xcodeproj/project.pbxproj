@@ -17,6 +17,9 @@
 		8B4E5C7D2658469F003EE4EB /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7C2658469F003EE4EB /* AuthState.swift */; };
 		8B4E5C7F26584773003EE4EB /* AuthActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7E26584773003EE4EB /* AuthActions.swift */; };
 		8B4E5C81265847C3003EE4EB /* AuthReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C80265847C3003EE4EB /* AuthReducer.swift */; };
+		8B4E5C842658C69E003EE4EB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C832658C69E003EE4EB /* Environment.swift */; };
+		8B4E5C872658C7E6003EE4EB /* AuthAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C862658C7E6003EE4EB /* AuthAppleView.swift */; };
+		8B4E5C8B2658D158003EE4EB /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C8A2658D158003EE4EB /* AuthDelegate.swift */; };
 		8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48C2650548100AE7B94 /* ContentView.swift */; };
 		8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */; };
 		8B7CB49D2650548200AE7B94 /* corianderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB49C2650548200AE7B94 /* corianderTests.swift */; };
@@ -157,6 +160,9 @@
 		8B4E5C7C2658469F003EE4EB /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		8B4E5C7E26584773003EE4EB /* AuthActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthActions.swift; sourceTree = "<group>"; };
 		8B4E5C80265847C3003EE4EB /* AuthReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReducer.swift; sourceTree = "<group>"; };
+		8B4E5C832658C69E003EE4EB /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		8B4E5C862658C7E6003EE4EB /* AuthAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppleView.swift; sourceTree = "<group>"; };
+		8B4E5C8A2658D158003EE4EB /* AuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegate.swift; sourceTree = "<group>"; };
 		8B7CB4872650548100AE7B94 /* coriander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coriander.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7CB48C2650548100AE7B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -286,9 +292,27 @@
 		8B4E5C73265805E3003EE4EB /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				8B4E5C852658C7BF003EE4EB /* Apple */,
 				8B4E5C74265805F9003EE4EB /* AuthView.swift */,
+				8B4E5C8A2658D158003EE4EB /* AuthDelegate.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		8B4E5C822658C684003EE4EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8B4E5C832658C69E003EE4EB /* Environment.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8B4E5C852658C7BF003EE4EB /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				8B4E5C862658C7E6003EE4EB /* AuthAppleView.swift */,
+			);
+			path = Apple;
 			sourceTree = "<group>";
 		};
 		8B7CB47E2650548000AE7B94 = {
@@ -327,6 +351,7 @@
 				8BF4F335265525AC00EA619E /* Actions */,
 				8BF4F329265470CB00EA619E /* Algorithms */,
 				8BF4F32C265470DA00EA619E /* Data */,
+				8B4E5C822658C684003EE4EB /* Helpers */,
 				8B7CB5192650633700AE7B94 /* Reducers */,
 				8B4E5C022656BAF0003EE4EB /* Services */,
 				8B7CB5222650633700AE7B94 /* State */,
@@ -841,7 +866,9 @@
 			files = (
 				8B4E5C042656BB64003EE4EB /* GeolocationService.swift in Sources */,
 				8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */,
+				8B4E5C842658C69E003EE4EB /* Environment.swift in Sources */,
 				8BF4F3172654273B00EA619E /* MapView.swift in Sources */,
+				8B4E5C8B2658D158003EE4EB /* AuthDelegate.swift in Sources */,
 				8B4E5C7F26584773003EE4EB /* AuthActions.swift in Sources */,
 				8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */,
 				8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */,
@@ -851,6 +878,7 @@
 				8BF4F32B265470CB00EA619E /* RingArray.swift in Sources */,
 				8B7CB5382650633800AE7B94 /* AppState.swift in Sources */,
 				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
+				8B4E5C872658C7E6003EE4EB /* AuthAppleView.swift in Sources */,
 				8BF4F339265525AC00EA619E /* AppActions.swift in Sources */,
 				8B4E5C7D2658469F003EE4EB /* AuthState.swift in Sources */,
 				8B4E5C75265805F9003EE4EB /* AuthView.swift in Sources */,
