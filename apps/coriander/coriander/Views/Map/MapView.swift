@@ -5,6 +5,7 @@
 //  Created by Tomas Korcak on 18.05.2021.
 //
 
+import ReSwift
 import SwiftUI
 import Mapbox
 
@@ -57,7 +58,6 @@ struct MapComponentView: UIViewRepresentable {
     
     func makeUIView(context: UIViewRepresentableContext<MapComponentView>) -> MGLMapView {
         mapView.delegate = context.coordinator
-        
         return mapView
     }
     
@@ -98,4 +98,16 @@ struct MapComponentView: UIViewRepresentable {
     // Cache
     // ------
     
+}
+
+struct Mapiew_Previews: PreviewProvider {
+    static let previewStore = Store<AppState>(
+        reducer: appReducer,
+        state: nil
+    )
+    
+    static var previews: some View {
+        let state = ObservableState(store: previewStore)
+        MapView(state: state)
+    }
 }
