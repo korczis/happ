@@ -37,41 +37,6 @@ extension MapComponentView {
         }
         
         func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-    //            // Set the maximum ambient cache size in bytes.
-    //            // Call this method before the map view is loaded.
-    //            // The ambient cache is created through the end user loading and using a map view.
-    //            let maximumCacheSizeInBytes = UInt(64 * 1024 * 1024)
-    //            MGLOfflineStorage.shared.setMaximumAmbientCacheSize(maximumCacheSizeInBytes) { (error) in
-    //                guard error == nil else {
-    //                    print("Unable to set maximum ambient cache size: \(error?.localizedDescription ?? "error")")
-    //                    return
-    //                }
-    //
-    //                DispatchQueue.main.async { [self] in
-    //                    // Setup map first
-    //                    // self.setupMapView()
-    //
-    //                    // Create an offline pack.
-    //                    self.addOfflinePack()
-    //                }
-    //
-    //                // Add a bar button. Tapping this button will present a menu of options.
-    //                // For this example, the cache is managed through the UI.
-    //                // It can also be managed by developers through remote notifications.
-    //                // For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotification
-    //                let alertButton = UIBarButtonItem(
-    //                    title: "Cache",
-    //                    style: .plain,
-    //                    target: self,
-    //                    action: #selector(self.presentActionSheet)
-    //                )
-    //
-    //                self.parent?.navigationItem.setRightBarButton(
-    //                    alertButton,
-    //                    animated: false
-    //                )
-    //            }
-            
             // ----
             // MARK: Working
             // ----
@@ -122,29 +87,6 @@ extension MapComponentView {
             )
         }
         
-//        func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
-//            guard control.state.current.location.isRecording else {
-//                    return
-//            }
-//            
-//            // print("MapboxMap.mapView() - didUpdate, userLocation: \(String(describing: userLocation)), mapView: \(mapView)")
-//            
-//            guard let userLocation = userLocation else { return }
-//            guard let userLocationRaw = userLocation.location else { return }
-//            
-//            // print("User location: \(userLocation)")
-//            // print("User location (raw): \(userLocationRaw)")
-//                                   
-//            
-//            if (AddLocationAction.shouldUpdateLocation(
-//                oldLocation: control.state.current.location.lastLocation,
-//                newLocation: userLocationRaw,
-//                updateInterval: control.state.current.location.updateInterval
-//            )) {
-//                control.state.dispatch(AddLocationAction(location: userLocationRaw))
-//            }
-//        }
-        
         // -----
         // MARK: Private implementation
         // -----
@@ -182,7 +124,8 @@ extension MapComponentView {
         
         private func setupButtons() {
             setupLocationButton()
-            setupRecordingButton()
+            
+            // setupRecordingButton()
         }
         
         private func setupRecordingButton() {

@@ -17,6 +17,8 @@
 		8B4E5C7D2658469F003EE4EB /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7C2658469F003EE4EB /* AuthState.swift */; };
 		8B4E5C7F26584773003EE4EB /* AuthActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7E26584773003EE4EB /* AuthActions.swift */; };
 		8B4E5C81265847C3003EE4EB /* AuthReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C80265847C3003EE4EB /* AuthReducer.swift */; };
+		8B4E5C922659382D003EE4EB /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C902659382C003EE4EB /* StatusBar.swift */; };
+		8B4E5C932659382D003EE4EB /* HomeNavigationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C912659382C003EE4EB /* HomeNavigationListView.swift */; };
 		8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48C2650548100AE7B94 /* ContentView.swift */; };
 		8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */; };
 		8B7CB49D2650548200AE7B94 /* corianderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB49C2650548200AE7B94 /* corianderTests.swift */; };
@@ -157,6 +159,8 @@
 		8B4E5C7C2658469F003EE4EB /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		8B4E5C7E26584773003EE4EB /* AuthActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthActions.swift; sourceTree = "<group>"; };
 		8B4E5C80265847C3003EE4EB /* AuthReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReducer.swift; sourceTree = "<group>"; };
+		8B4E5C902659382C003EE4EB /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
+		8B4E5C912659382C003EE4EB /* HomeNavigationListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationListView.swift; sourceTree = "<group>"; };
 		8B7CB4872650548100AE7B94 /* coriander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coriander.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7CB48C2650548100AE7B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 		8B4E5BF02656A1D5003EE4EB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8B4E5C912659382C003EE4EB /* HomeNavigationListView.swift */,
 				8B4E5BF12656A1D5003EE4EB /* HomeView.swift */,
 				8B4E5BF22656A1D5003EE4EB /* HomeNavigationView.swift */,
 			);
@@ -289,6 +294,14 @@
 				8B4E5C74265805F9003EE4EB /* AuthView.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		8B4E5C94265C1653003EE4EB /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				8B4E5C902659382C003EE4EB /* StatusBar.swift */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 		8B7CB47E2650548000AE7B94 = {
@@ -456,6 +469,7 @@
 			children = (
 				8B4E5C73265805E3003EE4EB /* Auth */,
 				8B7CB5302650633700AE7B94 /* Data */,
+				8B4E5C94265C1653003EE4EB /* Global */,
 				8B4E5BF02656A1D5003EE4EB /* Home */,
 				8B7CB52B2650633700AE7B94 /* Image */,
 				8B7CB52D2650633700AE7B94 /* Map */,
@@ -861,6 +875,8 @@
 				8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
 				8BF4F338265525AC00EA619E /* LocationActions.swift in Sources */,
+				8B4E5C922659382D003EE4EB /* StatusBar.swift in Sources */,
+				8B4E5C932659382D003EE4EB /* HomeNavigationListView.swift in Sources */,
 				8BF4F3512655A06900EA619E /* MapViewCoordinator.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
 				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,
