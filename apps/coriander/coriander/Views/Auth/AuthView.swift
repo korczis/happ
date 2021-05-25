@@ -50,8 +50,6 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        
-        // self.present(alert, animated: true, completion: nil)
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
@@ -84,29 +82,15 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
                 user: user
             ))
             
+            
+            let moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
             let rootView = ContentView()
+                .environment(\.managedObjectContext, moc!)
             
             window.rootViewController = UIHostingController(rootView: rootView)
             window.makeKeyAndVisible()
             
         }
-        //        else if let passwordCredential = authorization.credential as? ASPasswordCredential {
-        //            // Sign in using an existing iCloud Keychain credential.
-        //            let username = passwordCredential.user
-        //            let password = passwordCredential.password
-        //
-        //            // For the purpose of this demo app, show the password credential as an alert.
-        //            DispatchQueue.main.async {
-        //                let message = "The app has received your selected credential from the keychain. \n\n Username: \(username)\n Password: \(password)"
-        //                let alertController = UIAlertController(
-        //                    title: "Keychain Credential Received",
-        //                    message: message,
-        //                    preferredStyle: .alert
-        //                )
-        //                alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-        //                self.present(alertController, animated: true, completion: nil)
-        //            }
-        //        }
     }
 }
 
@@ -128,7 +112,7 @@ struct AuthView: View {
                 Text(String("CORIANDER"))
                     // .padding(EdgeInsets(top: 198, leading: 0, bottom: 0, trailing: 0))
                     .font(Font.custom("Papyrus", size: 50))
-                                
+                
                 SignInWithApple()
                     .frame(width: 280, height: 60)
                     .onTapGesture(perform: showAppleLogin)

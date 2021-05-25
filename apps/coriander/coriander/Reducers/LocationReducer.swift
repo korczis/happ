@@ -10,7 +10,8 @@ import MapKit
 
 func locationReducer(action: Action, state: AppState?) -> AppState {
     var state = state ?? AppState()
-    let context = PersistenceController.shared.persistentContainer.viewContext
+    
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     // -----
     
@@ -23,7 +24,7 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
     }
     
     let addLocationToContext = { (location: CLLocation) -> Void in
-        let item = Location(context: context)
+        let item = Location(context: context!)
         item.id = UUID()
         item.altitude  = location.altitude
         item.latitude  = location.coordinate.latitude.magnitude;
@@ -52,7 +53,7 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
         addLocationToContext(action.location)
         DispatchQueue.main.async {
             do {
-                try context.save()
+                try context?.save()
                 print("locationReducer() - Location was saved.")
                 
             } catch let error {

@@ -47,26 +47,22 @@ import SwiftUI
 //}
 
 
-struct StatusBarButton: UIViewRepresentable {
-    @ObservedObject var state: ObservableState<AppState>
+final class StatusBarButton<T: UIButton>: UIViewRepresentable {
+    typealias ButtonCallback = (T) -> Void
     
-    typealias ButtonCallback = (LocationRecordingButton) -> Void
-    
-    private var button: LocationRecordingButton
+    private var button: T
     internal var action: ButtonCallback?
     
-    init(state: ObservableState<AppState>, action: ButtonCallback?) {
-        button = LocationRecordingButton(buttonSize: 40, isRecording: state.current.location.isRecording)
-        
+    init(button: T, action: ButtonCallback?) {
+        self.button = button
         self.action = action
-        self.state = state
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
-    func makeUIView(context: UIViewRepresentableContext<StatusBarButton>) -> UIButton {
+    func makeUIView(context: UIViewRepresentableContext<StatusBarButton>) -> T {
         
         // button.setTitle(buttonText, for: .normal)
         button.addTarget(
@@ -78,7 +74,7 @@ struct StatusBarButton: UIViewRepresentable {
         return button
     }
     
-    func updateUIView(_ uiView: UIButton, context: UIViewRepresentableContext<StatusBarButton>) {
+    func updateUIView(_ uiView: T, context: UIViewRepresentableContext<StatusBarButton>) {
         // uiView.setTitle(buttonText, for: .normal)
     }
 }
@@ -91,12 +87,10 @@ extension StatusBarButton {
             self.parent = parent
         }
         
-        @objc func buttonPressed(_ sender: LocationRecordingButton) {
+        @objc func buttonPressed(_ sender: AnyObject) {
             if let action = parent.action {
                 action(parent.button)
             }
-            
-//            parent.button.updateShape(isRecording: !parent.state.current.location.isRecording)
         }
     }
 }
@@ -121,7 +115,9 @@ struct StatusBarView: View {
                 
                 Spacer()
                 
-                StatusBarButton(state: self.state, action: { sender in
+                let button = LocationRecordingButton(buttonSize: 40, isRecording: state.current.location.isRecording)
+                
+                StatusBarButton<LocationRecordingButton>(button: button, action: { sender in
                         let isRecording = !state.current.location.isRecording;
                         state.dispatch(SetRecordingLocationAction(isRecording: isRecording))
                         sender.updateShape(isRecording: isRecording)

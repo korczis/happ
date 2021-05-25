@@ -16,8 +16,57 @@ import UIKit
 //}
 
 @UIApplicationMain
-class CorianderAppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UISceneSession Lifecycle
+
+    lazy var persistentContainer: NSPersistentCloudKitContainer = {
+        let container = NSPersistentCloudKitContainer(name: "Coriander")
+
+        // Create a store description for a CloudKit-backed local store
+        let cloudStoreLocation = try! FileManager
+            .default
+            .url(
+                for: .documentDirectory,
+                in: .userDomainMask,
+                appropriateFor: nil,
+                create: true
+            )
+            .appendingPathComponent("cloud.sqlite")
+        
+        let cloudStoreDescription =
+            NSPersistentStoreDescription(url: cloudStoreLocation)
+//         cloudStoreDescription.configuration = "Default" // "Cloud"
+
+        // Set the container options on the cloud store
+        cloudStoreDescription.cloudKitContainerOptions =
+            NSPersistentCloudKitContainerOptions(
+                containerIdentifier: "iCloud.com.korczis.coriander")
+
+        // Update the container's list of store descriptions
+        container.persistentStoreDescriptions = [
+            cloudStoreDescription,
+            // localStoreDescription
+        ]
+
+        // Load stores
+        container.loadPersistentStores { storeDescription, error in
+            guard error == nil else {
+                fatalError("Could not load persistent stores. \(error!)")
+            }
+            
+            print("Persistent stores were loaded. \(storeDescription)")
+        }
+        
+        let context = container.viewContext
+        context.automaticallyMergesChangesFromParent = true
+        context.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
+        
+        return container
+    }()
+    
+    // -----
+    // MARK: - Core Data Saving support
+    // -----
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
@@ -33,71 +82,11 @@ class CorianderAppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-    // -----
-    // MARK: - Core Data stack
-    // -----
-
-    lazy var persistentContainer: NSPersistentCloudKitContainer = {
-        let container = NSPersistentCloudKitContainer(name: "Coriander")
-
-        // Create a store description for a local store
-        let localStoreLocation = try! FileManager
-            .default
-                .url(
-                for: .documentDirectory,
-                in: .userDomainMask,
-                appropriateFor: nil,
-                create: true
-            )
-           .appendingPathComponent("local.sqlite")
-
-        let localStoreDescription =
-            NSPersistentStoreDescription(url: localStoreLocation)
-
-
-        // Create a store description for a CloudKit-backed local store
-        let cloudStoreLocation = try! FileManager
-            .default
-            .url(
-                for: .documentDirectory,
-                in: .userDomainMask,
-                appropriateFor: nil,
-                create: true
-            )
-            .appendingPathComponent("cloud.sqlite")
-
-        let cloudStoreDescription =
-            NSPersistentStoreDescription(url: cloudStoreLocation)
-//         cloudStoreDescription.configuration = "Default" // "Cloud"
-
-        // Set the container options on the cloud store
-        cloudStoreDescription.cloudKitContainerOptions =
-            NSPersistentCloudKitContainerOptions(
-                containerIdentifier: "iCloud.com.korczis.coriander")
-
-        // Update the container's list of store descriptions
-        container.persistentStoreDescriptions = [
-            cloudStoreDescription,
-            localStoreDescription
-        ]
-
-        // Load stores
-        container.loadPersistentStores { storeDescription, error in
-            guard error == nil else {
-                fatalError("Could not load persistent stores. \(error!)")
-            }
-        }
-
-        return container
-    }()
-
-    // -----
-    // MARK: - Core Data Saving support
-    // -----
-
-//    func saveContext () {
-//        let context = persistentContainer.viewContext
+    
+    func saveContext () {
+        print("PersistenceController.saveContext() - NOT IMPLEMENTED!")
+        
+//        let context = self.persistentContainer.viewContext
 //        if context.hasChanges {
 //            do {
 //                try context.save()
@@ -108,5 +97,6 @@ class CorianderAppDelegate: UIResponder, UIApplicationDelegate {
 //                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
 //            }
 //        }
-//    }
+    }
+    
 }

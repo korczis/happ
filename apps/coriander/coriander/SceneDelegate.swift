@@ -6,13 +6,14 @@
 //
 
 import AuthenticationServices
+import CoreData
 import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         
         let window = UIWindow(windowScene: windowScene)
@@ -34,7 +35,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 ))
                 
                 DispatchQueue.main.async {
+                    let moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
                     let rootView = ContentView()
+                        .environment(\.window, window)
+                        .environment(\.managedObjectContext, moc!)
                     
                     window.rootViewController = UIHostingController(rootView: rootView)
                     self.window = window
@@ -43,8 +47,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 break
             case .revoked, .notFound:
                 DispatchQueue.main.async {
+                    let moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
                     let rootView = AuthView()
                         .environment(\.window, window)
+                        .environment(\.managedObjectContext, moc!)
                     
                     window.rootViewController = UIHostingController(rootView: rootView)
                     self.window = window

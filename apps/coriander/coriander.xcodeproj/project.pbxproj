@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B467E2826507BF000F9C122 /* CorianderAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B467E2726507BF000F9C122 /* CorianderAppDelegate.swift */; };
+		8B467E2826507BF000F9C122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B467E2726507BF000F9C122 /* AppDelegate.swift */; };
 		8B4E5BF32656A1D5003EE4EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5BF12656A1D5003EE4EB /* HomeView.swift */; };
 		8B4E5BF42656A1D5003EE4EB /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5BF22656A1D5003EE4EB /* HomeNavigationView.swift */; };
 		8B4E5C042656BB64003EE4EB /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C032656BB64003EE4EB /* GeolocationService.swift */; };
@@ -49,12 +49,11 @@
 		8B7CB54D265063E200AE7B94 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB54C265063E200AE7B94 /* RxRelay */; };
 		8B7CB54F265063E200AE7B94 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB54E265063E200AE7B94 /* RxCocoa */; };
 		8B7CB551265063E200AE7B94 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7CB550265063E200AE7B94 /* RxBlocking */; };
-		8BF4F313265426E800EA619E /* CorianderSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F312265426E800EA619E /* CorianderSceneDelegate.swift */; };
+		8BF4F313265426E800EA619E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F312265426E800EA619E /* SceneDelegate.swift */; };
 		8BF4F3172654273B00EA619E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F3162654273B00EA619E /* MapView.swift */; };
 		8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F31A2654479500EA619E /* MapViewCache.swift */; };
 		8BF4F32B265470CB00EA619E /* RingArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32A265470CB00EA619E /* RingArray.swift */; };
 		8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32D265470DA00EA619E /* Coriander.xcdatamodeld */; };
-		8BF4F331265470DA00EA619E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F32F265470DA00EA619E /* PersistenceController.swift */; };
 		8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F3332655067C00EA619E /* LocationRecordingButton.swift */; };
 		8BF4F338265525AC00EA619E /* LocationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F336265525AC00EA619E /* LocationActions.swift */; };
 		8BF4F339265525AC00EA619E /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F337265525AC00EA619E /* AppActions.swift */; };
@@ -149,7 +148,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8B467E2726507BF000F9C122 /* CorianderAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorianderAppDelegate.swift; sourceTree = "<group>"; };
+		8B467E2726507BF000F9C122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B4E5BF12656A1D5003EE4EB /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8B4E5BF22656A1D5003EE4EB /* HomeNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
 		8B4E5C032656BB64003EE4EB /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
@@ -201,12 +200,11 @@
 		8B7CB52F2650633700AE7B94 /* UserLocationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationButton.swift; sourceTree = "<group>"; };
 		8B7CB5312650633700AE7B94 /* DataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		8B7CB544265063C400AE7B94 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		8BF4F312265426E800EA619E /* CorianderSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorianderSceneDelegate.swift; sourceTree = "<group>"; };
+		8BF4F312265426E800EA619E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8BF4F3162654273B00EA619E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8BF4F31A2654479500EA619E /* MapViewCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCache.swift; sourceTree = "<group>"; };
 		8BF4F32A265470CB00EA619E /* RingArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingArray.swift; sourceTree = "<group>"; };
 		8BF4F32E265470DA00EA619E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		8BF4F32F265470DA00EA619E /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		8BF4F3332655067C00EA619E /* LocationRecordingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRecordingButton.swift; sourceTree = "<group>"; };
 		8BF4F336265525AC00EA619E /* LocationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationActions.swift; sourceTree = "<group>"; };
 		8BF4F337265525AC00EA619E /* AppActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
@@ -345,8 +343,8 @@
 				8B7CB5222650633700AE7B94 /* State */,
 				8B7CB5282650633700AE7B94 /* Views */,
 				8B7CB4FD265054A400AE7B94 /* coriander.entitlements */,
-				8B467E2726507BF000F9C122 /* CorianderAppDelegate.swift */,
-				8BF4F312265426E800EA619E /* CorianderSceneDelegate.swift */,
+				8B467E2726507BF000F9C122 /* AppDelegate.swift */,
+				8BF4F312265426E800EA619E /* SceneDelegate.swift */,
 				8B7CB48C2650548100AE7B94 /* ContentView.swift */,
 				8B4E5C7A26581C15003EE4EB /* KeychainItem.swift */,
 				8B4E5C7626580A1B003EE4EB /* LaunchScreen.storyboard */,
@@ -525,7 +523,6 @@
 			isa = PBXGroup;
 			children = (
 				8BF4F32D265470DA00EA619E /* Coriander.xcdatamodeld */,
-				8BF4F32F265470DA00EA619E /* PersistenceController.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -868,10 +865,9 @@
 				8BF4F339265525AC00EA619E /* AppActions.swift in Sources */,
 				8B4E5C7D2658469F003EE4EB /* AuthState.swift in Sources */,
 				8B4E5C75265805F9003EE4EB /* AuthView.swift in Sources */,
-				8BF4F313265426E800EA619E /* CorianderSceneDelegate.swift in Sources */,
+				8BF4F313265426E800EA619E /* SceneDelegate.swift in Sources */,
 				8B4E5C81265847C3003EE4EB /* AuthReducer.swift in Sources */,
-				8B467E2826507BF000F9C122 /* CorianderAppDelegate.swift in Sources */,
-				8BF4F331265470DA00EA619E /* PersistenceController.swift in Sources */,
+				8B467E2826507BF000F9C122 /* AppDelegate.swift in Sources */,
 				8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
 				8BF4F338265525AC00EA619E /* LocationActions.swift in Sources */,
