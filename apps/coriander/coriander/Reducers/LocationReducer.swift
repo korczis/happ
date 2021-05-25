@@ -11,8 +11,6 @@ import MapKit
 func locationReducer(action: Action, state: AppState?) -> AppState {
     var state = state ?? AppState()
     
-    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-    
     // -----
     
     var stateLocation: LocationState {
@@ -21,15 +19,6 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
     
     var lastLocation: CLLocation {
         stateLocation.lastLocation
-    }
-    
-    let addLocationToContext = { (location: CLLocation) -> Void in
-        let item = Location(context: context!)
-        item.id = UUID()
-        item.altitude  = location.altitude
-        item.latitude  = location.coordinate.latitude.magnitude;
-        item.longitude = location.coordinate.longitude.magnitude;
-        item.timestamp = location.timestamp;
     }
     
     let addLocation = { (action: AddLocationAction) -> AppState in
@@ -50,8 +39,16 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
         state.location.processedCount += 1
         
         // TODO: Use bulk mode
-        addLocationToContext(action.location)
         DispatchQueue.main.async {
+            let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+            
+            let item = Location(context: context!)
+            item.id = UUID()
+            item.altitude  = action.location.altitude
+            item.latitude  = action.location.coordinate.latitude.magnitude;
+            item.longitude = action.location.coordinate.longitude.magnitude;
+            item.timestamp = action.location.timestamp;
+            
             do {
                 try context?.save()
                 print("locationReducer() - Location was saved.")

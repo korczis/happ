@@ -20,8 +20,8 @@ struct DataView: View {
         entity: Location.entity(),
         sortDescriptors: [
             NSSortDescriptor(
-                keyPath: \Location.id,
-                ascending: true
+                keyPath: \Location.timestamp,
+                ascending: false
             )
         ]
     )
