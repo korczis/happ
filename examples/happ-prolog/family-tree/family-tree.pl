@@ -17,10 +17,10 @@ parent_of("jakub-korcak", "pavel-korcak").
 parent_of("jakub-korcak", "alena-korcakova").
 
 /* Rules */
-father_of(X, Y):- male(X),
+father_of(X, Y):- male(Y),
     parent_of(X, Y).
 
-mother_of(X, Y):- female(X),
+mother_of(X, Y):- female(Y),
     parent_of(X, Y).
 
 /* Entrypoint */
