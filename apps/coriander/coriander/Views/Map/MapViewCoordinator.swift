@@ -117,8 +117,20 @@ extension MapComponentView {
         }
         
         @IBAction func recordingButtonTapped(sender: LocationRecordingButton) {
-            let isRecording = !control.state.current.location.isRecording;
-            control.state.dispatch(SetRecordingLocationAction(isRecording: isRecording))
+            // TODO: Duplicate of implementation in SatusBarView
+            
+            let isRecording = control.state.current.location.isRecording;
+            
+            switch isRecording {
+            case true:
+                control.state.dispatch(LocationRecordingStopAction())
+                break
+                
+            case false:
+                control.state.dispatch(LocationRecordingStartAction())
+                break
+            }
+                        
             locationRecordingButton?.updateShape(isRecording: isRecording)
         }
         

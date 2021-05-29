@@ -32,13 +32,7 @@ class GeolocationServiceEventHandler: NSObject, CLLocationManagerDelegate {
         }
         
         for location in locations {
-            if (AddLocationAction.shouldUpdateLocation(
-                oldLocation: state.current.location.lastLocation,
-                newLocation: location,
-                updateInterval: state.current.location.updateInterval
-            )) {
-                state.dispatch(AddLocationAction(location: location))
-            }
+            state.dispatch(LocationAddAction(location: location))
         }
     }
     

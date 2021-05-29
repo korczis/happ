@@ -12,28 +12,29 @@ import ReSwift
 import MapKit
 
 struct DataView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.managedObjectContext) var moc
     
     @ObservedObject var state: ObservableState<AppState>
     
-    @FetchRequest(
-        entity: Location.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(
-                keyPath: \Location.timestamp,
-                ascending: false
-            )
-        ]
-    )
-    var data: FetchedResults<Location>
+    @FetchRequest var data: FetchedResults<Location>
     
     init(state: ObservableState<AppState>) {
         self.state = state
+        
+        let request: NSFetchRequest<Location> = Location.fetchRequest()
+        // request.predicate = NSPredicate(format: "active = true")
+        request.sortDescriptors = [
+            NSSortDescriptor(keyPath: \Location.timestamp, ascending: false)
+        ]
+        request.fetchOffset = 0
+        request.fetchLimit = 5
+        request.includesPendingChanges = false
+        
+        _data = FetchRequest(fetchRequest: request)
     }
     
     var body: some View {
         let count = data.count;
-        
         
         DataListView(locations: self.data)
             .navigationBarTitle("Data (\(count))", displayMode: .inline)
@@ -42,10 +43,11 @@ struct DataView: View {
 
 struct DataListView: View {
     var locations: FetchedResults<Location>
-
+    
     var body: some View {
         List (locations, id: \.self) { location in
             DataRowView(location: location)
+                .id(location.id)
         }
         .id(UUID())
     }
@@ -53,18 +55,23 @@ struct DataListView: View {
 
 struct DataRowView: View {
     var location: Location
-
+    
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSSS"
         return formatter
     }()
-
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("\(location.timestamp!, formatter: Self.dateFormatter)")
-            Text(String(format: "Location: %.4f %.4f", location.latitude, location.longitude))
-                .font(.subheadline)
+        NavigationLink(
+            destination: LocationDetailsView(location: location)
+                .navigationTitle("Location Details")
+        ) {
+            VStack(alignment: .leading) {
+                Text("\(location.timestamp!, formatter: Self.dateFormatter)")
+                Text(String(format: "Location: %.4f %.4f", location.latitude, location.longitude))
+                    .font(.subheadline)
+            }
         }
     }
 }

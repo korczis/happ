@@ -12,6 +12,7 @@ import ReSwift
 
 struct AppState {
     var auth: AuthState = AuthState()
+    var journey: JourneyState = JourneyState()
     var location: LocationState = LocationState()
 }
 

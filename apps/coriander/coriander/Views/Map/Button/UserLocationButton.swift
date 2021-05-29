@@ -100,6 +100,7 @@ class UserLocationButton: UIButton {
 
     func updateArrow(fillColor: UIColor, strokeColor: UIColor, rotation: CGFloat) {
         guard let shape = self.shape else { return }
+        
         shape.fillColor = fillColor.cgColor
         shape.strokeColor = strokeColor.cgColor
         shape.setAffineTransform(CGAffineTransform.identity.rotated(by: rotation))

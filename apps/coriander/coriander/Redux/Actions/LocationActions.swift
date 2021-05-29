@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 import ReSwift
 
-struct AddLocationAction: Action {
+struct LocationAddAction: Action {
     var location: CLLocation
     
     static func shouldUpdateLocation(oldLocation: CLLocation, newLocation: CLLocation, updateInterval: Double) -> Bool {
@@ -43,9 +43,17 @@ struct AddLocationAction: Action {
 
 }
 
-struct ToggleRecordingLocationAction: Action {
+
+struct LocationRecordingStartAction: Action {
 }
 
-struct SetRecordingLocationAction: Action {
+struct LocationRecordingStopAction: Action {
+}
+
+struct LocationRecordingSetAction: Action {
     var isRecording: Bool
 }
+
+struct LocationRecordingToggleAction: Action {
+}
+

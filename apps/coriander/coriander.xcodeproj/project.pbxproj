@@ -19,6 +19,12 @@
 		8B4E5C81265847C3003EE4EB /* AuthReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C80265847C3003EE4EB /* AuthReducer.swift */; };
 		8B4E5C922659382D003EE4EB /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C902659382C003EE4EB /* StatusBar.swift */; };
 		8B4E5C932659382D003EE4EB /* HomeNavigationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C912659382C003EE4EB /* HomeNavigationListView.swift */; };
+		8B613D29265F8AC80013FE89 /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D28265F8AC80013FE89 /* LocationDetailsView.swift */; };
+		8B613D2B2660C36F0013FE89 /* JourneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D2A2660C36F0013FE89 /* JourneyState.swift */; };
+		8B613D2D2660C4370013FE89 /* JourneyReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D2C2660C4370013FE89 /* JourneyReducer.swift */; };
+		8B613D302660CCBB0013FE89 /* JourneyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D2F2660CCBB0013FE89 /* JourneyActions.swift */; };
+		8B613D332660CCFE0013FE89 /* JourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D322660CCFE0013FE89 /* JourneyView.swift */; };
+		8B613D362661ADF90013FE89 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D352661ADF90013FE89 /* Card.swift */; };
 		8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48C2650548100AE7B94 /* ContentView.swift */; };
 		8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */; };
 		8B7CB49D2650548200AE7B94 /* corianderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB49C2650548200AE7B94 /* corianderTests.swift */; };
@@ -160,6 +166,12 @@
 		8B4E5C80265847C3003EE4EB /* AuthReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReducer.swift; sourceTree = "<group>"; };
 		8B4E5C902659382C003EE4EB /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		8B4E5C912659382C003EE4EB /* HomeNavigationListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationListView.swift; sourceTree = "<group>"; };
+		8B613D28265F8AC80013FE89 /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
+		8B613D2A2660C36F0013FE89 /* JourneyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyState.swift; sourceTree = "<group>"; };
+		8B613D2C2660C4370013FE89 /* JourneyReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyReducer.swift; sourceTree = "<group>"; };
+		8B613D2F2660CCBB0013FE89 /* JourneyActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyActions.swift; sourceTree = "<group>"; };
+		8B613D322660CCFE0013FE89 /* JourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyView.swift; sourceTree = "<group>"; };
+		8B613D352661ADF90013FE89 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8B7CB4872650548100AE7B94 /* coriander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coriander.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7CB48C2650548100AE7B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -271,6 +283,7 @@
 		8B4E5BF02656A1D5003EE4EB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8B7CB48C2650548100AE7B94 /* ContentView.swift */,
 				8B4E5C912659382C003EE4EB /* HomeNavigationListView.swift */,
 				8B4E5BF12656A1D5003EE4EB /* HomeView.swift */,
 				8B4E5BF22656A1D5003EE4EB /* HomeNavigationView.swift */,
@@ -300,6 +313,40 @@
 				8B4E5C902659382C003EE4EB /* StatusBar.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		8B613D27265F8A9A0013FE89 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				8B613D28265F8AC80013FE89 /* LocationDetailsView.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		8B613D2E2660CC760013FE89 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				8BF4F335265525AC00EA619E /* Actions */,
+				8B7CB5192650633700AE7B94 /* Reducers */,
+				8B7CB5222650633700AE7B94 /* State */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		8B613D312660CCD40013FE89 /* Journey */ = {
+			isa = PBXGroup;
+			children = (
+				8B613D322660CCFE0013FE89 /* JourneyView.swift */,
+			);
+			path = Journey;
+			sourceTree = "<group>";
+		};
+		8B613D342661ADA40013FE89 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				8B613D352661ADF90013FE89 /* Card.swift */,
+			);
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		8B7CB47E2650548000AE7B94 = {
@@ -335,17 +382,15 @@
 			isa = PBXGroup;
 			children = (
 				8BF4F33A265525F600EA619E /* Assets.xcassets */,
-				8BF4F335265525AC00EA619E /* Actions */,
 				8BF4F329265470CB00EA619E /* Algorithms */,
 				8BF4F32C265470DA00EA619E /* Data */,
-				8B7CB5192650633700AE7B94 /* Reducers */,
 				8B4E5C022656BAF0003EE4EB /* Services */,
-				8B7CB5222650633700AE7B94 /* State */,
+				8B613D2E2660CC760013FE89 /* Redux */,
 				8B7CB5282650633700AE7B94 /* Views */,
+				8B613D342661ADA40013FE89 /* Widgets */,
 				8B7CB4FD265054A400AE7B94 /* coriander.entitlements */,
 				8B467E2726507BF000F9C122 /* AppDelegate.swift */,
 				8BF4F312265426E800EA619E /* SceneDelegate.swift */,
-				8B7CB48C2650548100AE7B94 /* ContentView.swift */,
 				8B4E5C7A26581C15003EE4EB /* KeychainItem.swift */,
 				8B4E5C7626580A1B003EE4EB /* LaunchScreen.storyboard */,
 				8B7CB4932650548200AE7B94 /* Info.plist */,
@@ -447,6 +492,7 @@
 			children = (
 				8B7CB51A2650633700AE7B94 /* AppReducer.swift */,
 				8B4E5C80265847C3003EE4EB /* AuthReducer.swift */,
+				8B613D2C2660C4370013FE89 /* JourneyReducer.swift */,
 				8B7CB51B2650633700AE7B94 /* LocationReducer.swift */,
 			);
 			path = Reducers;
@@ -457,6 +503,7 @@
 			children = (
 				8B7CB5232650633700AE7B94 /* AppState.swift */,
 				8B4E5C7C2658469F003EE4EB /* AuthState.swift */,
+				8B613D2A2660C36F0013FE89 /* JourneyState.swift */,
 				8B7CB5242650633700AE7B94 /* LocationState.swift */,
 			);
 			path = State;
@@ -465,11 +512,13 @@
 		8B7CB5282650633700AE7B94 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8B613D312660CCD40013FE89 /* Journey */,
 				8B4E5C73265805E3003EE4EB /* Auth */,
 				8B7CB5302650633700AE7B94 /* Data */,
 				8B4E5C94265C1653003EE4EB /* Global */,
 				8B4E5BF02656A1D5003EE4EB /* Home */,
 				8B7CB52B2650633700AE7B94 /* Image */,
+				8B613D27265F8A9A0013FE89 /* Location */,
 				8B7CB52D2650633700AE7B94 /* Map */,
 				8B7CB5292650633700AE7B94 /* Settings */,
 			);
@@ -539,9 +588,10 @@
 		8BF4F335265525AC00EA619E /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				8BF4F336265525AC00EA619E /* LocationActions.swift */,
 				8BF4F337265525AC00EA619E /* AppActions.swift */,
 				8B4E5C7E26584773003EE4EB /* AuthActions.swift */,
+				8B613D2F2660CCBB0013FE89 /* JourneyActions.swift */,
+				8BF4F336265525AC00EA619E /* LocationActions.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -852,14 +902,17 @@
 			files = (
 				8B4E5C042656BB64003EE4EB /* GeolocationService.swift in Sources */,
 				8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */,
+				8B613D362661ADF90013FE89 /* Card.swift in Sources */,
 				8BF4F3172654273B00EA619E /* MapView.swift in Sources */,
 				8B4E5C7F26584773003EE4EB /* AuthActions.swift in Sources */,
 				8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */,
+				8B613D2D2660C4370013FE89 /* JourneyReducer.swift in Sources */,
 				8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */,
 				8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */,
 				8B4E5BF32656A1D5003EE4EB /* HomeView.swift in Sources */,
 				8B4E5BF42656A1D5003EE4EB /* HomeNavigationView.swift in Sources */,
 				8BF4F32B265470CB00EA619E /* RingArray.swift in Sources */,
+				8B613D29265F8AC80013FE89 /* LocationDetailsView.swift in Sources */,
 				8B7CB5382650633800AE7B94 /* AppState.swift in Sources */,
 				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
 				8BF4F339265525AC00EA619E /* AppActions.swift in Sources */,
@@ -868,6 +921,7 @@
 				8BF4F313265426E800EA619E /* SceneDelegate.swift in Sources */,
 				8B4E5C81265847C3003EE4EB /* AuthReducer.swift in Sources */,
 				8B467E2826507BF000F9C122 /* AppDelegate.swift in Sources */,
+				8B613D2B2660C36F0013FE89 /* JourneyState.swift in Sources */,
 				8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
 				8BF4F338265525AC00EA619E /* LocationActions.swift in Sources */,
@@ -876,8 +930,10 @@
 				8BF4F3512655A06900EA619E /* MapViewCoordinator.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
 				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,
+				8B613D332660CCFE0013FE89 /* JourneyView.swift in Sources */,
 				8B7CB5322650633700AE7B94 /* AppReducer.swift in Sources */,
 				8B7CB53C2650633800AE7B94 /* SettingsView.swift in Sources */,
+				8B613D302660CCBB0013FE89 /* JourneyActions.swift in Sources */,
 				8B4E5C7B26581C15003EE4EB /* KeychainItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

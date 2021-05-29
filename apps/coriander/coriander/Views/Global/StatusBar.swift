@@ -96,6 +96,8 @@ extension StatusBarButton {
 }
 
 struct StatusBarView: View {
+    @Environment(\.managedObjectContext) var moc
+    
     @ObservedObject var state: ObservableState<AppState>
     
     var body: some View {
@@ -118,20 +120,64 @@ struct StatusBarView: View {
                 let button = LocationRecordingButton(buttonSize: 40, isRecording: state.current.location.isRecording)
                 
                 StatusBarButton<LocationRecordingButton>(button: button, action: { sender in
-                        let isRecording = !state.current.location.isRecording;
-                        state.dispatch(SetRecordingLocationAction(isRecording: isRecording))
-                        sender.updateShape(isRecording: isRecording)
-                    })
-                    .frame(
-                        width: 40,
-                        height: 40,
-                        alignment: Alignment.trailing
-                    )
+                    // TODO: Duplicate of implementation in MapViewCoordinator
+                    
+                    let isRecording = state.current.location.isRecording;
+                    
+                    switch isRecording {
+                    case true:
+                        state.dispatch(LocationRecordingStopAction())
+                        state.dispatch(JourneyActiveSetAction(journey: nil))
+                        
+                        if let journey = state.current.journey.active {
+                            journey.finishedAt = Date()
+                            
+                            DispatchQueue.main.async {
+                                do {
+                                    try moc.save()
+                                    print("Journey - finished")
+                                    
+                                } catch let error {
+                                    print("Journey - unable to finish, reason: \(error)")
+                                }
+                            }
+                        }
+                        break
+                        
+                    case false:
+                        let journey = Journey(context: moc)
+                        journey.id = UUID()
+                        journey.startedAt = Date()
+                        journey.name = "Default Name"
+                        journey.desc = "Default Description"
+                        
+                        DispatchQueue.main.async {
+                            do {
+                                try moc.save()
+                                print("Journey - started")
+                                
+                            } catch let error {
+                                print("Journey - unable to start, reason: \(error)")
+                            }
+                        }
+                        
+                        state.dispatch(JourneyActiveSetAction(journey: journey))
+                        state.dispatch(LocationRecordingStartAction())
+                        break
+                    }
+                    
+                    button.updateShape(isRecording: !isRecording)
+                })
+                .frame(
+                    width: 40,
+                    height: 40,
+                    alignment: Alignment.trailing
+                )
             }
             
             
         }
-        .padding(.leading, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+        .padding(.leading, 10)
         .padding(.trailing, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
         .frame(maxWidth: .infinity)
         .background(Color.gray)

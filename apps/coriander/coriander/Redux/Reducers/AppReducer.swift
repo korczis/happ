@@ -16,6 +16,9 @@ func appReducer(action: Action, state: AppState?) -> AppState {
     // MARK: AuthReducer
     state = authReducer(action: action, state: state)
     
+    // MARK: JourneyReducer
+    state = journeyReducer(action: action, state: state)
+    
     // MARK: LocationReducer
     state = locationReducer(action: action, state: state)
     

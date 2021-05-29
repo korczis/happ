@@ -12,6 +12,43 @@ struct HomeNavigationListView: View {
     @ObservedObject var state: ObservableState<AppState>
     
     var body: some View {
+        // bodyCards
+        bodyList
+    }
+    
+    var bodyCards: some View {
+        ZStack {
+            NavigationView {
+                ScrollView(.vertical, showsIndicators: false) {
+                    
+                    VStack(alignment: .leading) {
+                        NavigationLink(
+                            destination: MapView(state: state)
+                                .navigationTitle("Map")
+                        ) {
+                            Card(
+                                title: "Map"
+                            )
+                        }
+                        
+                        Card(
+                            title: "Journeys"
+                        )
+                        
+                        Card(
+                            title: "Settings"
+                        )
+                        
+                    }
+                    .padding(.horizontal, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                }
+                .navigationBarTitle("Home", displayMode: .inline)
+                .padding(.top)
+            }
+        }
+    }
+    
+    var bodyList: some View {
         ZStack() {
             NavigationView {
                 List() {
@@ -29,6 +66,28 @@ struct HomeNavigationListView: View {
                             Text("Map")
                                 .padding(.leading, 15)
                                 .font(.title)
+                        }
+                        .frame(maxHeight: 25)
+                    }
+                    
+                    
+                    // -----
+                    
+                    
+                    NavigationLink(
+                        destination: JourneyView(state: state)
+                            .navigationTitle("Journeys")
+                    ) {
+                        HStack {
+                            Image(systemName: "point.fill.topleft.down.curvedto.point.fill.bottomright.up")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                            // .scaledToFit()
+                            
+                            Text("Journeys")
+                                .padding(.leading, 15)
+                                .font(.title)
+                                .lineLimit(2)
                         }
                         .frame(maxHeight: 25)
                     }
