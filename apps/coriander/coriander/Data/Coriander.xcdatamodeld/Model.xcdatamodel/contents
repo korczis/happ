@@ -3,15 +3,14 @@
     <entity name="Journey" representedClassName="Journey" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="finishedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="startedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="journey" inverseEntity="Location"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Location" inverseName="journey" inverseEntity="Location"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="journeys" inverseEntity="User"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
         <attribute name="altitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -19,14 +18,17 @@
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="firstLoginAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="firstname" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="identityId" optional="YES" attributeType="String"/>
+        <attribute name="identityToken" optional="YES" attributeType="String"/>
+        <attribute name="lastLoginAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="lastname" optional="YES" attributeType="String"/>
-        <attribute name="token" optional="YES" attributeType="String"/>
+        <relationship name="journeys" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Journey" inverseName="owner" inverseEntity="Journey"/>
     </entity>
     <elements>
-        <element name="Location" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Location" positionX="-63" positionY="-18" width="128" height="104"/>
         <element name="Journey" positionX="-63" positionY="-27" width="128" height="134"/>
-        <element name="User" positionX="-45" positionY="45" width="128" height="104"/>
+        <element name="User" positionX="-45" positionY="45" width="128" height="149"/>
     </elements>
 </model>

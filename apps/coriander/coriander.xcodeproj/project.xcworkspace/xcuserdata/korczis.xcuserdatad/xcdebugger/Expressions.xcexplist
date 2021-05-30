@@ -3,6 +3,41 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in closure #3 in userReducer(action:state:):UserReducer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "users.first">
+            </PersistentString>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in closure #1 in AuthView.body.getter:AuthView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "geometry">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LocationDetailsView.init(location:):LocationDetailsView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in closure #3 in userReducer(action:state:):UserReducer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "action">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "__CFRunLoopServiceMachPort:(null)">
          <PersistentStrings>
             <PersistentString
@@ -11,12 +46,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in AuthView.body.getter:AuthView.swift">
+         contextName = "static AddLocationAction.shouldUpdateLocation(oldLocation:newLocation:):LocationActions.swift">
          <PersistentStrings>
             <PersistentString
-               value = "geometry.size">
+               value = "oldLocation == CLLocation()">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "specialized closure #1 in userReducer(action:state:):UserReducer.swift">
+      </ContextState>
+      <ContextState
+         contextName = "getter of users #1 in closure #1 in closure #2 in userReducer(action:state:):UserReducer.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in closure #2 in LocationDetailsView.body.getter:LocationDetailsView.swift">
@@ -42,6 +83,38 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "specialized closure #1 in authReducer(action:state:):AuthReducer.swift">
+      </ContextState>
+      <ContextState
+         contextName = "getter of user #1 in closure #1 in closure #3 in userReducer(action:state:):UserReducer.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #2 in userReducer(action:state:):UserReducer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "existingUser?.id">
+            </PersistentString>
+            <PersistentString
+               value = "user.identityToken">
+            </PersistentString>
+            <PersistentString
+               value = "action.identityToken">
+            </PersistentString>
+            <PersistentString
+               value = "user.id">
+            </PersistentString>
+            <PersistentString
+               value = "existingUser?.firstLoginAt">
+            </PersistentString>
+            <PersistentString
+               value = "user.firstLoginAt">
+            </PersistentString>
+            <PersistentString
+               value = "existingUser?.identityToken">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in AuthView.body.getter:AuthView.swift">
          <PersistentStrings>
             <PersistentString
@@ -56,29 +129,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static AddLocationAction.shouldUpdateLocation(oldLocation:newLocation:):LocationActions.swift">
+         contextName = "closure #1 in AuthView.body.getter:AuthView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "oldLocation == CLLocation()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "specialized closure #1 in authReducer(action:state:):AuthReducer.swift">
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #1 in closure #1 in AuthView.body.getter:AuthView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "geometry">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "LocationDetailsView.init(location:):LocationDetailsView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "">
+               value = "geometry.size">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -13,14 +13,14 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 
     // print("AppState - Before reducing, action: \(action), state: \(state)")
     
-    // MARK: AuthReducer
-    state = authReducer(action: action, state: state)
-    
     // MARK: JourneyReducer
     state = journeyReducer(action: action, state: state)
     
     // MARK: LocationReducer
     state = locationReducer(action: action, state: state)
+    
+    // MARK: UserReducer
+    state = userReducer(action: action, state: state)
     
     // Print  ActionState
     // print("AppState - After reducing, state: \(state)")

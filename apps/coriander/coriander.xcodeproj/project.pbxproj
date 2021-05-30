@@ -9,22 +9,28 @@
 /* Begin PBXBuildFile section */
 		8B467E2826507BF000F9C122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B467E2726507BF000F9C122 /* AppDelegate.swift */; };
 		8B4E5BF32656A1D5003EE4EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5BF12656A1D5003EE4EB /* HomeView.swift */; };
-		8B4E5BF42656A1D5003EE4EB /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5BF22656A1D5003EE4EB /* HomeNavigationView.swift */; };
 		8B4E5C042656BB64003EE4EB /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C032656BB64003EE4EB /* GeolocationService.swift */; };
 		8B4E5C75265805F9003EE4EB /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C74265805F9003EE4EB /* AuthView.swift */; };
 		8B4E5C7726580A1B003EE4EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7626580A1B003EE4EB /* LaunchScreen.storyboard */; };
 		8B4E5C7B26581C15003EE4EB /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7A26581C15003EE4EB /* KeychainItem.swift */; };
-		8B4E5C7D2658469F003EE4EB /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7C2658469F003EE4EB /* AuthState.swift */; };
-		8B4E5C7F26584773003EE4EB /* AuthActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C7E26584773003EE4EB /* AuthActions.swift */; };
-		8B4E5C81265847C3003EE4EB /* AuthReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C80265847C3003EE4EB /* AuthReducer.swift */; };
 		8B4E5C922659382D003EE4EB /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C902659382C003EE4EB /* StatusBar.swift */; };
-		8B4E5C932659382D003EE4EB /* HomeNavigationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C912659382C003EE4EB /* HomeNavigationListView.swift */; };
+		8B4E5C932659382D003EE4EB /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E5C912659382C003EE4EB /* HomeNavigationView.swift */; };
 		8B613D29265F8AC80013FE89 /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D28265F8AC80013FE89 /* LocationDetailsView.swift */; };
 		8B613D2B2660C36F0013FE89 /* JourneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D2A2660C36F0013FE89 /* JourneyState.swift */; };
 		8B613D2D2660C4370013FE89 /* JourneyReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D2C2660C4370013FE89 /* JourneyReducer.swift */; };
 		8B613D302660CCBB0013FE89 /* JourneyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D2F2660CCBB0013FE89 /* JourneyActions.swift */; };
 		8B613D332660CCFE0013FE89 /* JourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D322660CCFE0013FE89 /* JourneyView.swift */; };
 		8B613D362661ADF90013FE89 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D352661ADF90013FE89 /* Card.swift */; };
+		8B613D38266269F70013FE89 /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D37266269F70013FE89 /* UserState.swift */; };
+		8B613D3A26626A6B0013FE89 /* UserReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D3926626A6B0013FE89 /* UserReducer.swift */; };
+		8B613D3C26626AC90013FE89 /* UserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D3B26626AC90013FE89 /* UserActions.swift */; };
+		8B613D3F2662E55E0013FE89 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8B613D3E2662E55E0013FE89 /* Kingfisher */; };
+		8B613D412663743A0013FE89 /* AppTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D402663743A0013FE89 /* AppTarget.swift */; };
+		8B613D432663745E0013FE89 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D422663745E0013FE89 /* Observer.swift */; };
+		8B613D45266374A50013FE89 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D44266374A50013FE89 /* Extension.swift */; };
+		8B613D47266374E20013FE89 /* Merger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D46266374E20013FE89 /* Merger.swift */; };
+		8B613D492663753B0013FE89 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D482663753B0013FE89 /* Fetcher.swift */; };
+		8B613D4B266375AB0013FE89 /* Cleaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B613D4A266375AB0013FE89 /* Cleaner.swift */; };
 		8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB48C2650548100AE7B94 /* ContentView.swift */; };
 		8B7CB4922650548200AE7B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */; };
 		8B7CB49D2650548200AE7B94 /* corianderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CB49C2650548200AE7B94 /* corianderTests.swift */; };
@@ -156,22 +162,27 @@
 /* Begin PBXFileReference section */
 		8B467E2726507BF000F9C122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B4E5BF12656A1D5003EE4EB /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		8B4E5BF22656A1D5003EE4EB /* HomeNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
 		8B4E5C032656BB64003EE4EB /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
 		8B4E5C74265805F9003EE4EB /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		8B4E5C7626580A1B003EE4EB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B4E5C7A26581C15003EE4EB /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
-		8B4E5C7C2658469F003EE4EB /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
-		8B4E5C7E26584773003EE4EB /* AuthActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthActions.swift; sourceTree = "<group>"; };
-		8B4E5C80265847C3003EE4EB /* AuthReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReducer.swift; sourceTree = "<group>"; };
 		8B4E5C902659382C003EE4EB /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
-		8B4E5C912659382C003EE4EB /* HomeNavigationListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationListView.swift; sourceTree = "<group>"; };
+		8B4E5C912659382C003EE4EB /* HomeNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
 		8B613D28265F8AC80013FE89 /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		8B613D2A2660C36F0013FE89 /* JourneyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyState.swift; sourceTree = "<group>"; };
 		8B613D2C2660C4370013FE89 /* JourneyReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyReducer.swift; sourceTree = "<group>"; };
 		8B613D2F2660CCBB0013FE89 /* JourneyActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyActions.swift; sourceTree = "<group>"; };
 		8B613D322660CCFE0013FE89 /* JourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyView.swift; sourceTree = "<group>"; };
 		8B613D352661ADF90013FE89 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		8B613D37266269F70013FE89 /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		8B613D3926626A6B0013FE89 /* UserReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReducer.swift; sourceTree = "<group>"; };
+		8B613D3B26626AC90013FE89 /* UserActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActions.swift; sourceTree = "<group>"; };
+		8B613D402663743A0013FE89 /* AppTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTarget.swift; sourceTree = "<group>"; };
+		8B613D422663745E0013FE89 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		8B613D44266374A50013FE89 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8B613D46266374E20013FE89 /* Merger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merger.swift; sourceTree = "<group>"; };
+		8B613D482663753B0013FE89 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		8B613D4A266375AB0013FE89 /* Cleaner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cleaner.swift; sourceTree = "<group>"; };
 		8B7CB4872650548100AE7B94 /* coriander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coriander.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7CB48C2650548100AE7B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B7CB4912650548200AE7B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -234,6 +245,7 @@
 				8B7CB54D265063E200AE7B94 /* RxRelay in Frameworks */,
 				8B7CB551265063E200AE7B94 /* RxBlocking in Frameworks */,
 				8B7CB54F265063E200AE7B94 /* RxCocoa in Frameworks */,
+				8B613D3F2662E55E0013FE89 /* Kingfisher in Frameworks */,
 				8BF4F34A26552EF500EA619E /* Mapbox.framework in Frameworks */,
 				8BF4F34D26552EF600EA619E /* MapboxMobileEvents.framework in Frameworks */,
 				8B7CB500265054AF00AE7B94 /* CloudKit.framework in Frameworks */,
@@ -284,9 +296,8 @@
 			isa = PBXGroup;
 			children = (
 				8B7CB48C2650548100AE7B94 /* ContentView.swift */,
-				8B4E5C912659382C003EE4EB /* HomeNavigationListView.swift */,
+				8B4E5C912659382C003EE4EB /* HomeNavigationView.swift */,
 				8B4E5BF12656A1D5003EE4EB /* HomeView.swift */,
-				8B4E5BF22656A1D5003EE4EB /* HomeNavigationView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -491,9 +502,9 @@
 			isa = PBXGroup;
 			children = (
 				8B7CB51A2650633700AE7B94 /* AppReducer.swift */,
-				8B4E5C80265847C3003EE4EB /* AuthReducer.swift */,
 				8B613D2C2660C4370013FE89 /* JourneyReducer.swift */,
 				8B7CB51B2650633700AE7B94 /* LocationReducer.swift */,
+				8B613D3926626A6B0013FE89 /* UserReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -502,9 +513,9 @@
 			isa = PBXGroup;
 			children = (
 				8B7CB5232650633700AE7B94 /* AppState.swift */,
-				8B4E5C7C2658469F003EE4EB /* AuthState.swift */,
 				8B613D2A2660C36F0013FE89 /* JourneyState.swift */,
 				8B7CB5242650633700AE7B94 /* LocationState.swift */,
+				8B613D37266269F70013FE89 /* UserState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -572,6 +583,12 @@
 			isa = PBXGroup;
 			children = (
 				8BF4F32D265470DA00EA619E /* Coriander.xcdatamodeld */,
+				8B613D402663743A0013FE89 /* AppTarget.swift */,
+				8B613D422663745E0013FE89 /* Observer.swift */,
+				8B613D44266374A50013FE89 /* Extension.swift */,
+				8B613D46266374E20013FE89 /* Merger.swift */,
+				8B613D482663753B0013FE89 /* Fetcher.swift */,
+				8B613D4A266375AB0013FE89 /* Cleaner.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -589,9 +606,9 @@
 			isa = PBXGroup;
 			children = (
 				8BF4F337265525AC00EA619E /* AppActions.swift */,
-				8B4E5C7E26584773003EE4EB /* AuthActions.swift */,
 				8B613D2F2660CCBB0013FE89 /* JourneyActions.swift */,
 				8BF4F336265525AC00EA619E /* LocationActions.swift */,
+				8B613D3B26626AC90013FE89 /* UserActions.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -623,6 +640,7 @@
 				8B7CB54C265063E200AE7B94 /* RxRelay */,
 				8B7CB54E265063E200AE7B94 /* RxCocoa */,
 				8B7CB550265063E200AE7B94 /* RxBlocking */,
+				8B613D3E2662E55E0013FE89 /* Kingfisher */,
 			);
 			productName = coriander;
 			productReference = 8B7CB4872650548100AE7B94 /* coriander.app */;
@@ -782,6 +800,7 @@
 			packageReferences = (
 				8B7CB541265063A500AE7B94 /* XCRemoteSwiftPackageReference "ReSwift" */,
 				8B7CB547265063E200AE7B94 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				8B613D3D2662E55E0013FE89 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 8B7CB4882650548100AE7B94 /* Products */;
 			projectDirPath = "";
@@ -901,32 +920,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B4E5C042656BB64003EE4EB /* GeolocationService.swift in Sources */,
+				8B613D432663745E0013FE89 /* Observer.swift in Sources */,
+				8B613D3A26626A6B0013FE89 /* UserReducer.swift in Sources */,
 				8B7CB5392650633800AE7B94 /* LocationState.swift in Sources */,
 				8B613D362661ADF90013FE89 /* Card.swift in Sources */,
 				8BF4F3172654273B00EA619E /* MapView.swift in Sources */,
-				8B4E5C7F26584773003EE4EB /* AuthActions.swift in Sources */,
+				8B613D3C26626AC90013FE89 /* UserActions.swift in Sources */,
+				8B613D47266374E20013FE89 /* Merger.swift in Sources */,
 				8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */,
 				8B613D2D2660C4370013FE89 /* JourneyReducer.swift in Sources */,
+				8B613D4B266375AB0013FE89 /* Cleaner.swift in Sources */,
 				8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */,
+				8B613D492663753B0013FE89 /* Fetcher.swift in Sources */,
 				8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */,
 				8B4E5BF32656A1D5003EE4EB /* HomeView.swift in Sources */,
-				8B4E5BF42656A1D5003EE4EB /* HomeNavigationView.swift in Sources */,
 				8BF4F32B265470CB00EA619E /* RingArray.swift in Sources */,
 				8B613D29265F8AC80013FE89 /* LocationDetailsView.swift in Sources */,
 				8B7CB5382650633800AE7B94 /* AppState.swift in Sources */,
 				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
 				8BF4F339265525AC00EA619E /* AppActions.swift in Sources */,
-				8B4E5C7D2658469F003EE4EB /* AuthState.swift in Sources */,
 				8B4E5C75265805F9003EE4EB /* AuthView.swift in Sources */,
+				8B613D38266269F70013FE89 /* UserState.swift in Sources */,
 				8BF4F313265426E800EA619E /* SceneDelegate.swift in Sources */,
-				8B4E5C81265847C3003EE4EB /* AuthReducer.swift in Sources */,
 				8B467E2826507BF000F9C122 /* AppDelegate.swift in Sources */,
 				8B613D2B2660C36F0013FE89 /* JourneyState.swift in Sources */,
 				8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */,
+				8B613D412663743A0013FE89 /* AppTarget.swift in Sources */,
 				8B7CB53D2650633800AE7B94 /* ImagePicker.swift in Sources */,
 				8BF4F338265525AC00EA619E /* LocationActions.swift in Sources */,
 				8B4E5C922659382D003EE4EB /* StatusBar.swift in Sources */,
-				8B4E5C932659382D003EE4EB /* HomeNavigationListView.swift in Sources */,
+				8B4E5C932659382D003EE4EB /* HomeNavigationView.swift in Sources */,
 				8BF4F3512655A06900EA619E /* MapViewCoordinator.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
 				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,
@@ -935,6 +958,7 @@
 				8B7CB53C2650633800AE7B94 /* SettingsView.swift in Sources */,
 				8B613D302660CCBB0013FE89 /* JourneyActions.swift in Sources */,
 				8B4E5C7B26581C15003EE4EB /* KeychainItem.swift in Sources */,
+				8B613D45266374A50013FE89 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1144,7 +1168,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1171,7 +1195,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1201,7 +1225,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				IBSC_MODULE = coriander_WatchKit_Extension;
 				INFOPLIST_FILE = "coriander WatchKit App/Info.plist";
@@ -1224,7 +1248,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				IBSC_MODULE = coriander_WatchKit_Extension;
 				INFOPLIST_FILE = "coriander WatchKit App/Info.plist";
@@ -1249,7 +1273,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = coriander/coriander.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1280,7 +1304,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = coriander/coriander.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"coriander/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -1564,6 +1588,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8B613D3D2662E55E0013FE89 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
 		8B7CB541265063A500AE7B94 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
@@ -1583,6 +1615,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8B613D3E2662E55E0013FE89 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B613D3D2662E55E0013FE89 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		8B7CB542265063A500AE7B94 /* ReSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8B7CB541265063A500AE7B94 /* XCRemoteSwiftPackageReference "ReSwift" */;

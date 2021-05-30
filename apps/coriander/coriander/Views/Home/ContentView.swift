@@ -13,6 +13,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject private var state = globalState
+    var geolocationService: GeolocationService = GeolocationService(state: globalState)
     
     var body: some View {
         HomeView(state: state)
@@ -20,11 +21,6 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static let previewStore = Store<AppState>(
-        reducer: appReducer,
-        state: nil
-    )
-    
     static var previews: some View {
         ContentView()
     }

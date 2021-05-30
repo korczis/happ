@@ -13,7 +13,20 @@ struct HomeView: View {
     @ObservedObject var state: ObservableState<AppState>
     
     var body: some View {
-        HomeNavigationView(state: state)
+        VStack(spacing: 0) {
+//            if let user = state.current.user.current {
+//                Card(
+//                    title: String("\(user.firstname!) \(user.lastname!)"),
+//                    subtitle: user.email
+//                )
+//            }
+            
+            HomeNavigationView(state: state)
+                            
+            Spacer()
+            
+            StatusBarView(state: state)
+        }
     }
 }
 

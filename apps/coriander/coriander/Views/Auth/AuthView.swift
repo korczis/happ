@@ -55,33 +55,43 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             
+            var identityToken = ""
+            if let identityTokenData = appleIDCredential.identityToken {
+                identityToken = String(data: identityTokenData, encoding: .utf8)!
+            }
+            
             // Create an account in your system.
             // For the purpose of this demo app, store the these details in the keychain.
             KeychainItem.currentUserIdentifier = appleIDCredential.user
             KeychainItem.currentUserFullName = appleIDCredential.fullName
             KeychainItem.currentUserEmail = appleIDCredential.email
-            
-            
+            KeychainItem.currentUserIdentityToken = identityToken
+                        
             print("User Id - \(appleIDCredential.user)")
             print("User Name - \(appleIDCredential.fullName?.description ?? "N/A")")
             print("User Email - \(appleIDCredential.email ?? "N/A")")
             print("Real User Status - \(appleIDCredential.realUserStatus.rawValue)")
-            
-            if let identityTokenData = appleIDCredential.identityToken,
-               let identityTokenString = String(data: identityTokenData, encoding: .utf8) {
-                print("Identity Token \(identityTokenString)")
-            }
-            
-            let user = AuthUser(
-                id: appleIDCredential.user,
-                name: appleIDCredential.fullName,
-                email: appleIDCredential.email
-            )
-            
-            globalState.dispatch(SetAuthUserAction(
-                user: user
-            ))
-            
+                        
+            let now = Date()
+            globalState.dispatch(UserCreateAction(
+                id: UUID(),
+                firstname: appleIDCredential.fullName?.givenName,
+                lastname: appleIDCredential.fullName?.familyName,
+                email: appleIDCredential.email,
+                identityToken: identityToken,
+                identityId: appleIDCredential.user,
+                firstLoginAt: now,
+                lastLoginAt: now,
+                callback: { user, error in
+                    if let error = error {
+                        print("\(String(describing: error))")
+                    }
+                    
+                    globalState.dispatch(UserCurrentSetAction(
+                        user: user
+                    ))
+                }
+            ))            
             
             let moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
             let rootView = ContentView()

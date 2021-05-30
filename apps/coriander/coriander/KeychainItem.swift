@@ -132,6 +132,24 @@ extension KeychainItem {
         }
     }
     
+    //Get and Set Current User Token. Set nil to delete.
+    static var currentUserIdentityToken: String? {
+        get {
+            return try? KeychainItem(service: bundleIdentifier, account: "userIdentityToken").readItem()
+        }
+        set {
+            guard let value = newValue else {
+                try? KeychainItem(service: bundleIdentifier, account: "userIdentityToken").deleteItem()
+                return
+            }
+            do {
+                try KeychainItem(service: bundleIdentifier, account: "userIdentityToken").saveItem(value)
+            } catch {
+                print("Unable to save userIdentifier to keychain.")
+            }
+        }
+    }
+    
     // PersonNameComponents?
     
     //Get and Set Current User First Name. Set nil to delete.

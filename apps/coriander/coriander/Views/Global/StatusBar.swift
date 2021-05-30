@@ -146,10 +146,11 @@ struct StatusBarView: View {
                         
                     case false:
                         let journey = Journey(context: moc)
-                        journey.id = UUID()
                         journey.startedAt = Date()
                         journey.name = "Default Name"
                         journey.desc = "Default Description"
+                        
+                        state.current.user.current?.addToJourneys(journey)
                         
                         DispatchQueue.main.async {
                             do {

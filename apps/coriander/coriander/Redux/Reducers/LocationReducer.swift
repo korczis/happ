@@ -41,7 +41,6 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
         // TODO: Use bulk mode
         DispatchQueue.main.async {
             let item = Location(context: context)
-            item.id = UUID()
             item.altitude  = action.location.altitude
             item.latitude  = action.location.coordinate.latitude.magnitude;
             item.longitude = action.location.coordinate.longitude.magnitude;
