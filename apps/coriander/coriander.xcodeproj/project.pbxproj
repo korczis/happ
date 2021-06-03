@@ -80,6 +80,14 @@
 		8BD28DF12668184B009229CF /* JourneyLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD28DF02668184B009229CF /* JourneyLocationsView.swift */; };
 		8BD28DF4266824CD009229CF /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8BD28DF3266824CD009229CF /* SwiftUICharts */; };
 		8BD28DF62668BFC1009229CF /* JourneyChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD28DF52668BFC1009229CF /* JourneyChartsView.swift */; };
+		8BD28DF92668C370009229CF /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD28DF82668C370009229CF /* MetalView.swift */; };
+		8BD28DFC2668CB71009229CF /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 8BD28DFB2668CB71009229CF /* Charts */; };
+		8BD28E082668D16B009229CF /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD28E072668D16B009229CF /* BarChart.swift */; };
+		8BD28E0A2668D4A5009229CF /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD28E092668D4A5009229CF /* LineChart.swift */; };
+		8BD28E112668DBDB009229CF /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD28E0D2668DBDB009229CF /* DayAxisValueFormatter.swift */; };
+		8BD28E122668DBDB009229CF /* DateValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD28E0E2668DBDB009229CF /* DateValueFormatter.swift */; };
+		8BD28E132668DBDB009229CF /* LargeValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD28E0F2668DBDB009229CF /* LargeValueFormatter.swift */; };
+		8BD28E142668DBDB009229CF /* IntAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD28E102668DBDB009229CF /* IntAxisValueFormatter.swift */; };
 		8BF4F313265426E800EA619E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F312265426E800EA619E /* SceneDelegate.swift */; };
 		8BF4F3172654273B00EA619E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F3162654273B00EA619E /* MapView.swift */; };
 		8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4F31A2654479500EA619E /* MapViewCache.swift */; };
@@ -257,6 +265,13 @@
 		8BD28DEE26680DA1009229CF /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		8BD28DF02668184B009229CF /* JourneyLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyLocationsView.swift; sourceTree = "<group>"; };
 		8BD28DF52668BFC1009229CF /* JourneyChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyChartsView.swift; sourceTree = "<group>"; };
+		8BD28DF82668C370009229CF /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		8BD28E072668D16B009229CF /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		8BD28E092668D4A5009229CF /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		8BD28E0D2668DBDB009229CF /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
+		8BD28E0E2668DBDB009229CF /* DateValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateValueFormatter.swift; sourceTree = "<group>"; };
+		8BD28E0F2668DBDB009229CF /* LargeValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeValueFormatter.swift; sourceTree = "<group>"; };
+		8BD28E102668DBDB009229CF /* IntAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntAxisValueFormatter.swift; sourceTree = "<group>"; };
 		8BF4F312265426E800EA619E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8BF4F3162654273B00EA619E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8BF4F31A2654479500EA619E /* MapViewCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCache.swift; sourceTree = "<group>"; };
@@ -286,6 +301,7 @@
 				8BF4F34A26552EF500EA619E /* Mapbox.framework in Frameworks */,
 				8BF4F34D26552EF600EA619E /* MapboxMobileEvents.framework in Frameworks */,
 				8B613D5E266412040013FE89 /* KeychainAccess in Frameworks */,
+				8BD28DFC2668CB71009229CF /* Charts in Frameworks */,
 				8B7CB500265054AF00AE7B94 /* CloudKit.framework in Frameworks */,
 				8B7CB543265063A500AE7B94 /* ReSwift in Frameworks */,
 				8BD28DE92667E768009229CF /* SwiftUIX in Frameworks */,
@@ -387,11 +403,11 @@
 		8B613D312660CCD40013FE89 /* Journey */ = {
 			isa = PBXGroup;
 			children = (
+				8BD28DF52668BFC1009229CF /* JourneyChartsView.swift */,
 				8B613D67266611E50013FE89 /* JourneyDetailsView.swift */,
 				8B613D65266611800013FE89 /* JourneyList.swift */,
 				8BD28DF02668184B009229CF /* JourneyLocationsView.swift */,
 				8B613D322660CCFE0013FE89 /* JourneyView.swift */,
-				8BD28DF52668BFC1009229CF /* JourneyChartsView.swift */,
 			);
 			path = Journey;
 			sourceTree = "<group>";
@@ -620,6 +636,7 @@
 			isa = PBXGroup;
 			children = (
 				8B4E5C73265805E3003EE4EB /* Auth */,
+				8BD28E062668D155009229CF /* Chart */,
 				8B7CB5302650633700AE7B94 /* Data */,
 				8B4E5C94265C1653003EE4EB /* Global */,
 				8B4E5BF02656A1D5003EE4EB /* Home */,
@@ -628,6 +645,7 @@
 				8B613D27265F8A9A0013FE89 /* Location */,
 				8BD28DEA26680202009229CF /* Maintenance */,
 				8B7CB52D2650633700AE7B94 /* Map */,
+				8BD28DF72668C31B009229CF /* Metal */,
 				8B7CB5292650633700AE7B94 /* Settings */,
 			);
 			path = Views;
@@ -682,6 +700,35 @@
 				8BD28DEE26680DA1009229CF /* Double.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8BD28DF72668C31B009229CF /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				8BD28DF82668C370009229CF /* MetalView.swift */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		8BD28E062668D155009229CF /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				8BD28E0B2668DB02009229CF /* Formatter */,
+				8BD28E072668D16B009229CF /* BarChart.swift */,
+				8BD28E092668D4A5009229CF /* LineChart.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		8BD28E0B2668DB02009229CF /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				8BD28E0E2668DBDB009229CF /* DateValueFormatter.swift */,
+				8BD28E0D2668DBDB009229CF /* DayAxisValueFormatter.swift */,
+				8BD28E102668DBDB009229CF /* IntAxisValueFormatter.swift */,
+				8BD28E0F2668DBDB009229CF /* LargeValueFormatter.swift */,
+			);
+			path = Formatter;
 			sourceTree = "<group>";
 		};
 		8BF4F329265470CB00EA619E /* Algorithms */ = {
@@ -755,6 +802,7 @@
 				8B613D5D266412040013FE89 /* KeychainAccess */,
 				8BD28DE82667E768009229CF /* SwiftUIX */,
 				8BD28DF3266824CD009229CF /* SwiftUICharts */,
+				8BD28DFB2668CB71009229CF /* Charts */,
 			);
 			productName = coriander;
 			productReference = 8B7CB4872650548100AE7B94 /* coriander.app */;
@@ -919,6 +967,7 @@
 				8B613D5C266412040013FE89 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				8BD28DE72667E768009229CF /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 				8BD28DF2266824CD009229CF /* XCRemoteSwiftPackageReference "ChartView" */,
+				8BD28DFA2668CB71009229CF /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 8B7CB4882650548100AE7B94 /* Products */;
 			projectDirPath = "";
@@ -1045,15 +1094,19 @@
 				8BD28DF12668184B009229CF /* JourneyLocationsView.swift in Sources */,
 				8B613D362661ADF90013FE89 /* Card.swift in Sources */,
 				8BF4F3172654273B00EA619E /* MapView.swift in Sources */,
+				8BD28E082668D16B009229CF /* BarChart.swift in Sources */,
 				8B613D3C26626AC90013FE89 /* UserActions.swift in Sources */,
 				8B613D47266374E20013FE89 /* Merger.swift in Sources */,
 				8BF4F330265470DA00EA619E /* Coriander.xcdatamodeld in Sources */,
 				8B613D2D2660C4370013FE89 /* JourneyReducer.swift in Sources */,
 				8B613D4B266375AB0013FE89 /* Cleaner.swift in Sources */,
+				8BD28E122668DBDB009229CF /* DateValueFormatter.swift in Sources */,
 				8B7CB5332650633700AE7B94 /* LocationReducer.swift in Sources */,
+				8BD28E132668DBDB009229CF /* LargeValueFormatter.swift in Sources */,
 				8B613D492663753B0013FE89 /* Fetcher.swift in Sources */,
 				8B613D642664E4260013FE89 /* Auth.swift in Sources */,
 				8BF4F31B2654479500EA619E /* MapViewCache.swift in Sources */,
+				8BD28DF92668C370009229CF /* MetalView.swift in Sources */,
 				8B4E5BF32656A1D5003EE4EB /* HomeView.swift in Sources */,
 				8BD28DF62668BFC1009229CF /* JourneyChartsView.swift in Sources */,
 				8B613D5A2663FDD90013FE89 /* Logger.swift in Sources */,
@@ -1061,6 +1114,7 @@
 				8B613D29265F8AC80013FE89 /* LocationDetailsView.swift in Sources */,
 				8B7CB5382650633800AE7B94 /* AppState.swift in Sources */,
 				8B613D4F2663EFDC0013FE89 /* User.swift in Sources */,
+				8BD28E0A2668D4A5009229CF /* LineChart.swift in Sources */,
 				8B613D622664D1C20013FE89 /* JWT.swift in Sources */,
 				8B7CB48D2650548100AE7B94 /* ContentView.swift in Sources */,
 				8BF4F339265525AC00EA619E /* AppActions.swift in Sources */,
@@ -1074,6 +1128,7 @@
 				8B467E2826507BF000F9C122 /* AppDelegate.swift in Sources */,
 				8B613D2B2660C36F0013FE89 /* JourneyState.swift in Sources */,
 				8BF4F3342655067C00EA619E /* LocationRecordingButton.swift in Sources */,
+				8BD28E112668DBDB009229CF /* DayAxisValueFormatter.swift in Sources */,
 				8BD28DEC26680218009229CF /* MaintenanceView.swift in Sources */,
 				8B613D68266611E50013FE89 /* JourneyDetailsView.swift in Sources */,
 				8B613D412663743A0013FE89 /* AppTarget.swift in Sources */,
@@ -1082,6 +1137,7 @@
 				8B4E5C922659382D003EE4EB /* StatusBar.swift in Sources */,
 				8B4E5C932659382D003EE4EB /* HomeNavigationView.swift in Sources */,
 				8BF4F3512655A06900EA619E /* MapViewCoordinator.swift in Sources */,
+				8BD28E142668DBDB009229CF /* IntAxisValueFormatter.swift in Sources */,
 				8B7CB53F2650633800AE7B94 /* UserLocationButton.swift in Sources */,
 				8B613D66266611810013FE89 /* JourneyList.swift in Sources */,
 				8B7CB5402650633800AE7B94 /* DataView.swift in Sources */,
@@ -1776,6 +1832,14 @@
 				minimumVersion = 1.5.5;
 			};
 		};
+		8BD28DFA2668CB71009229CF /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1828,6 +1892,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8BD28DF2266824CD009229CF /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		8BD28DFB2668CB71009229CF /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BD28DFA2668CB71009229CF /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 

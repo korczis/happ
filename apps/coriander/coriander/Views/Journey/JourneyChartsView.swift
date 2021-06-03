@@ -6,10 +6,16 @@
 //
 
 import SwiftUI
-import SwiftUICharts
+import Charts
 
 struct JourneyChartsView: View {
     @State var journey: Journey
+    
+    // @State private var chartSpeed: LineChart
+    
+    init(journey: Journey) {
+        self.journey = journey
+    }
     
     var locations: [Location] {
         return journey.locations?
@@ -18,52 +24,69 @@ struct JourneyChartsView: View {
             ) as! [Location]
     }
     
+    private var chartAltitude: some View {
+        VStack {
+            LineChart(
+                entries: locations.enumerated().map { (index, element) in
+                    ChartDataEntry(
+                        x: Double(index), // Double((element.timestamp?.timeIntervalSince1970)!),
+                        y: element.altitude // element.speed * 3.6
+                    )
+                },
+                setupChart: { chart, dataSet in
+                    // Change bars color to green
+                    dataSet.colors = [NSUIColor.green]
+                    
+                    // Change data label
+                    dataSet.label = "Altitude"
+                    dataSet.drawCirclesEnabled = false
+                    dataSet.drawFilledEnabled = true
+                    dataSet.fillColor = .green
+                    dataSet.mode = .cubicBezier
+                }
+            )
+        }
+    }
+    
+    private var chartSpeed: some View {
+        VStack {
+            LineChart(
+                entries: locations.enumerated().map { (index, element) in
+                    ChartDataEntry(
+                        x: Double(index), // Double((element.timestamp?.timeIntervalSince1970)!),
+                        y: element.speed * 3.6
+                    )
+                },
+                setupChart: { chart, dataSet in
+                    // Change bars color to green
+                    dataSet.colors = [NSUIColor.green]
+                    
+                    // Change data label
+                    dataSet.label = "Speed"
+                    dataSet.drawCirclesEnabled = false
+                    dataSet.drawFilledEnabled = true
+                    dataSet.fillColor = .green
+                    dataSet.mode = .cubicBezier
+                }
+            )
+        }
+    }
+    
     var body: some View {
-        GeometryReader { geometry in
-            TabView {
-                JourneyLocationsView(journey: journey)
-                    .tabItem({
-                        Image(systemName: "mappin")
-                        Text("Locations")
-                    })
-
-                LineChartView(
-                    data: locations.map { $0.speed * 3.6 },
-                    title: "Speed",
-                    legend: "km/h",
-                    form: CGSize(
-                        width: geometry.size.width,
-                        height: geometry.size.height / 2
-                    ),
-                    rateValue: nil
-                )
-                .padding(.horizontal)
-                .environment(\.colorScheme, .light)
-                //                .frame(
-                //                      minWidth: 0,
-                //                      maxWidth: .infinity,
-                //                      minHeight: 0,
-                //                      maxHeight: .infinity,
-                //                      alignment: .topLeading
-                //                    )
-                .tabItem({
-                    Image(systemName: "speedometer")
-                    Text("Speed")
-                })
-
-//
-//                    //                JourneyLocationsView(journey: journey)
-//                    //                    .tabItem({
-//                    //                        Image(systemName: "speedometer")
-//                    //                        Text("Speed")
-//                    //                    })
-//                    //
-//                    //                JourneyLocationsView(journey: journey)
-//                    //                    .tabItem({
-//                    //                        Image(systemName: "gyroscope")
-//                    //                        Text("Altitude")
-//                    //                    })
-            }
+        TabView {
+            // Chart speed
+            chartSpeed
+            .tabItem({
+              Image(systemName: "speedometer")
+              Text("Speed")
+            })
+            
+            // Chart speed
+            chartAltitude
+            .tabItem({
+              Image(systemName: "thermometer")
+              Text("Altitude")
+            })
         }
     }
 }
