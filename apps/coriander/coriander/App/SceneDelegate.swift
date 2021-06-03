@@ -9,62 +9,96 @@ import AuthenticationServices
 import CoreData
 import UIKit
 import SwiftUI
+import KeychainAccess
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = scene as? UIWindowScene else { return }
-        
-        let window = UIWindow(windowScene: windowScene)
-        
         let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier ?? "") { (credentialState, error) in
+        
+        // Store in Keychain
+        let service = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String
+        let keychain = Keychain(service: service!)
+        
+        let identityId = keychain[KeychainKeys.userIdentityId.rawValue]
+        // let identityToken = keychain[KeychainKeys.userIdentityToken.rawValue]
+        // let email = keychain[KeychainKeys.userEmail.rawValue]
+        // let firstName = keychain[KeychainKeys.userFirstname.rawValue]
+        // let lastname = keychain[KeychainKeys.userLastname.rawValue]
+        
+        appleIDProvider.getCredentialState(forUserID: identityId ?? "") { (credentialState, error) in
             switch credentialState {
             case .authorized:
                 // The Apple ID credential is valid. Show Home UI Here
                 globalState.dispatch(UserLoginAction(
-                    identityId: KeychainItem.currentUserIdentifier!,
+                    identityId: identityId!,
                     
                     callback: { user, error in
                         if let error = error {
+                            // FIXME: Try load data from Keychain
                             print("\(String(describing: error))")
+                            self.displayAuthView(scene)
+                            return
                         }
                         
                         globalState.dispatch(UserCurrentSetAction(
                             user: user
                         ))
+                        
+                        // FIXME - Add callback to UserCurrentSetAction for this
+                        self.displayContentView(scene)
                     }
                 ))
                 
-                DispatchQueue.main.async {
-                    let moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-                                        
-                    let rootView = ContentView()
-                        .environment(\.window, window)
-                        .environment(\.managedObjectContext, moc!)
-                        // .environment(\.geolocationService, geolocationService)
-                    
-                    window.rootViewController = UIHostingController(rootView: rootView)
-                    self.window = window
-                    window.makeKeyAndVisible()
-                }
+                
                 break
             case .revoked, .notFound:
-                DispatchQueue.main.async {
-                    let moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-                    let rootView = AuthView()
-                        .environment(\.window, window)
-                        .environment(\.managedObjectContext, moc!)
-                    
-                    window.rootViewController = UIHostingController(rootView: rootView)
-                    self.window = window
-                    window.makeKeyAndVisible()
-                }
+                self.displayAuthView(scene)
                 break;
             default:
                 break
             }
+        }
+    }
+    
+    func displayAuthView(_ scene: UIScene) {
+        guard let windowScene = scene as? UIWindowScene else {
+            return
+        }
+
+        DispatchQueue.main.async {
+            let window = UIWindow(windowScene: windowScene)
+            
+            let moc = (UIApplication.shared.delegate as? AppDelegate)?.dataStack.context
+            let rootView = AuthView()
+                .environment(\.window, window)
+                .environment(\.managedObjectContext, moc!)
+            
+            window.rootViewController = UIHostingController(rootView: rootView)
+            self.window = window
+            window.makeKeyAndVisible()
+        }
+    }
+    
+    func displayContentView(_ scene: UIScene) {
+        guard let windowScene = scene as? UIWindowScene else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            let window = UIWindow(windowScene: windowScene)
+            
+            let moc = (UIApplication.shared.delegate as? AppDelegate)?.dataStack.context
+                                
+            let rootView = ContentView()
+                .environment(\.window, window)
+                .environment(\.managedObjectContext, moc!)
+                // .environment(\.geolocationService, geolocationService)
+            
+            window.rootViewController = UIHostingController(rootView: rootView)
+            self.window = window
+            window.makeKeyAndVisible()
         }
     }
     

@@ -8,6 +8,7 @@
 import CoreLocation
 import SwiftUI
 import ReSwift
+import MapKit
 
 func formatLocationAddress(location: Location) -> String {
     return String(format: "%.4f %.4f", location.longitude, location.latitude)
@@ -39,6 +40,138 @@ func formatPlacemarkAddress(placemark: CLPlacemark?) -> String? {
     return nil
 }
 
+struct LocationDetailsDataView: View {
+    @State var location: Location
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            // -----
+            
+            HStack {
+                Text("Position")
+                    .font(.headline)
+                Spacer()
+            }
+            
+//            HStack {
+//                 Text(String(format: "%.4f %.4f ± %.2f m", location.longitude, location.latitude, location.horizontalAccuracy))
+//                    .font(.subheadline)
+//
+//                Spacer()
+//            }
+//            .padding(.bottom, 3)
+//
+            HStack {
+                Text(location.latitude.asLatitude)
+                    .font(.subheadline)
+                
+                Spacer()
+            }
+            
+            HStack {
+                Text(location.longitude.asLongitude)
+                    .font(.subheadline)
+                
+                Spacer()
+            }
+            .padding(.bottom, 3)
+            
+            // -----
+            
+            HStack {
+                Text("Altitude")
+                    .font(.headline)
+                Spacer()
+            }
+            
+            HStack {
+                Text(String(format: "%.2f m ± %.2f m", location.altitude, location.verticalAccuracy))
+                    .font(.subheadline)
+                Spacer()
+            }
+            .padding(.bottom, 3)
+            
+            
+            // -----
+            
+            if let floor = location.floor {
+                HStack {
+                    Text("Floor")
+                        .font(.headline)
+                    Spacer()
+                }
+                
+                HStack {
+                    Text("\(floor)")
+                        .font(.subheadline)
+                    Spacer()
+                }
+                .padding(.bottom, 3)
+            }
+            
+            // -----
+            
+            HStack {
+                Text("Course")
+                    .font(.headline)
+                Spacer()
+            }
+            
+            HStack {
+                Text(String(format: "%.4f ° ± %.2f °", location.course, location.courseAccuracy))
+                    .font(.subheadline)
+                Spacer()
+            }
+            .padding(.bottom, 3)
+            
+            
+            // -----
+            
+            HStack {
+                Text("Speed")
+                    .font(.headline)
+                Spacer()
+            }
+            
+            HStack {
+                Text(String(format: "%.2f km/h ± %.2f km/h", location.speed * 3.6, location.speedAccuracy * 3.6))
+                    .font(.subheadline)
+                Spacer()
+            }
+            .padding(.bottom, 3)
+            
+        }
+        .padding(.horizontal)
+    }
+}
+
+struct LocationDetailsMapView: View {
+    @State var location: Location
+    
+    @State var region: MKCoordinateRegion
+    
+    init(location: Location) {
+        self.location = location
+        
+        region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(
+                latitude: location.latitude,
+                longitude: location.longitude
+            ),
+            span: MKCoordinateSpan(
+                latitudeDelta: 0.5,
+                longitudeDelta: 0.5
+            )
+        )
+    }
+    
+    var body: some View {
+        Map(coordinateRegion: $region, annotationItems: [location]) { item in
+            MapPin(coordinate: .init(latitude: item.latitude, longitude: item.longitude))
+        }
+    }
+}
+
 struct LocationDetailsView: View {
     @State var location: Location
     @State private var placemark: CLPlacemark?
@@ -62,12 +195,21 @@ struct LocationDetailsView: View {
     
     var body: some View {
         VStack {
+            //            var data = [
+            //                (name: "Longitude", value: location.longitude)
+            //            ]
+            
             HStack {
                 Text(title)
                     .font(.title)
                 
                 // Spacer()
             }
+            .padding(.vertical)
+            
+            LocationDetailsDataView(location: location)
+            
+            LocationDetailsMapView(location: location)
             
             Spacer()
         }
@@ -109,10 +251,33 @@ struct LocationDetailsView_Previews: PreviewProvider {
         state: nil
     )
     
-    static var previews: some View {
+    var location: Location {
         let location = Location()
         
-        LocationDetailsView(location: location)
+        location.timestamp = Date()
+        location.latitude = 49.195060
+        location.longitude = 16.606837
+        
+        return location
+    }
+    
+    static var previews: some View {
+        let context = ((UIApplication.shared.delegate as? AppDelegate)?.dataStack.context)!
+        
+        let location = Location(context: context)
+        
+        location.timestamp = Date()
+        location.latitude = 49.195060
+        location.longitude = 16.606837
+        location.altitude = 237.0
+        location.speed = 4.56
+        location.course = 1.23
+        location.horizontalAccuracy = 4
+        location.verticalAccuracy = 5
+        location.speedAccuracy = 6
+        location.courseAccuracy = 7
+        
+        return LocationDetailsView(location: location)
     }
 }
 

@@ -3,13 +3,34 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in closure #3 in userReducer(action:state:):UserReducer.swift">
+         contextName = "closure #1 in closure #1 in closure #1 in closure #1 in closure #1 in HomeNavigationView.bodyList.getter:HomeNavigationView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #2 in userReducer(action:state:):UserReducer.swift">
          <PersistentStrings>
             <PersistentString
-               value = "users.first">
+               value = "action.identityToken">
             </PersistentString>
             <PersistentString
-               value = "user">
+               value = "existingUser?.identityToken">
+            </PersistentString>
+            <PersistentString
+               value = "user.id">
+            </PersistentString>
+            <PersistentString
+               value = "existingUser?.firstLoginAt">
+            </PersistentString>
+            <PersistentString
+               value = "user.firstLoginAt">
+            </PersistentString>
+            <PersistentString
+               value = "users">
+            </PersistentString>
+            <PersistentString
+               value = "existingUser?.id">
+            </PersistentString>
+            <PersistentString
+               value = "user.identityToken">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,10 +43,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "LocationDetailsView.init(location:):LocationDetailsView.swift">
+         contextName = "closure #1 in closure #1 in JourneyRowView.body.getter:JourneyList.swift">
          <PersistentStrings>
             <PersistentString
-               value = "">
+               value = "journey">
+            </PersistentString>
+            <PersistentString
+               value = "journey.name!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static AddLocationAction.shouldUpdateLocation(oldLocation:newLocation:):LocationActions.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "oldLocation == CLLocation()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -46,39 +78,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static AddLocationAction.shouldUpdateLocation(oldLocation:newLocation:):LocationActions.swift">
+         contextName = "closure #1 in HomeNavigationView.bodyList.getter:HomeNavigationView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "oldLocation == CLLocation()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "specialized closure #1 in userReducer(action:state:):UserReducer.swift">
-      </ContextState>
-      <ContextState
-         contextName = "getter of users #1 in closure #1 in closure #2 in userReducer(action:state:):UserReducer.swift">
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #2 in LocationDetailsView.body.getter:LocationDetailsView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "place. thoroughfare">
-            </PersistentString>
-            <PersistentString
-               value = "place.country">
-            </PersistentString>
-            <PersistentString
-               value = "place.locality">
-            </PersistentString>
-            <PersistentString
-               value = "place.subLocality">
-            </PersistentString>
-            <PersistentString
-               value = "place. subThoroughfare">
-            </PersistentString>
-            <PersistentString
-               value = "place. subAdministrativeArea">
+               value = "">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -89,28 +92,67 @@
          contextName = "getter of user #1 in closure #1 in closure #3 in userReducer(action:state:):UserReducer.swift">
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #2 in userReducer(action:state:):UserReducer.swift">
+         contextName = "closure #1 in AuthView.body.getter:AuthView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "existingUser?.id">
+               value = "geometry.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "specialized closure #1 in userReducer(action:state:):UserReducer.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SignInWithAppleDelegates.authorizationController(controller:didCompleteWithAuthorization:):AuthView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "appleIDCredential.fullName">
             </PersistentString>
             <PersistentString
-               value = "user.identityToken">
+               value = "Bundle.main">
             </PersistentString>
             <PersistentString
-               value = "action.identityToken">
+               value = "Bundle.main.executablePath">
             </PersistentString>
             <PersistentString
-               value = "user.id">
+               value = "Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String">
             </PersistentString>
             <PersistentString
-               value = "existingUser?.firstLoginAt">
+               value = "Bundle.main.bundleIdentifier">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #3 in userReducer(action:state:):UserReducer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "users.first">
             </PersistentString>
             <PersistentString
-               value = "user.firstLoginAt">
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #2 in LocationDetailsView.body.getter:LocationDetailsView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "place. subAdministrativeArea">
             </PersistentString>
             <PersistentString
-               value = "existingUser?.identityToken">
+               value = "place.country">
+            </PersistentString>
+            <PersistentString
+               value = "place.locality">
+            </PersistentString>
+            <PersistentString
+               value = "place. subThoroughfare">
+            </PersistentString>
+            <PersistentString
+               value = "place. thoroughfare">
+            </PersistentString>
+            <PersistentString
+               value = "place.subLocality">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -118,21 +160,43 @@
          contextName = "closure #1 in closure #1 in AuthView.body.getter:AuthView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "window?.safeAreaInsets">
+               value = "window?.rootViewController?.view.safeAreaInsets">
             </PersistentString>
             <PersistentString
                value = "window?.rootViewController?.view.intrinsicContentSize">
             </PersistentString>
             <PersistentString
-               value = "window?.rootViewController?.view.safeAreaInsets">
+               value = "window?.safeAreaInsets">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in AuthView.body.getter:AuthView.swift">
+         contextName = "closure #1 in closure #1 in closure #1 in HomeNavigationView.bodyList.getter:HomeNavigationView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "JourneyDetailsView.init(journey:):JourneyDetailsView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "geometry.size">
+               value = "journey.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in closure #2 in userReducer(action:state:):UserReducer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "action">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "getter of users #1 in closure #1 in closure #2 in userReducer(action:state:):UserReducer.swift">
+      </ContextState>
+      <ContextState
+         contextName = "LocationDetailsView.init(location:):LocationDetailsView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

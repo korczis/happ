@@ -55,20 +55,14 @@ struct DataListView: View {
 
 struct DataRowView: View {
     var location: Location
-    
-    static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSSS"
-        return formatter
-    }()
-    
+        
     var body: some View {
         NavigationLink(
             destination: LocationDetailsView(location: location)
                 .navigationTitle("Location Details")
         ) {
             VStack(alignment: .leading) {
-                Text("\(location.timestamp!, formatter: Self.dateFormatter)")
+                Text("\(location.timestamp!, formatter: DateHelper.defaultDateFormatter)")
                 Text(String(format: "Location: %.4f %.4f", location.latitude, location.longitude))
                     .font(.subheadline)
             }

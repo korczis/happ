@@ -8,6 +8,7 @@
 import AuthenticationServices
 import SwiftUI
 import UIKit
+import KeychainAccess
 
 // -----
 
@@ -54,32 +55,37 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            Logger.log("\(appleIDCredential)")
             
             var identityToken = ""
             if let identityTokenData = appleIDCredential.identityToken {
                 identityToken = String(data: identityTokenData, encoding: .utf8)!
             }
             
-            // Create an account in your system.
-            // For the purpose of this demo app, store the these details in the keychain.
-            KeychainItem.currentUserIdentifier = appleIDCredential.user
-            KeychainItem.currentUserFullName = appleIDCredential.fullName
-            KeychainItem.currentUserEmail = appleIDCredential.email
-            KeychainItem.currentUserIdentityToken = identityToken
-                        
-            print("User Id - \(appleIDCredential.user)")
-            print("User Name - \(appleIDCredential.fullName?.description ?? "N/A")")
-            print("User Email - \(appleIDCredential.email ?? "N/A")")
-            print("Real User Status - \(appleIDCredential.realUserStatus.rawValue)")
-                        
+            let identityId = appleIDCredential.user
+            let email = appleIDCredential.email
+            let fullName = appleIDCredential.fullName
+            let firstName = fullName?.givenName
+            let lastname = fullName?.familyName
+            
+            // Store in Keychain
+            let service = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String
+            let keychain = Keychain(service: service!)
+            
+            keychain[KeychainKeys.userIdentityId.rawValue] = identityId
+            keychain[KeychainKeys.userIdentityToken.rawValue] = identityToken
+            keychain[KeychainKeys.userEmail.rawValue] = email
+            keychain[KeychainKeys.userFirstname.rawValue] = firstName
+            keychain[KeychainKeys.userLastname.rawValue] = lastname
+            
             let now = Date()
             globalState.dispatch(UserCreateAction(
                 id: UUID(),
-                firstname: appleIDCredential.fullName?.givenName,
-                lastname: appleIDCredential.fullName?.familyName,
-                email: appleIDCredential.email,
+                firstname: firstName,
+                lastname: lastname,
+                email: email,
                 identityToken: identityToken,
-                identityId: appleIDCredential.user,
+                identityId: identityId,
                 firstLoginAt: now,
                 lastLoginAt: now,
                 callback: { user, error in
@@ -90,16 +96,15 @@ class SignInWithAppleDelegates: NSObject, ASAuthorizationControllerDelegate {
                     globalState.dispatch(UserCurrentSetAction(
                         user: user
                     ))
+                    
+                    let context = ((UIApplication.shared.delegate as? AppDelegate)?.dataStack.context)!
+                    let rootView = ContentView()
+                        .environment(\.managedObjectContext, context)
+                    
+                    self.window.rootViewController = UIHostingController(rootView: rootView)
+                    self.window.makeKeyAndVisible()
                 }
-            ))            
-            
-            let moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-            let rootView = ContentView()
-                .environment(\.managedObjectContext, moc!)
-            
-            window.rootViewController = UIHostingController(rootView: rootView)
-            window.makeKeyAndVisible()
-            
+            ))
         }
     }
 }
@@ -168,7 +173,7 @@ struct AuthView: View {
         
         controller.delegate = appleSignInDelegates
         
-        // controller.presentationContextProvider = appleSignInDelegates
+        controller.presentationContextProvider = appleSignInDelegates as? ASAuthorizationControllerPresentationContextProviding
         
         controller.performRequests()
     }

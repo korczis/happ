@@ -23,9 +23,7 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
     }
     
     var context: NSManagedObjectContext {
-        let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
-        let context = container?.viewContext
-        return context!
+        return ((UIApplication.shared.delegate as? AppDelegate)?.dataStack.context)!
     }
     
     let locationAdd = { (action: LocationAddAction) -> AppState in
@@ -41,10 +39,19 @@ func locationReducer(action: Action, state: AppState?) -> AppState {
         // TODO: Use bulk mode
         DispatchQueue.main.async {
             let item = Location(context: context)
-            item.altitude  = action.location.altitude
-            item.latitude  = action.location.coordinate.latitude.magnitude;
-            item.longitude = action.location.coordinate.longitude.magnitude;
             item.timestamp = action.location.timestamp;
+            item.longitude = action.location.coordinate.longitude.magnitude;
+            item.latitude  = action.location.coordinate.latitude.magnitude;
+            item.altitude  = action.location.altitude
+            if let floor = action.location.floor {
+                item.floor = Int64(floor.level)
+            }
+            item.course = action.location.course
+            item.speed = action.location.speed
+            item.horizontalAccuracy = action.location.horizontalAccuracy
+            item.verticalAccuracy = action.location.verticalAccuracy
+            item.speedAccuracy = action.location.speedAccuracy
+            item.courseAccuracy = action.location.courseAccuracy
             
             state.journey.active?.addToLocations(item)
             

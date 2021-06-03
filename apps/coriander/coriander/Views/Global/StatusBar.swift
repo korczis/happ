@@ -147,8 +147,8 @@ struct StatusBarView: View {
                     case false:
                         let journey = Journey(context: moc)
                         journey.startedAt = Date()
-                        journey.name = "Default Name"
-                        journey.desc = "Default Description"
+                        journey.name = Journey.DefaultName
+                        journey.desc = Journey.DefaultDesc
                         
                         state.current.user.current?.addToJourneys(journey)
                         

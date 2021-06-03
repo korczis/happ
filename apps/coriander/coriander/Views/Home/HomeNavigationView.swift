@@ -24,22 +24,17 @@ extension String {
 struct HomeNavigationView: View {
     @ObservedObject var state: ObservableState<AppState>
     
+    var user: User? {
+        return state.current.user.current
+    }
+    
     var body: some View {
         // bodyCards
         bodyList
     }
     
-    var avatar: KFImage {
-        let hash: String = (state.current.user.current?.email?.MD5)!
-        let url = "https://www.gravatar.com/avatar/\(hash)?s=200"
-        
-        return KFImage(
-            source: .network(URL(string: url)!)
-        )
-    }
-    
     var bodyCards: some View {
-        ZStack {
+        VStack {
             NavigationView {
                 ScrollView(.vertical, showsIndicators: false) {
                     
@@ -71,37 +66,15 @@ struct HomeNavigationView: View {
     }
     
     var bodyList: some View {
-        VStack() {
+        VStack(spacing: 0) {
             NavigationView {
                 List() {
-                    
-                    if let user = state.current.user.current {
-                        VStack {
-                            HStack() {
-                                Spacer()
-                                
-                                Text(String("\(user.firstname!) \(user.lastname!)"))
-                                    .font(.title)
-                                
-                                Spacer()
-                            }
-                            .padding(.bottom)
-                            
-                            avatar
-                                //.scaleFactor(UIScreen.main.scale)
-                                .renderingMode(.original)
-                                .resizable()
-                            
-                            HStack() {
-                                Spacer()
-                                
-                                Text("\(user.email!)")
-                                    .font(.subheadline)
-                                
-                                Spacer()
-                            }
-                            .padding(.bottom)
-                        }
+                    if let user = user {
+                        ProfileCard(user: user)
+                            .padding(.leading, 10)
+                            .padding(.trailing, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.gray)
                     }
                     
                     // -----
@@ -170,7 +143,7 @@ struct HomeNavigationView: View {
                     
                     
                     NavigationLink(
-                        destination: SettingsView()
+                        destination: MaintenanceView(state: state)
                             .navigationTitle("Settings")
                     ) {
                         HStack {
@@ -186,12 +159,9 @@ struct HomeNavigationView: View {
                         }
                         .frame(maxHeight: 25)
                     }
-                    
-                    
                 }
                 .navigationBarTitle("Home", displayMode: .inline)
             }
-            .background(Color(UIColor(named: "BackgroundColor") ?? UIColor()))
         }
     }
 }

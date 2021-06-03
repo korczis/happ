@@ -8,20 +8,20 @@
 import CoreData
 import ReSwift
 import SwiftUI
+import KeychainAccess
 
 func userReducer(action: Action, state: AppState?) -> AppState {
     var state = state ?? AppState()
     
     var context: NSManagedObjectContext {
-        let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
-        let context = container?.viewContext
+        let context = ((UIApplication.shared.delegate as? AppDelegate)?.dataStack.context)!
         
-        context?.automaticallyMergesChangesFromParent = true
-        context?.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
-        // context?.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
-        // context?.mergePolicy = NSMergePolicy(merge: .overwriteMergePolicyType)
+        // context.automaticallyMergesChangesFromParent = true
+        // context.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
+        // context.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
+        // context.mergePolicy = NSMergePolicy(merge: .overwriteMergePolicyType)
         
-        return context!
+        return context
     }
     
     // -----
@@ -37,17 +37,16 @@ func userReducer(action: Action, state: AppState?) -> AppState {
         // TODO: Lookup if exists
         
         let createOrUpdateUser = { (existingUser: User?, action: UserCreateAction) -> User in
-            let user = existingUser ?? User(context: context)
-            
-            user.firstname = action.firstname
-            user.lastname = action.lastname
-            user.email = action.email
-            user.firstLoginAt = existingUser?.firstLoginAt ?? action.firstLoginAt
-            user.lastLoginAt = action.lastLoginAt
-            user.identityId = action.identityId
-            user.identityToken = action.identityToken
-            
-            return user
+            return existingUser ?? User(
+                context: context,
+                firstname: action.firstname,
+                lastname: action.lastname,
+                email: action.email,
+                identityId: action.identityId,
+                identityToken: action.identityToken,
+                firstLoginAt: existingUser?.firstLoginAt ?? action.firstLoginAt,
+                lastLoginAt: action.lastLoginAt
+            )
         }
         
         // Create user
@@ -85,43 +84,60 @@ func userReducer(action: Action, state: AppState?) -> AppState {
             let request: NSFetchRequest<User> = User.fetchRequest()
             request.predicate = NSPredicate(format: "identityId == %@", action.identityId)
             
+            
+            // Get from Keychain
+            let service = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String
+            let keychain = Keychain(service: service!)
+            
+            let identityId = keychain[KeychainKeys.userIdentityId.rawValue]
+            let identityToken = keychain[KeychainKeys.userIdentityToken.rawValue]
+            let email = keychain[KeychainKeys.userEmail.rawValue]
+            let firstName = keychain[KeychainKeys.userFirstname.rawValue]
+            let lastname = keychain[KeychainKeys.userLastname.rawValue]
+            
             let now = Date()
             
+            // FIXME
             let createNewUser = { () -> User in
-                let user = User(context: context)
-
-                user.firstname = KeychainItem.currentUserFullName?.givenName
-                user.lastname = KeychainItem.currentUserFullName?.familyName
-                user.email = KeychainItem.currentUserEmail
-                user.firstLoginAt = now
-                user.lastLoginAt = now
-                user.identityId = KeychainItem.currentUserIdentifier
-                user.identityToken = KeychainItem.currentUserIdentityToken
-                
-                return user
+                return User(
+                    context: context,
+                    firstname: firstName,
+                    lastname: lastname,
+                    email: email,
+                    identityId: identityId,
+                    identityToken: identityToken,
+                    firstLoginAt: now,
+                    lastLoginAt: now
+                )
             }
             
             let users = try! context.fetch(request)
+            guard let _ = users.first else {
+                if let callback = action.callback {
+                    callback(nil, AuthError.userDoesNotExist)
+                }
+                
+                return
+            }
+            
             let user: User = users.first ?? createNewUser()
             
             user.lastLoginAt = now
             
-            DispatchQueue.main.async {
-                do {
-                        try context.save()
-                    print("userReducer() - User logged in")
-                    
-                    if let callback = action.callback {
-                        callback(user, nil)
-                    }
-                    
-                } catch let error {
-                    if let callback = action.callback {
-                        callback(nil, error)
-                    }
-                    
-                    print("userReducer() - Unable to log in user, reason: \(error)")
+            do {
+                try context.save()
+                print("userReducer() - User logged in")
+                
+                if let callback = action.callback {
+                    callback(user, nil)
                 }
+                
+            } catch let error {
+                if let callback = action.callback {
+                    callback(nil, error)
+                }
+                
+                print("userReducer() - Unable to log in user, reason: \(error)")
             }
         }
         

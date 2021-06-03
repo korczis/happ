@@ -30,64 +30,40 @@ struct JourneyView: View {
         request.includesPendingChanges = false
         
         _data = FetchRequest(fetchRequest: request)
-    }
-    
-    var body: some View {
-        JourneyListView(journeys: self.data)
-            .navigationBarTitle("Journeys", displayMode: .inline)
-    }
-}
-
-struct JourneyListView: View {
-    var journeys: FetchedResults<Journey>
-    
-    var body: some View {
-        List (journeys, id: \.self) { journey in
-            JourneyRowView(journey: journey)
-                .id(journey.id)
-        }
-        .id(UUID())
-    }
-}
-
-struct JourneyRowView: View {
-    var journey: Journey
-    
-    var body: some View {
-        NavigationLink(
-            destination: JourneyDetailsView(journey: journey)
-                .navigationTitle("Journey Details")
-        ) {
-            VStack(alignment: .leading) {
-                Text(journey.name!)
-                    .font(.subheadline)
-            }
-        }
-    }
-}
-
-struct JourneyDetailsView: View {
-    @State var journey: Journey
-    
-    var body: some View {
-        let locations  = journey.locations!
         
+    }
+    
+    var body: some View {
         VStack {
-            Text(String(format: "Locations (%d)", locations.count))
-            
-            List(Array(locations as Set), id: \.self) { location in
-                NavigationLink(
-                    destination: LocationDetailsView(location: location as! Location)
-                        .navigationTitle("Locations")
-                ) {
-                    VStack(alignment: .leading) {
-                        Text("Location")
-                            .font(.subheadline)
-                    }
-                }
+            HStack {
+                Text("Journeys")
+                    .font(.title)
+
+                // Spacer()
             }
+            .padding(.vertical)
             
-            Spacer()
+            JourneyListView(journeys: self.data)
+                .navigationBarTitle("Journeys", displayMode: .inline)
+                .padding(.vertical)
+            //            .toolbar {
+            //                ToolbarItemGroup(placement: .navigationBarTrailing) {
+            //                    Button("About") {
+            //                        print("About tapped!")
+            //                    }
+            //
+            //                    Button("Help") {
+            //                        print("Help tapped!")
+            //                    }
+            //                }
+            //            }
+            // .navigationBarItems(trailing:
+            //    Button(action: {
+            //        print("Edit button pressed...")
+            //    }) {
+            //        Text("Edit")
+            //    }
+            // )
         }
     }
 }

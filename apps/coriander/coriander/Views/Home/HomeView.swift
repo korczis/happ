@@ -14,18 +14,11 @@ struct HomeView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-//            if let user = state.current.user.current {
-//                Card(
-//                    title: String("\(user.firstname!) \(user.lastname!)"),
-//                    subtitle: user.email
-//                )
-//            }
-            
             HomeNavigationView(state: state)
                             
             Spacer()
             
-            StatusBarView(state: state)
+             StatusBarView(state: state)
         }
     }
 }

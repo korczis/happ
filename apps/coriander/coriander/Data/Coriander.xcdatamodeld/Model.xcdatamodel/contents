@@ -11,11 +11,23 @@
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
         <attribute name="altitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="course" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="courseAccuracy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="floor" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="horizontalAccuracy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="speedAccuracy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="verticalAccuracy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="journey" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journey" inverseName="locations" inverseEntity="Journey"/>
+        <fetchIndex name="byCoordinate">
+            <fetchIndexElement property="longitude" type="Binary" order="ascending"/>
+            <fetchIndexElement property="latitude" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
+    <entity name="Photo" representedClassName="Photo" syncable="YES" codeGenerationType="class"/>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="firstLoginAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -25,10 +37,17 @@
         <attribute name="lastLoginAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="lastname" optional="YES" attributeType="String"/>
         <relationship name="journeys" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Journey" inverseName="owner" inverseEntity="Journey"/>
+        <fetchIndex name="byIdentityId">
+            <fetchIndexElement property="identityId" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byEmail">
+            <fetchIndexElement property="email" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
     <elements>
-        <element name="Location" positionX="-63" positionY="-18" width="128" height="104"/>
         <element name="Journey" positionX="-63" positionY="-27" width="128" height="134"/>
+        <element name="Location" positionX="-63" positionY="-18" width="128" height="209"/>
         <element name="User" positionX="-45" positionY="45" width="128" height="149"/>
+        <element name="Photo" positionX="-36" positionY="99" width="128" height="29"/>
     </elements>
 </model>
